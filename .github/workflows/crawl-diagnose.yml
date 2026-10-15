@@ -1,0 +1,18 @@
+name: 巡回の診断（手で動かす・API は使わない）
+
+# GitHub の機械から読めない巡回先について、送り方を変えて試し、転送の道筋を記録する（2026-10-15 開発・ぎふあいち）。
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: どこから来ているか
+        run: curl -s https://ipinfo.io/json | grep -E '"(country|region|org)"' || true
+      - name: 試す
+        run: node scripts/巡回の診断.mjs
