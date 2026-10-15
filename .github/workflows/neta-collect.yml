@@ -124,7 +124,9 @@ jobs:
           ./scripts/commit_file.sh docs/hotels.json "chore(odekake): 宿のデータを更新"
 
       - name: 使用量の記録をコミットする
-        if: ${{ always() }}
+        # 使用額は公開リポジトリに書かない（2026-10-15 統括・代表）。DATA_REPO_TOKEN が無いあいだはコミットしない
+        # ぎふあいちだけの止め（写し直したら、また入れること）
+        if: ${{ always() && env.DATA_REPO_TOKEN != '' }}
         continue-on-error: true
         run: |
           ./scripts/commit_file.sh state/usage.jsonl "chore(usage): AI の使用量を記録"
