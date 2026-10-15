@@ -7,9 +7,8 @@ name: Threads 日次レビュー
 on:
   repository_dispatch:
     types: [threads-review]
-  # 試運転を始めるまで schedule は止めている（AI の API を使うため。代表の OK が出たら戻す。写し直したら、また止めること。2026-10-15 開発・ぎふあいち）
-  # schedule:
-  #   - cron: "15 10 * * *"   # 19:15 JST
+  schedule:
+    - cron: "15 10 * * *"   # 19:15 JST
   workflow_dispatch:
     inputs:
       dry_run:

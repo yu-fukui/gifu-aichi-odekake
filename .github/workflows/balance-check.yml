@@ -10,9 +10,8 @@ name: 残高チェック
 on:
   repository_dispatch:
     types: [balance-check]
-  # 試運転を始めるまで schedule は止めている（AI の API を使うため。代表の OK が出たら戻す。写し直したら、また止めること。2026-10-15 開発・ぎふあいち）
-  # schedule:
-  #   - cron: "30 10 * * *"   # 19:30 JST
+  schedule:
+    - cron: "30 10 * * *"   # 19:30 JST
   workflow_dispatch:
 
 permissions:

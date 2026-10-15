@@ -9,6 +9,9 @@ on:
   # 外部 cron（cron-job.org）から叩く入口。
   repository_dispatch:
     types: [neta-collect]
+  # ぎふあいちだけ：月・木の 7:00 JST（日・水の 22:00 UTC）。写し直したら、また入れること（2026-10-15 代表「いしかわと同じ」）
+  schedule:
+    - cron: "0 22 * * 0,3"
   # 2026-10-08 代表指示「情報あつめ、どちらも正常に動いているなら、片方は止めてください」。
   # GitHub の schedule は 2〜3 時間遅れて動き、cron-job.org の起動と合わせて毎日2回
   # まるごと収集していた（1回あたり約1ドル）。cron-job.org の起動だけを残す。

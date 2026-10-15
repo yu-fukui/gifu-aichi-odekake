@@ -6,9 +6,8 @@ on:
   repository_dispatch:
     types: [threads-compose]
   # 外部 cron が無いあいだの起動（20:00 JST。少し遅れることがある）
-  # 試運転を始めるまで schedule は止めている（AI の API を使うため。代表の OK が出たら戻す。写し直したら、また止めること。2026-10-15 開発・ぎふあいち）
-  # schedule:
-  #   - cron: "0 11 * * *"
+  schedule:
+    - cron: "0 11 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
