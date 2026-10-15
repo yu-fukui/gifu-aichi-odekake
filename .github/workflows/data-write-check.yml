@@ -1,0 +1,31 @@
+name: 非公開の置き場に書けるかの確認（手で動かす）
+
+# DATA_REPO_TOKEN で fukui-fukui/odekake-data に書けるかを確かめる（AI の API は使わない）。
+# gifu-aichi/README.md を置くだけ。中身の数字は書かない（2026-10-15 開発・ぎふあいち）。
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      DATA_REPO_TOKEN: ${{ secrets.DATA_REPO_TOKEN }}
+    steps:
+      - name: 書いてみる
+        run: |
+          set -euo pipefail
+          if [ -z "${DATA_REPO_TOKEN}" ]; then echo "::error::DATA_REPO_TOKEN がありません"; exit 1; fi
+          git clone -q --depth 5 "https://x-access-token:${DATA_REPO_TOKEN}@github.com/fukui-fukui/odekake-data.git" data
+          cd data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p gifu-aichi
+          if [ ! -e gifu-aichi/README.md ]; then
+            printf '%s\n' "# ぎふあいちおでかけ（非公開の置き場）" "" "yu-fukui/gifu-aichi-odekake の使用額・返信などの記録を置く。中身は scripts/非公開の置き場.txt のもの。" > gifu-aichi/README.md
+            git add gifu-aichi/README.md
+            git commit -q -m "ぎふあいち：非公開の置き場を作る（書けるかの確認）"
+          fi
+          git push -q origin HEAD
+          echo "odekake-data の gifu-aichi/ に書けました。"
