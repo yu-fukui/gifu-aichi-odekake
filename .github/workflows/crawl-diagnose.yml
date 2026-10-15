@@ -15,4 +15,4 @@ jobs:
       - name: どこから来ているか
         run: curl -s https://ipinfo.io/json | grep -E '"(country|region|org)"' || true
       - name: 試す
-        run: node scripts/巡回の診断.mjs
+        run: node scripts/巡回を試す.mjs
