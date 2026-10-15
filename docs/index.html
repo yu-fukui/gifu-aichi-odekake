@@ -133,7 +133,7 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .pill { border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 5px 14px; font-size: .86rem; font-weight: 700; cursor: pointer; transition: border-color .12s, background .12s; }
 .pill:hover { border-color: var(--main); }
 .pill[aria-pressed="true"] { background: var(--main); border-color: var(--main); color: #fff; }
-.seg { display: grid; grid-template-columns: repeat(11, 1fr); background: var(--bg); border-radius: 12px; padding: 4px; gap: 4px; }
+.seg { display: grid; grid-template-columns: repeat(6, 1fr); background: var(--bg); border-radius: 12px; padding: 4px; gap: 4px; }
 .seg button { border: 0; background: none; border-radius: 9px; padding: 8px 4px; font-size: .86rem; font-weight: 700; cursor: pointer; color: var(--muted); }
 .seg button[aria-pressed="true"] { background: var(--surface); color: var(--main-deep); box-shadow: 0 1px 4px rgba(0,0,0,.1); }
 .p-foot { display: flex; gap: 10px; margin-top: 22px; }
@@ -339,8 +339,6 @@ footer a { color: var(--main); font-weight: 700; }
   <div class="active" id="active"></div>
   <div id="out"><!--prerender:start-->
 <div class="prerender">
-<h2>開催中・これからの岐阜・愛知のイベント（10月15日時点）</h2>
-<h2>岐阜・愛知に新しくできたお店・スポット</h2>
 </div>
 <!--prerender:end--></div>
 </main>
@@ -686,7 +684,7 @@ footer a { color: var(--main); font-weight: 700; }
   function renderPanel() {
     const regions = $("#regions"); regions.textContent = "";
     const region = state.area in AREAS ? state.area : Object.keys(AREAS).find((r) => AREAS[r].includes(state.area)) || "";
-    [["", "岐阜県・愛知県"], ["名古屋", "名古屋"], ["尾張", "尾張"], ["知多", "知多"], ["西三河", "西三河"], ["東三河", "東三河"], ["岐阜", "岐阜"], ["西濃", "西濃"], ["中濃", "中濃"], ["東濃", "東濃"], ["飛騨", "飛騨"]].forEach(([v, l]) => {
+    [["", "ぜんぶ"], ["名古屋", "名古屋"], ["尾張", "尾張"], ["知多", "知多"], ["西三河", "西三河"], ["東三河", "東三河"], ["岐阜", "岐阜"], ["西濃", "西濃"], ["中濃", "中濃"], ["東濃", "東濃"], ["飛騨", "飛騨"]].forEach(([v, l]) => {
       const b = el("button", null, l); b.setAttribute("aria-pressed", region === v && (v === "" ? !state.area : true));
       b.onclick = () => { state.area = v; render(); }; regions.append(b);
     });
