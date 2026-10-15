@@ -343,7 +343,7 @@ footer a { color: var(--main); font-weight: 700; }
 <article><h3>第34回つけち全国レディース・クラフトフェアー</h3><p>10月17日（土）・中津川市</p><p>10/17・18 中津川市で「第34回つけち全国レディース・クラフトフェアー」が開催。全国から女性作家が集まる</p><p>東濃で作家の手仕事に出会える週末</p><p><a href="https://tajimi.goguynet.jp/2026/10/13/tukechicraft/" rel="noopener">出典</a></p></article>
 <article><h3>ひかりとものがたり</h3><p>10月31日（土）・岐阜市</p><p>10/31 岐阜市の長良川リバーパークおぶさで、花火と音楽のハロウィンイベント「ひかりとものがたり」が開かれる</p><p>長良川沿いでハロウィンの夜を過ごせる</p><p><a href="https://gifu.goguynet.jp/2026/10/15/hikari-to-monogatari/" rel="noopener">出典</a></p></article>
 <article><h3>われらが紡ぐ白川郷かややねプロジェクト</h3><p>11月7日（土）・白川村</p><p>11/7・8 白川郷で「われらが紡ぐ白川郷かややねプロジェクト」を開催。屋根葺きのお手伝いから茅刈りまで関われる参加者を募集中</p><p>合掌造りの暮らしを支える作業に参加できる</p><p><a href="https://shirakawa-go.gr.jp/events/457/" rel="noopener">出典</a></p></article>
-<article><h3>ぎふ信長まつり</h3><p>11月8日（日）</p><p>11/8の「ぎふ信長まつり」の騎馬武者行列で、LiSAさんが濃姫役を務める</p><p>岐阜市の秋の大きな祭りに、ゲストの見どころが加わった</p><p><a href="https://gifu.goguynet.jp/2026/10/13/nobunaga-matsuri-guest/" rel="noopener">出典</a></p></article>
+<article><h3>ぎふ信長まつり</h3><p>11月8日（日）・岐阜市</p><p>11/8の「ぎふ信長まつり」の騎馬武者行列で、LiSAさんが濃姫役を務める</p><p>岐阜市の秋の大きな祭りに、ゲストの見どころが加わった</p><p><a href="https://gifu.goguynet.jp/2026/10/13/nobunaga-matsuri-guest/" rel="noopener">出典</a></p></article>
 <article><h3>（日）9:00〜15:00 関市上之保で第18回上之保ゆず祭り</h3><p>11月22日（日）・関市</p><p>11/22（日）9:00〜15:00 関市上之保で第18回上之保ゆず祭り。会場は上之保温泉ほほえみの湯 第2駐車場。ゆず玉販売、ゆずを使った飲食物、ゆずの種飛ばし競争、ゆず生搾り体験（有料）、甲冑試着体験、当日限定のゆず風呂（入浴料必要）など</p><p>飛騨・東濃寄りの山あいで、ゆず尽くしの一日が過ごせる</p><p><a href="https://www.city.seki.lg.jp/kanko/0000023577.html" rel="noopener">出典</a></p></article>
 <article><h3>GIFU NIGHT VIEW</h3><p>11月29日（日）・岐阜市</p><p>金華山の展望台で、11/29までの金・土・日・祝に「GIFU NIGHT VIEW」が開かれている</p><p>岐阜の夜景を山の上から見られる期間が決まっている</p><p><a href="https://gifu.goguynet.jp/2026/10/10/gifu-night-view-2026/" rel="noopener">出典</a></p></article>
 <h2>岐阜・愛知に新しくできたお店・スポット</h2>
@@ -422,7 +422,7 @@ footer a { color: var(--main); font-weight: 700; }
   function titleOf(it) {
     const m = it.text.match(/「([^」]{2,40})」/);
     if (m) return m[1];
-    const first = it.text.replace(/^[\d/()（）・\-〜～月火水木金土日祝時分\s]+/, "").split(/[。．]/)[0];
+    const first = it.text.replace(/^[\d/()（）・\-〜～月火水木金土日祝時分:：\s]+/, "").split(/[。．]/)[0];
     return first.length > 44 ? first.slice(0, 43) + "…" : first;
   }
 
