@@ -1,0 +1,242 @@
+"""県ごとの設定（region.json）の確かめ。
+
+福井版のリポジトリでは regions/<県>/ を、石川版などのリポジトリではリポジトリ直下の
+region.json を見て、AI に渡す指示文に福井の言い回しが残っていないかを確かめる。
+地域のモジュールは読み込んだ時点の設定を覚えるので、県ごとに別のプロセスで走らせる。
+"""
+
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+# 福井にしかない言葉。石川版などの指示文・ページに残っていたら置きかえ漏れ
+福井の言葉 = (
+    "福井|ふくい|嶺北|嶺南|鯖江|越前|若狭|小浜|勝山|敦賀|坂井|あわら|三国|永平寺|大野市|一乗谷|"
+    "東尋坊|九頭竜|足羽|丸岡|美浜|高浜|おおい町|今庄|ふーぽ|フクブロ|URALA|ウララ|urala|"
+    "恐竜|ロクメイ|大越|めがね|夏障子|天一祭|fuku-e|fupo|日野川|C-Base"
+)
+
+確かめる = r"""
+import importlib.util, json, re, sys
+from datetime import date
+sys.path.insert(0, "scripts")
+spec = importlib.util.spec_from_file_location("compose", "scripts/compose.py")
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+import 地域
+本物 = 地域.直す
+地域.直す = lambda t: t
+元 = m.build_prompt("", "", "", "", "", date(2026, 10, 10), m.SLOTS, {}, hotel_hour=None)
+地域.直す = 本物
+指示 = m.build_prompt("", "", "", "", "", date(2026, 10, 10), m.SLOTS, {}, hotel_hour=None)
+集め = open("scripts/neta-collect.mjs", encoding="utf-8").read()
+for a, b in 地域.地域.get("言いかえ", []):
+    集め = 集め.replace(a, b)
+当たらない = [a[:40] for a, _ in 地域.地域.get("言いかえ", [])
+            if a not in 元 and a not in open("scripts/neta-collect.mjs", encoding="utf-8").read()
+            and a != "福井イベント"]
+w = re.compile(sys.argv[1])
+残り = [l for l in 指示.splitlines() if w.search(l)]
+# 情報収集の指示文は、テンプレートの部分（指示 = ` 〜 `）だけを見る
+本文 = 集め[集め.index("const 指示 = `"):集め.index("const 地域 = ")]
+残り += [l for l in 本文.splitlines() if w.search(l) and not l.lstrip().startswith("//")]
+print(json.dumps({"当たらない": 当たらない, "残り": 残り, "県": 地域.県名,
+                  "15時": [s[1] for s in m.SLOTS if s[0] == 15][0]}, ensure_ascii=False))
+"""
+
+
+def 県の設定たち() -> list[Path]:
+    直下 = json.loads((ROOT / "region.json").read_text(encoding="utf-8"))
+    if 直下["県名"] != "福井":
+        return [ROOT / "region.json"]
+    return sorted((ROOT / "regions").glob("*/region.json"))
+
+
+class RegionTest(unittest.TestCase):
+    def test_fukui_fixture_matches(self):
+        直下 = json.loads((ROOT / "region.json").read_text(encoding="utf-8"))
+        if 直下["県名"] != "福井":
+            self.skipTest("福井版のリポジトリではない")
+        写し = json.loads((ROOT / "tests" / "region_fukui.json").read_text(encoding="utf-8"))
+        self.assertEqual(直下, 写し, "tests/region_fukui.json を region.json と同じにしてください")
+        self.assertEqual(直下["言いかえ"], [], "福井版の言いかえは空のまま（指示文を変えないため）")
+
+    def test_other_regions_have_no_fukui_words(self):
+        for 設定 in 県の設定たち():
+            with self.subTest(設定=str(設定.relative_to(ROOT))):
+                env = {**os.environ, "REGION_FILE": str(設定)}
+                出 = subprocess.run([sys.executable, "-c", 確かめる, 福井の言葉], cwd=ROOT, env=env,
+                                   capture_output=True, text=True, check=True)
+                結果 = json.loads(出.stdout.strip().splitlines()[-1])
+                self.assertEqual(結果["当たらない"], [], "言いかえの元の文が、指示文に見つからない")
+                self.assertEqual(結果["残り"], [], "福井の言葉が指示文に残っている")
+                地 = json.loads(設定.read_text(encoding="utf-8"))
+                PRあり = 地.get("使う", {}).get("宿", True) or 地.get("使う", {}).get("ふるさと納税", True)
+                self.assertEqual(結果["15時"], "楽天トラベルの紹介（PR）" if PRあり else f"{結果['県']}の話題紹介")
+
+    def test_noto_check_flags_only_with_place_and_word(self):
+        for 設定 in 県の設定たち():
+            地 = json.loads(設定.read_text(encoding="utf-8"))
+            if "能登の確認" not in 地:
+                continue
+            with self.subTest(設定=str(設定.relative_to(ROOT))):
+                env = {**os.environ, "REGION_FILE": str(設定)}
+                式 = (
+                    "import importlib.util,sys,json; sys.path.insert(0,'scripts');"
+                    "s=importlib.util.spec_from_file_location('c','scripts/compose.py');"
+                    "m=importlib.util.module_from_spec(s); s.loader.exec_module(m);"
+                    "print(json.dumps([m.確かめる言葉('輪島市の朝市が復興へ一歩',[]),"
+                    "m.確かめる言葉('輪島市の朝市が10月1日から開かれます',[]),"
+                    "m.確かめる言葉('金沢で地震の防災訓練',[])],ensure_ascii=False))"
+                )
+                出 = subprocess.run([sys.executable, "-c", 式], cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+                self.assertEqual(json.loads(出.stdout.strip().splitlines()[-1]), ["復興", None, None])
+
+    def test_copy_site_has_no_fukui_words(self):
+        if not (ROOT / "regions").exists():
+            self.skipTest("写しの元（福井版）ではない")
+        import re
+        w = re.compile(福井の言葉)
+        for 設定 in 県の設定たち():
+            with self.subTest(設定=str(設定.relative_to(ROOT))), tempfile.TemporaryDirectory() as 先:
+                subprocess.run([sys.executable, "scripts/地域の写し.py", str(設定.parent.relative_to(ROOT)), 先],
+                               cwd=ROOT, check=True, capture_output=True)
+                for 名 in ("docs/index.html", "docs/about/index.html", "docs/robots.txt"):
+                    文 = (Path(先) / 名).read_text(encoding="utf-8")
+                    残り = [l for l in 文.splitlines()
+                           if w.search(l) and "姉妹サイト" not in l]
+                    self.assertEqual(残り, [], f"{名} に福井の言葉が残っている")
+                self.assertFalse((Path(先) / "neta" / "ふるさと納税_リンク.jsonl").exists())
+                self.assertTrue((Path(先) / "neta" / "ネタ帳.md").exists())
+
+    def test_furusato_never_uses_fukui_list_elsewhere(self):
+        """福井以外の県で、福井の返礼品リスト・切り口・見出しの例を使わない。"""
+        式 = r"""
+import importlib.util, json, sys
+from datetime import date
+sys.path.insert(0, "scripts")
+import ふるさと納税 as f
+s = importlib.util.spec_from_file_location("c", "scripts/compose.py")
+m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
+名 = [c["名"] for c in f.切り口たち]
+決まり = "\n".join(m.寄付の決まり({"name": "x", "件数": 5, "フック": ""}))
+print(json.dumps({"URL": f.リストのURL, "切り口": 名, "決まり": 決まり, "県": f.県名}, ensure_ascii=False))
+"""
+        for 設定 in 県の設定たち():
+            地 = json.loads(設定.read_text(encoding="utf-8"))
+            if 地["県名"] == "福井":
+                continue
+            with self.subTest(設定=str(設定.relative_to(ROOT))):
+                env = {**os.environ, "REGION_FILE": str(設定)}
+                出 = subprocess.run([sys.executable, "-c", 式], cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+                結果 = json.loads(出.stdout.strip().splitlines()[-1])
+                self.assertNotIn("x-yu__fukui-bot", 結果["URL"])
+                self.assertNotIn("越前がに", 結果["切り口"])
+                self.assertEqual(結果["県"], 地["県名"])
+                import re
+                self.assertEqual(re.findall(福井の言葉, 結果["決まり"]), [], "寄付の決まりに福井の言葉が残っている")
+                self.assertIn(地["県名"], 結果["決まり"])
+
+    def test_furusato_noto_rules(self):
+        """石川：切り口は上から順、札は写さない、能登だけの日も立つ（2026-10-09 代表）、1/1・9/21の前後は能登の切り口を使わない。"""
+        設定 = ROOT / "regions" / "ishikawa" / "region.json"
+        if not 設定.exists():
+            設定 = ROOT / "region.json"
+            if json.loads(設定.read_text(encoding="utf-8"))["県名"] != "石川":
+                self.skipTest("石川の設定が無い")
+        式 = r"""
+import json, sys
+from datetime import date
+sys.path.insert(0, "scripts")
+import ふるさと納税 as f
+def 品(i, 名, 市, 生=None):
+    return {"itemCode": str(i), "名": 名, "生の名": 生 or 名, "url": "u", "自治体": 市}
+た = [品(1, "香箱ガニ 3杯", "加賀市"), 品(2, "加能ガニ 1杯", "金沢市"), 品(3, "ズワイガニ", "七尾市"),
+      品(4, "ボイル カニ", "珠洲市"), 品(5, "いしり 2本", "能登町"), 品(6, "いしる", "輪島市"), 品(7, "魚醤", "珠洲市")]
+出 = {}
+出["香箱"] = (f.どの切り口か(た[0]) or {}).get("名")
+出["加能"] = sorted(p["itemCode"] for p in た if f.当てはまる(f.切り口たち[1], p))
+出["札"] = f.見せる名(品(9, "能登の干物", "輪島市", "【ふるさと納税】【能登半島地震復興支援】能登の干物"))
+出["同名"] = f.見せる名たち([
+    品(10, "x", "加賀市", "【ふるさと納税】丸八製茶場　加賀棒茶　ティーバッグセット【高島屋選定品】［60C0670］ F6P-3348"),
+    品(11, "x", "加賀市", "【ふるさと納税】丸八製茶場　加賀棒茶 お茶セットB【高島屋選定品】［60C0353］ F6P-3346")], 40)
+m = f.今日のまとめ(date(2026, 10, 10), た, いくつ=3)
+出["切り口"] = sorted({(f.今日のまとめ(date(2026, 10, 10 + i), た, いくつ=3) or {"切り口": {"名": None}})["切り口"]["名"] for i in range(6)}, key=str)
+出["地区"] = [p["自治体"] for p in m["品"]]
+print(json.dumps(出, ensure_ascii=False))
+"""
+        env = {**os.environ, "REGION_FILE": str(設定)}
+        出 = subprocess.run([sys.executable, "-c", 式], cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+        結果 = json.loads(出.stdout.strip().splitlines()[-1])
+        self.assertEqual(結果["香箱"], "香箱ガニ")
+        self.assertEqual(結果["加能"], ["2", "3", "4"])
+        self.assertEqual(結果["札"], "能登の干物")
+        # 目安の字数で切って同じ名前が並んだら、見分ける語を足す（2026-10-11 運用部・石川担当）
+        self.assertEqual(結果["同名"], ["丸八製茶場 加賀棒茶 ティーバッグセット", "丸八製茶場 加賀棒茶 お茶セットB"])
+        # 能登の品しか無い「能登の海と浜のもの」も立つ（2026-10-09 代表「能登の品だけで1日の投稿を作ってOK」）
+        # 1件でも立つ（2026-10-09 代表「1品でもOK」）ので、1件の香箱ガニも立つ
+        self.assertEqual(結果["切り口"], ["加能ガニ", "能登の海と浜のもの", "香箱ガニ"])
+
+    def test_furusato_weights_and_day_count(self):
+        """石川：重み2の切り口は倍の回数。ふるさと納税は毎日（日ごとに1つ進む）。"""
+        設定 = ROOT / "regions" / "ishikawa" / "region.json"
+        if not 設定.exists():
+            self.skipTest("福井版のリポジトリでだけ見る")
+        式 = r"""
+import json, sys
+from datetime import date, timedelta
+sys.path.insert(0, "scripts"); sys.path.insert(0, "src")
+import ふるさと納税 as f, compose
+def 品(i, 名, 市):
+    return {"itemCode": str(i), "名": 名, "生の名": 名, "url": "u", "自治体": 市}
+た = [品(1, "能登牛 500g", "珠洲市"), 品(2, "九谷焼 皿", "能美市"), 品(3, "加賀野菜 セット", "金沢市")]
+日 = [date(2026, 10, 1) + timedelta(i) for i in range(60)]
+ふ = 日  # 2026-10-09 から毎日
+合う = all(f._ふるさと納税の日の番号(d + timedelta(1)) - f._ふるさと納税の日の番号(d) == 1 for d in ふ)
+名 = [f.今日のまとめ(d, た)["切り口"]["名"] for d in ふ[:12]]
+print(json.dumps({"合う": 合う, "名": 名}, ensure_ascii=False))
+"""
+        env = {**os.environ, "REGION_FILE": str(設定)}
+        出 = subprocess.run([sys.executable, "-c", 式], cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+        結果 = json.loads(出.stdout.strip().splitlines()[-1])
+        self.assertTrue(結果["合う"])
+        名 = 結果["名"]
+        self.assertEqual(名.count("能登牛"), 6)
+        self.assertEqual(名.count("石川の職人の器"), 3)
+        self.assertEqual(名.count("加賀野菜"), 3)
+        self.assertTrue(all(a != b for a, b in zip(名, 名[1:])))
+
+    def test_furusato_avoid_days(self):
+        設定 = ROOT / "regions" / "ishikawa" / "region.json"
+        if not 設定.exists():
+            self.skipTest("福井版のリポジトリでだけ見る")
+        式 = (
+            "import sys,json; sys.path.insert(0,'scripts'); from datetime import date; import ふるさと納税 as f;"
+            "き=[c for c in f.切り口たち if c.get('避ける日')][0];"
+            "print(json.dumps([f._避ける日か(き,date(2026,12,29)),f._避ける日か(き,date(2027,1,4)),"
+            "f._避ける日か(き,date(2027,1,5)),f._避ける日か(き,date(2026,9,24)),f._避ける日か(き,date(2026,10,10))]))"
+        )
+        env = {**os.environ, "REGION_FILE": str(設定)}
+        出 = subprocess.run([sys.executable, "-c", 式], cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+        self.assertEqual(json.loads(出.stdout.strip().splitlines()[-1]), [True, True, False, True, False])
+
+
+class HolidayTest(unittest.TestCase):
+    def test_holiday_and_long_weekend(self):
+        import sys
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import 祝日
+        from datetime import date
+        self.assertEqual(祝日.説明(date(2026, 10, 12)), "10/12（月）はスポーツの日（祝日）です。10/10〜10/12 は3連休の3日目です（最終日）。")
+        self.assertEqual(祝日.説明(date(2026, 10, 9)), "明日 10/10 から3連休です（〜10/12）。")
+        self.assertEqual(祝日.説明(date(2026, 10, 13)), "")
+        self.assertEqual(祝日.説明(date(2026, 10, 17)), "")  # ふつうの土曜は連休ではない
+
+
+if __name__ == "__main__":
+    unittest.main()

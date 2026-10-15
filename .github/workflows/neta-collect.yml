@@ -1,0 +1,138 @@
+name: ネタ帳を埋める
+
+# neta/設定.json の「通す質問」で Web 検索し、出典URLの辿れる出来事だけを
+# neta/ネタ帳.md の「書き足す場所」の下に追記してコミットする。
+#
+# 毎朝 7:00 (JST) に外部 cron（cron-job.org）から neta-collect で起動する（集めるのは月曜と木曜だけ）。
+# 手で回したいときは Actions タブ → このワークフロー → Run workflow。
+on:
+  # 外部 cron（cron-job.org）から叩く入口。
+  repository_dispatch:
+    types: [neta-collect]
+  # 2026-10-08 代表指示「情報あつめ、どちらも正常に動いているなら、片方は止めてください」。
+  # GitHub の schedule は 2〜3 時間遅れて動き、cron-job.org の起動と合わせて毎日2回
+  # まるごと収集していた（1回あたり約1ドル）。cron-job.org の起動だけを残す。
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "ファイルに書かず、集まったものを表示するだけ"
+        type: boolean
+        default: false
+      crawl_only:
+        description: "巡回先を見に行くところまでで止める（API を叩かない）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# 予約画面やほかのワークフローと同じファイルを触るので、重ねて走らせない
+concurrency:
+  group: neta-collect
+  cancel-in-progress: false
+
+jobs:
+  # 2026-10-08 代表指示「情報収集は、月曜と木曜の週2回にします。」
+  # cron-job.org からは毎朝起動されるが、集めるのは日本時間の月曜と木曜だけ。
+  # 手で回したとき（workflow_dispatch）は曜日にかかわらず集める。
+  # 起動そのものは毎日あるので、状態まとめの「今日走ったか」は毎日の見張りに使える。
+  day:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.day.outputs.run }}
+    steps:
+      - name: 集める日か（月・木）
+        id: day
+        run: |
+          dow=$(TZ=Asia/Tokyo date +%u)   # 1=月 … 7=日
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$dow" = "1" ] || [ "$dow" = "4" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "今日（曜日番号 ${dow}）は集めない日です。集めるのは月曜と木曜だけ。"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  collect:
+    needs: day
+    if: needs.day.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    env:
+      DATA_REPO_TOKEN: ${{ secrets.DATA_REPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 非公開の置き場から写す（odekake-data。鍵が無いあいだは何もしない）
+        run: ./scripts/非公開.sh pull
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 集めて ネタ帳.md に追記する
+        id: collect
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+          CRAWL_ONLY: ${{ (inputs.crawl_only || github.event.client_payload.crawl_only) && '1' || '' }}
+          # 指定した Instagram アカウントの新しい投稿を読む（無ければ読まない。2026-10-10）
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        # tee に通すと、スクリプトが落ちても（残高不足の 400 など）成功扱いになっていた。pipefail で失敗を伝える
+        run: |
+          set -o pipefail
+          node scripts/neta-collect.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # 追記が0件でも、「調べてほしいもの」欄から解決ぶんを消しただけの変更がありうる。
+      # 変更の有無はステップの中で git diff で見ているので、ここでは絞らない。
+      - name: コミットする
+        if: ${{ !inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          TARGET="neta/ネタ帳.md"
+          if git diff --quiet -- "${TARGET}"; then
+            echo "${TARGET} に変更なし。コミットはしません。"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${TARGET}"
+          git commit -m "chore(neta): $(TZ=Asia/Tokyo date +%F) のぶんを追記"
+          # 予約画面からの記録と衝突しうるので、rebase してから push する
+          for attempt in 1 2 3 4; do
+            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
+              exit 0
+            fi
+            wait=$((2 ** attempt))
+            echo "push に失敗。${wait} 秒待って再試行します。"
+            sleep "${wait}"
+          done
+          exit 1
+
+      # ネタ帳からおでかけサイト（docs/ のトップ）のデータを作り直す。
+      # 上のコミットは GITHUB_TOKEN なので odekake.yml は起動しない。ここで続けて行う。
+      - name: おでかけサイトを更新する
+        if: ${{ !inputs.dry_run }}
+        run: |
+          python3 scripts/おでかけ.py --thumbs
+          ./scripts/commit_file.sh docs/data.json "chore(odekake): ネタ帳からサイトのデータを更新"
+          ./scripts/commit_file.sh docs/index.html "chore(odekake): 検索向けの静的な中身を更新"
+          ./scripts/commit_file.sh docs/sitemap.xml "chore(odekake): サイトマップを更新"
+          # 月別ページは増えたり消えたりするので、新しいファイルも差分に出るようにしてから
+          if [ -d docs/month ]; then git add -N docs/month; fi
+          ./scripts/commit_file.sh docs/month "chore(odekake): 月別ページを更新"
+          # 宿のリストは X のリポジトリで更新されるので、毎朝ここで取り直す
+          python3 scripts/おでかけ_宿.py --images
+          ./scripts/commit_file.sh docs/hotels.json "chore(odekake): 宿のデータを更新"
+
+      - name: 使用量の記録をコミットする
+        if: ${{ always() }}
+        continue-on-error: true
+        run: |
+          ./scripts/commit_file.sh state/usage.jsonl "chore(usage): AI の使用量を記録"
+
+      - name: 読んだインスタの投稿の記録をコミットする
+        if: ${{ always() }}
+        continue-on-error: true
+        run: |
+          if [ -e "state/インスタ既読.json" ]; then ./scripts/commit_file.sh "state/インスタ既読.json" "chore(insta): 読んだ投稿を記録"; fi
+          if [ -e "neta/外した候補.md" ]; then ./scripts/commit_file.sh "neta/外した候補.md" "chore(neta): 確かめられず外した候補を記録"; fi
+          if [ -e "state/インスタ新着.json" ]; then ./scripts/commit_file.sh "state/インスタ新着.json" "chore(insta): 今回の新しい投稿"; fi

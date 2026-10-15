@@ -1,0 +1,35 @@
+name: アクセスの数字を読む
+
+# 2026-10-13 代表「読めるようにして」。Google アナリティクス（おでかけ福井・石川・エキマエ）と
+# Search Console・Cloudflare Web Analytics の数字を読み、要点を insights/アクセス/最新.md に残す。毎日 9:10 JST と、手で起動したとき。
+# 鍵は Secrets の GA_SA_KEY（読むだけのサービスアカウント）と CF_API_TOKEN・CF_ACCOUNT_ID。無いものは読まない。
+on:
+  schedule:
+    - cron: "10 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  access:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      DATA_REPO_TOKEN: ${{ secrets.DATA_REPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 非公開の置き場から写す（odekake-data。鍵が無いあいだは何もしない）
+        run: ./scripts/非公開.sh pull
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet google-auth requests
+      - name: 読む
+        env:
+          GA_SA_KEY: ${{ secrets.GA_SA_KEY }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          python "scripts/アクセス解析.py" > "$RUNNER_TEMP/out.txt" || { grep -E "^::" "$RUNNER_TEMP/out.txt"; exit 1; }; grep -E "^::" "$RUNNER_TEMP/out.txt" || true; echo "書き出しました（中身は公開のログに出しません）"
+      - name: コミットする
+        run: |
+          ./scripts/commit_file.sh insights/アクセス "chore(insights): アクセスの要点を更新"

@@ -1,0 +1,32 @@
+name: 利用者層を取る
+
+# 代表 10/9「アプリで見れる利用者層データがほしい」。フォロワーの年代・性別・国・市区町村を取り、
+# insights/利用者層/ に残す。毎週月曜 9:00 JST と、手で起動したとき。
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+jobs:
+  audience:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      DATA_REPO_TOKEN: ${{ secrets.DATA_REPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 非公開の置き場から写す（odekake-data。鍵が無いあいだは何もしない）
+        run: ./scripts/非公開.sh pull
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 取る
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+        run: python "scripts/利用者層.py" > "$RUNNER_TEMP/out.txt" || { grep -E "^::" "$RUNNER_TEMP/out.txt"; exit 1; }; grep -E "^::" "$RUNNER_TEMP/out.txt" || true; echo "書き出しました（中身は公開のログに出しません）"
+      - name: コミットする
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ./scripts/commit_file.sh insights/利用者層 "chore(insights): 利用者層を更新"
