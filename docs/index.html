@@ -13,7 +13,10 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="ぎふあいちおでかけ">
 <meta property="og:description" content="岐阜・愛知のおでかけ情報（イベント・新スポット）を毎朝まとめて更新。Threads @gifu_aichi_odekake のおでかけ情報サイト">
-<meta property="og:image" content="https://gifu-aichi-odekake.fukui-fukui.com/icon-192.png">
+<meta property="og:image" content="https://gifu-aichi-odekake.fukui-fukui.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gifu-aichi-odekake.fukui-fukui.com/">
 <meta property="og:site_name" content="ぎふあいちおでかけ">
@@ -43,7 +46,7 @@
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.65;
+body { margin: 0; overflow-wrap: anywhere; background: var(--bg); color: var(--ink); line-height: 1.65;
   font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", system-ui, sans-serif; font-weight: 500;
   padding-bottom: calc(var(--tabbar) + env(safe-area-inset-bottom)); }
 button { font: inherit; color: inherit; }
@@ -473,6 +476,8 @@ footer a { color: var(--main); font-weight: 700; }
     const s = pd(it.start), e = pd(it.end);
     if (!s) return it.kind === "催し" ? "日程は出典で" : "";
     if (it.kind === "スポット") return `${s.getFullYear()}年${s.getMonth() + 1}月${s.getDate()}日オープン`;
+    // 飛び飛びの日（10/17・24・31）は、開く日だけを並べる
+    if (it.days) return it.days.map(pd).map(fmt).join("・");
     return +s === +e ? fmt(s) : `${fmt(s)} 〜 ${fmt(e)}`;
   }
 
@@ -506,7 +511,7 @@ footer a { color: var(--main); font-weight: 700; }
   function inTab(it, tab = state.tab) {
     const s = pd(it.start), e = pd(it.end);
     switch (tab) {
-      case "weekend": return it.kind !== "スポット" && s && s <= sun && e >= sat;
+      case "weekend": return it.kind !== "スポット" && s && s <= sun && e >= sat && (!it.days || it.days.some((x) => { const d = pd(x); return sat <= d && d <= sun; }));
       case "upcoming": return it.kind === "催し" && (!e || e >= today);
       case "spot": return it.kind === "スポット";
       case "food": return FOOD.test(it.text) && (it.kind === "スポット" || !e || e >= today);
@@ -516,7 +521,7 @@ footer a { color: var(--main); font-weight: 700; }
   }
   const inArea = (it) => !state.area || it.area === state.area || it.region === state.area;
   const inKind = (it) => !state.kind || it.kind === state.kind;
-  const onDay = (it, day) => { const s = pd(it.start), e = pd(it.end), d = pd(day); return it.kind !== "スポット" && s && s <= d && d <= e; };
+  const onDay = (it, day) => { const s = pd(it.start), e = pd(it.end), d = pd(day); return it.kind !== "スポット" && s && s <= d && d <= e && (!it.days || it.days.includes(day)); };
   const inDay = (it) => !state.day || onDay(it, state.day);
   const inQ = (it) => {
     if (!state.q) return true;
