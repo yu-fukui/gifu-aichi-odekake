@@ -128,6 +128,9 @@ jobs:
         # ぎふあいちだけの止め（写し直したら、また入れること）
         if: ${{ always() && env.DATA_REPO_TOKEN != '' }}
         continue-on-error: true
+        env:
+          # 試し実行（dry_run）でも AI は呼ばれて料金がかかるので、使用量の記録だけは残す（2026-10-19 代表「おすすめの設定で」）
+          DRY_RUN: "false"
         run: |
           ./scripts/commit_file.sh state/usage.jsonl "chore(usage): AI の使用量を記録"
 
