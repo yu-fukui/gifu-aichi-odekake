@@ -51,6 +51,10 @@ form.f button:disabled { opacity: .5; }
 form.f .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .msg { margin-top: 16px; padding: 12px 16px; border-radius: 12px; background: var(--surface); }
 .msg.err { border: 1.5px solid #d9473a; }
+table.toku { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 14px; overflow: hidden; margin-top: 16px; font-size: .92rem; }
+table.toku th, table.toku td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+table.toku th { width: 34%; color: var(--muted); font-weight: 700; }
+@media (max-width: 520px) { table.toku th, table.toku td { display: block; width: auto; } table.toku th { border-bottom: 0; padding-bottom: 0; } }
 </style>
 </head>
 <body>
