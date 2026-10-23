@@ -4,6 +4,7 @@ from pathlib import Path as _P
 # 福井のデータで書いたテストなので、どの県のリポジトリでも福井の設定で走らせる
 os.environ["REGION_FILE"] = str(_P(__file__).resolve().parent / "region_fukui.json")
 import importlib.util
+import re
 import unittest
 from datetime import date
 from pathlib import Path
@@ -266,6 +267,12 @@ class MonthPageTest(unittest.TestCase):
         self.assertEqual(len(pages["2026-10"]["short"]), 5)
         self.assertEqual(len(pages["2026-10"]["long"]), 1)
 
+    def test_keeps_past_months_already_made(self):
+        items = [self._ev(f"2026-09-{d:02d}", f"2026-09-{d:02d}") for d in range(1, 6)]
+        items += [self._ev(f"2026-10-{d:02d}", f"2026-10-{d:02d}") for d in range(1, 6)]
+        pages = odekake.month_pages({"items": items}, date(2026, 11, 2), keep={"2026-09", "2026-10"})
+        self.assertEqual(list(pages), ["2026-09", "2026-10"])
+
     def test_render_month_escapes_and_marks_ended(self):
         b = {"short": [self._ev("2026-10-01", "2026-10-01", text="「<b>祭</b>」開催")], "long": []}
         html = odekake.render_month("2026-10", b, ["2026-10"], date(2026, 10, 4))
@@ -280,3 +287,172 @@ class MonthPageTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class InlineSourceTest(unittest.TestCase):
+    def test_inline_source_is_taken_out_of_text(self):
+        line = "10/25 福井市で「テスト祭」 ［出典: 福井テレビ（Yahoo!ニュース） https://news.yahoo.co.jp/articles/abc と、代表が送った画面］"
+        text, url = odekake.split_inline_source(line)
+        self.assertEqual(text, "10/25 福井市で「テスト祭」")
+        self.assertEqual(url, "https://news.yahoo.co.jp/articles/abc")
+
+    def test_no_inline_source(self):
+        self.assertEqual(odekake.split_inline_source("「テスト祭」"), ("「テスト祭」", None))
+
+
+class DiscreteDaysTest(unittest.TestCase):
+    def test_jp_same_month_days(self):
+        self.assertEqual(odekake.parse_dates("11月7日・8日に開催", date(2026, 10, 10)),
+                         (date(2026, 11, 7), date(2026, 11, 8)))
+
+    def test_discrete_days_are_kept(self):
+        items = odekake.parse_neta("## 書き足す場所\n\n### 2026-10-10\n\n- 10/17・24・31 に福井市で「テスト市」開催\n")
+        self.assertEqual(items[0]["days"], ["2026-10-17", "2026-10-24", "2026-10-31"])
+        self.assertEqual(odekake._when(items[0]), "10月17日（土）・24日（土）・31日（土）")
+
+    def test_consecutive_days_have_no_days_field(self):
+        items = odekake.parse_neta("## 書き足す場所\n\n### 2026-10-10\n\n- 10/17・18 に福井市で「テスト市」開催\n")
+        self.assertNotIn("days", items[0])
+
+    def test_discrete_with_to_and_months(self):
+        self.assertEqual(odekake.discrete_days("10/18(日)と10/25(日)に開催", date(2026, 10, 10)),
+                         [date(2026, 10, 18), date(2026, 10, 25)])
+        self.assertEqual(odekake.discrete_days("10/4 開催。次回は12/5", date(2026, 10, 10)), [])
+
+    def test_jp_range_is_not_discrete(self):
+        items = odekake.parse_neta("## 書き足す場所\n\n### 2026-10-10\n\n- 9月15日〜12月15日に中能登町で「テスト」開催\n")
+        self.assertNotIn("days", items[0])
+
+
+class TitleTest(unittest.TestCase):
+    def test_picks_the_subject_not_the_place(self):
+        t = odekake._title({"text": "9/8 美浜町の道の駅「若狭美浜はまびより」内にカラオケバー「美ton（ビトン）」が新オープン"})
+        self.assertEqual(t, "美ton（ビトン）")
+
+    def test_quote_in_later_sentence_is_not_used(self):
+        t = odekake._title({"text": "10/16-25 小浜市で個展「suwayuumi solo exhibition」。箸づくりで出る「おがくず」を使う"})
+        self.assertEqual(t, "suwayuumi solo exhibition")
+
+    def test_period_inside_quote(self):
+        self.assertEqual(odekake._title({"text": "金沢に朝ごはん専門店「けれんしあ。」がオープン"}), "けれんしあ。")
+
+
+class EventLdTest(unittest.TestCase):
+    def test_month_page_has_event_list_and_anchors(self):
+        import json as _json
+        ev = {"kind": "催し", "start": "2026-10-24", "end": "2026-10-24", "area": "福井市",
+              "text": "10/24 福井市で「テスト祭」開催", "note": "", "source": "https://example.com/a"}
+        html = odekake.render_month("2026-10", {"short": [ev], "long": []}, ["2026-10"], date(2026, 10, 4))
+        ld = _json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', html, re.S).group(1))
+        item = ld["@graph"][1]["itemListElement"][0]["item"]
+        self.assertEqual((item["@type"], item["name"], item["startDate"]), ("Event", "テスト祭", "2026-10-24"))
+        self.assertEqual(item["location"]["address"]["addressRegion"], "福井県")
+        self.assertIn(f'<article id="{odekake._anchor(ev)}"', html)
+
+
+class MergeSameEventTest(unittest.TestCase):
+    def test_same_name_and_date_is_kept_once_and_undated_is_dropped(self):
+        md = ("## 書き足す場所\n\n### 2026-10-15\n\n- 10/24 金沢市で「台南美食フェア」開催。屋台が並ぶ\n"
+              "- 11/14・15 坂井市で「かに祭り」開催\n"
+              "\n### 2026-10-08\n\n- 10/24(土) 片町で「台南美食フェア」\n- 坂井市「かに祭り」の案内が出ている\n"
+              "- 9/26・27 「テント市」開催\n- 10/17・18 「テント市」開催\n")
+        items = odekake.parse_neta(md)
+        names = [odekake._title(i) for i in items]
+        self.assertEqual(names.count("台南美食フェア"), 1)
+        self.assertEqual(names.count("かに祭り"), 1)
+        self.assertEqual(names.count("テント市"), 2)
+        self.assertEqual([i["written"] for i in items if odekake._title(i) == "台南美食フェア"], ["2026-10-15"])
+
+
+class WeekendTest(unittest.TestCase):
+    def test_weekend_of(self):
+        for d in (date(2026, 10, 19), date(2026, 10, 23), date(2026, 10, 24), date(2026, 10, 25)):
+            self.assertEqual(odekake.weekend_of(d), (date(2026, 10, 24), date(2026, 10, 25)))
+
+    def test_weekend_page_splits_days(self):
+        ev = lambda s, e, name, **k: {"kind": "催し", "start": s, "end": e, "area": "福井市",
+                                      "text": f"「{name}」開催", "note": "", "source": None, **k}
+        data = {"items": [ev("2026-10-24", "2026-10-25", "両日祭"), ev("2026-10-24", "2026-10-24", "土曜市"),
+                          ev("2026-10-17", "2026-10-31", "飛び市", days=["2026-10-17", "2026-10-31"]),
+                          ev("2026-10-25", "2026-10-25", "日曜会")]}
+        html = odekake.render_weekend(data, date(2026, 10, 20))
+        self.assertIn("両日祭", html)
+        self.assertIn("土曜市", html)
+        self.assertIn("日曜会", html)
+        self.assertNotIn("飛び市", html)
+        self.assertIn('<link rel="canonical" href="https://odekake.fukui-fukui.com/weekend/">', html)
+
+    def test_pages_show_pr_box_for_organizers(self):
+        # 主催者向けの PR 枠の案内（2026-10-22 代表「進めて」）。初回無料の一言も（同日 代表「進めて」）
+        ev = {"kind": "催し", "start": "2026-10-24", "end": "2026-10-24", "area": "福井市",
+              "text": "「土曜市」開催", "note": "", "source": None}
+        wk = odekake.render_weekend({"items": [ev]}, date(2026, 10, 20))
+        mo = odekake.render_month("2026-10", {"short": [ev], "long": []}, ["2026-10"], date(2026, 10, 4))
+        self.assertIn('href="../submit/?from=weekend"', wk)
+        self.assertIn('href="../../submit/?from=month"', mo)
+        self.assertIn("主催者の方へ：PR枠のお申し込み", mo)
+        self.assertIn("初めてのお申し込みは無料です。", mo)
+
+
+class StayPageTest(unittest.TestCase):
+    def test_stay_pages_and_links(self):
+        # 泊まるのページ（2026-10-22 代表「1 OK」）：3軒以上の市町にページ、催しのカードに「近くに泊まる（PR）」
+        hs = [{"id": i, "name": f"宿{i}", "city": "福井市" if i < 3 else "鯖江市", "area": "福井市", "features": ["温泉"],
+               "url": f"https://a.r10.to/x{i}", "reviews": i, "rating": 4.0, "price": 5000, "checked": "2026-10-19"} for i in range(4)]
+        odekake.HOTELS[:] = hs
+        odekake.STAY_CITIES.clear(); odekake.STAY_CITIES.add("福井市")
+        try:
+            ev = {"kind": "催し", "start": "2026-10-24", "end": "2026-10-24", "area": "福井市",
+                  "text": "「土曜市」開催", "note": "", "source": None}
+            city = odekake.render_stay_city("福井市", hs[:3], {"items": [ev]}, date(2026, 10, 20))
+            self.assertIn("福井市の宿・ホテル（3軒）", city)
+            self.assertIn('rel="sponsored noopener"', city)
+            self.assertIn("PR：このページの宿のリンクは", city)
+            self.assertIn("土曜市", city)          # その市町のこれからの催し
+            self.assertIn('"@type": "LodgingBusiness"', city)
+            wk = odekake.render_weekend({"items": [ev]}, date(2026, 10, 20))
+            self.assertIn("/stay/%E7%A6%8F%E4%BA%95%E5%B8%82/", wk)
+            self.assertIn("福井市に泊まる（PR）", wk)
+            idx = odekake.render_stay_index(hs, date(2026, 10, 20))
+            self.assertIn("鯖江市（1軒）", idx)
+        finally:
+            odekake.HOTELS[:] = []
+            odekake.STAY_CITIES.clear()
+
+
+class SpotPageTest(unittest.TestCase):
+    def test_spot_page_lists_recent_shops_newest_first(self):
+        sp = lambda d, name: {"kind": "スポット", "start": d, "end": d, "area": "福井市", "text": f"「{name}」がオープン",
+                              "note": "", "source": None, "instagram": "https://www.instagram.com/x/"}
+        data = {"items": [sp("2026-10-01", "新しい店"), sp("2026-10-30", "これから店"), sp("2025-01-01", "古い店")]}
+        html = odekake.render_spot(data, date(2026, 10, 20))
+        self.assertIn("これから店", html)
+        self.assertNotIn("古い店", html)
+        self.assertLess(html.index("これからオープン"), html.index("2026年10月にオープン"))
+        self.assertIn("お店の Instagram を見る", html)
+        self.assertIn('"@type": "LocalBusiness"', html)
+
+
+class AreaPageTest(unittest.TestCase):
+    def test_area_items_skip_ended_and_old(self):
+        ev = lambda s, e, a: {"kind": "催し", "start": s, "end": e, "area": a, "text": f"{s}「祭」開催", "note": "", "source": None}
+        data = {"items": [ev("2026-10-01", "2026-10-02", "福井市"), ev("2026-10-24", "2026-10-24", "福井市"),
+                          {"kind": "スポット", "start": "2026-10-01", "end": "2026-10-01", "area": "福井市",
+                           "text": "「店」がオープン", "note": "", "source": None}]}
+        g = odekake._area_items(data, date(2026, 10, 20))
+        self.assertEqual((len(g["福井市"]["events"]), len(g["福井市"]["shops"])), (1, 1))
+        html = odekake.render_area("福井市", g["福井市"], date(2026, 10, 20))
+        self.assertIn('<link rel="canonical" href="https://odekake.fukui-fukui.com/area/%E7%A6%8F%E4%BA%95%E5%B8%82/">', html)
+        self.assertIn("今週末", html)
+
+
+class FormPageTest(unittest.TestCase):
+    def test_contact_and_submit_pages(self):
+        c = odekake.render_contact(date(2026, 10, 20))
+        for k in ('name="type" value="inquiry"', 'name="website"', 'name="opened"', 'name="agree"', odekake.FORM_URL):
+            self.assertIn(k, c)
+        s = odekake.render_submit(date(2026, 10, 20))
+        self.assertIn("主催者の方からのみ受け付けます", s)
+        self.assertIn('name="agree_flyer"', s)
+        self.assertIn('name="flyer"', s)
+        self.assertNotIn("お約束するものではありません", s)

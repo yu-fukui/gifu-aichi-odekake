@@ -33,6 +33,11 @@ import 地域  # noqa: E402  どの県のおでかけか（region.json）
 
 KEN = 地域.県名
 SITE_NAME = 地域.地域["サイト名"]
+# 「岐阜おでかけ」のような呼び名でも検索に出るように、各ページの title の後ろに添える（region.json の「検索の呼び名」。2026-10-23 代表）
+_呼び名 = 地域.地域.get("検索の呼び名") or []
+# 呼び名が無い地域は「ふくいおでかけ（福井おでかけ）」のように県名＋おでかけを添える（2026-10-23 代表。#270）
+TITLE_SITE = (f"{SITE_NAME}（{'・'.join(_呼び名[:2])}）" if _呼び名
+              else f"{SITE_NAME}（{地域.県名}おでかけ）" if SITE_NAME != f"{地域.県名}おでかけ" else SITE_NAME)
 ACCOUNT = 地域.地域["アカウント"]
 NETA = ROOT / "neta" / "ネタ帳.md"
 OUT = ROOT / "docs" / "data.json"
@@ -627,6 +632,9 @@ def _page_card(it: dict, today: date) -> str:
         out.append(f'<p class="src"><a href="{h(it["source"])}" rel="noopener" target="_blank">{h(site)}で詳しく見る</a></p>')
     elif it.get("instagram"):
         out.append(f'<p class="src"><a href="{h(it["instagram"])}" rel="noopener" target="_blank">お店の Instagram を見る</a></p>')
+    # 同じ市町の宿のページがあれば「近くに泊まる（PR）」（2026-10-22 代表「OK」泊まるの直し案2）。終わった催しには付けない
+    if not ended and it.get("kind") != "スポット" and it.get("area") in STAY_CITIES:
+        out.append(f'<p class="src"><a href="{SITE}/stay/{quote(it["area"])}/">{h(it["area"])}に泊まる（PR）</a></p>')
     out.append("</article>")
     return "".join(out)
 
@@ -675,6 +683,8 @@ article p {{ margin: 4px 0; font-size: .92rem; }}
 a {{ color: var(--main); }}
 .lead {{ background: var(--surface); border-radius: 14px; padding: 12px 16px; }}
 nav.months {{ margin-top: 36px; font-size: .9rem; }}
+aside.prbox {{ margin-top: 32px; padding: 12px 16px; border: 1.5px dashed var(--main); border-radius: 14px; background: var(--surface); font-size: .9rem; }}
+aside.prbox p {{ margin: 4px 0 0; }}
 footer {{ color: var(--muted); font-size: .78rem; text-align: center; padding: 0 16px 32px; }}
 form.f label {{ display: block; font-weight: 700; font-size: .9rem; margin: 16px 0 4px; }}
 form.f label small {{ font-weight: 400; color: var(--muted); }}
@@ -689,9 +699,28 @@ form.f .hp {{ position: absolute; left: -9999px; width: 1px; height: 1px; overfl
 .msg.err {{ border: 1.5px solid #d9473a; }}
 form.f .req {{ color: #d9473a; font-weight: 800; margin: 0 4px 0 2px; flex: none; }}
 form.f .reqnote {{ font-size: .85rem; color: var(--muted); margin: 8px 0 0; }}
+.msg .rh {{ margin-top: 12px; font-weight: 700; }}
+.msg button.again {{ margin-top: 16px; }}
+.msg dl.receipt {{ display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 6px 0 0; font-size: .9rem; }}
+.msg dl.receipt dt {{ color: var(--muted); }}
+.msg dl.receipt dd {{ margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }}
+@media (max-width: 520px) {{ .msg dl.receipt {{ grid-template-columns: 1fr; gap: 0; }} .msg dl.receipt dd {{ margin-bottom: 6px; }} }}
+form.f .paynote {{ margin: 20px 0 0; padding: 12px 14px; border: 2px solid var(--main); border-radius: 12px; background: var(--surface); font-weight: 700; }}
 form.f .bad {{ border-color: #d9473a !important; outline: 2px solid #d9473a33; }}
 form.f label.check.bad {{ border: 1.5px solid #d9473a; border-radius: 8px; padding: 4px 6px; }}
 form.f .ferr {{ color: #d9473a; font-size: .85rem; font-weight: 700; margin: 4px 0 0; }}
+form.f .flyer {{ margin-top: 20px; }}
+form.f .flyer input[type=file] {{ position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }}
+form.f label.filebtn {{ display: flex; align-items: center; gap: 12px; margin: 0; min-height: 64px; padding: 14px 18px; border: 2px dashed var(--main); border-radius: 14px; background: color-mix(in srgb, var(--main) 10%, var(--surface)); color: var(--ink); font-size: 1.05rem; cursor: pointer; }}
+form.f label.filebtn .ic {{ font-size: 1.6rem; line-height: 1; }}
+form.f label.filebtn small {{ display: block; font-size: .8rem; }}
+form.f .flyer input[type=file]:focus-visible + label.filebtn {{ outline: 3px solid var(--main); outline-offset: 2px; }}
+form.f .picked {{ display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); }}
+form.f .picked[hidden] {{ display: none; }}
+form.f .picked img {{ width: 64px; height: 64px; object-fit: cover; border-radius: 8px; flex: none; }}
+form.f .picked .pdf {{ width: 64px; height: 64px; display: grid; place-items: center; border-radius: 8px; background: var(--bg); font-weight: 800; flex: none; }}
+form.f .picked .nm {{ flex: 1; min-width: 0; font-size: .9rem; overflow-wrap: anywhere; }}
+form.f button.clear {{ margin: 0; padding: 8px 14px; background: transparent; color: var(--ink); border: 1.5px solid var(--line); font-weight: 600; }}
 table.toku {{ width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 14px; overflow: hidden; margin-top: 16px; font-size: .92rem; }}
 table.toku th, table.toku td {{ text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }}
 table.toku th {{ width: 34%; color: var(--muted); font-weight: 700; }}
@@ -709,6 +738,18 @@ table.toku th {{ width: 34%; color: var(--muted); font-weight: 700; }}
 """
 
 
+def _pr_box(up: str, where: str) -> str:
+    """主催者向けの PR 枠の案内（2026-10-22 代表「進めて」集客案1）。where は /submit/ の閲覧をどこから来たかで数えるための印。
+    「初回無料」の一言は region.json の 使う.初回無料 のときだけ（2026-10-22 代表「進めて」）。"""
+    from html import escape as h
+    if not _uses("掲載申し込み"):
+        return ""
+    return (f'<aside class="prbox"><b>主催者の方へ：PR枠のお申し込み</b>'
+            f'<p>催しを{h(SITE_NAME)}の PR 枠に載せられます（{h(PR_PRICE)}）。表示には「PR」と付きます。'
+            + ("初めてのお申し込みは無料です。" if _uses("初回無料") else "") +
+            f'<a href="{up}submit/?from={where}">お申し込みはこちら</a></p></aside>\n')
+
+
 def render_month(key: str, b: dict, keys: list[str], today: date) -> str:
     from collections import Counter
     from html import escape as h
@@ -720,7 +761,7 @@ def render_month(key: str, b: dict, keys: list[str], today: date) -> str:
     areas = Counter(it.get("area") for it in short + long_ if it.get("area")).most_common(3)
     area_txt = "、".join(f"{a}（{n}件）" for a, n in areas)
     url = f"{SITE}/month/{key}/"
-    title = f"{KEN}のイベント {label}｜{SITE_NAME}"
+    title = f"{KEN}のイベント {label}｜{TITLE_SITE}"
     past = (y, m) < (today.year, today.month)
     desc = (f"{label}に{KEN}県内で{'開かれた' if past else '開かれる'}イベント・祭り・マルシェ・展示を日付順にまとめました。"
             f"全{len(short) + len(long_)}件、主催者や自治体などの出典つき。")
@@ -757,7 +798,7 @@ def render_month(key: str, b: dict, keys: list[str], today: date) -> str:
 <p class="muted">日付・内容は集めた時点のものです。お出かけ前に、出典（主催者・自治体などの公式）で必ず確かめてください。最終更新：{today.year}年{today.month}月{today.day}日</p>
 </div>
 {"".join(body)}
-<nav class="months">月別：{nav}</nav>
+{_pr_box("../../", "month")}<nav class="months">月別：{nav}</nav>
 <p><a href="../../">今週末のイベント・新しいお店を見る（{h(SITE_NAME)}）</a></p>
 """
     return _shell(title, desc, url, ld, main, "../../")
@@ -794,7 +835,7 @@ def render_weekend(data: dict, today: date) -> str:
     f = lambda d: f"{d.month}月{d.day}日（{WD[d.weekday()]}）"
     url = f"{SITE}/weekend/"
     n = len(both) + len(only_sat) + len(only_sun) + len(long_)
-    title = f"今週末の{KEN}のイベント・おでかけ情報（{sat.month}/{sat.day}・{sun.day if sun.month == sat.month else f'{sun.month}/{sun.day}'}）｜{SITE_NAME}"
+    title = f"今週末の{KEN}のイベント・おでかけ情報（{sat.month}/{sat.day}・{sun.day if sun.month == sat.month else f'{sun.month}/{sun.day}'}）｜{TITLE_SITE}"
     desc = (f"{f(sat)}・{f(sun)}に{KEN}県内で行けるイベント・祭り・マルシェ・展示{n}件を、土曜・日曜・両日に分けてまとめました。"
             "毎日更新、主催者や自治体などの出典つき。")
     body = []
@@ -824,7 +865,7 @@ def render_weekend(data: dict, today: date) -> str:
 <p class="muted">日付・内容は集めた時点のものです。お出かけ前に、出典（主催者・自治体などの公式）で必ず確かめてください。最終更新：{today.year}年{today.month}月{today.day}日</p>
 </div>
 {"".join(body)}
-<nav class="months">{links}</nav>
+{_pr_box("../", "weekend")}<nav class="months">{links}</nav>
 <p><a href="../">新しいお店・ほかの日のイベントを見る（{h(SITE_NAME)}）</a></p>
 """
     return _shell(title, desc, url, ld, main, "../")
@@ -870,7 +911,7 @@ def render_spot(data: dict, today: date) -> str:
         if d <= today:
             groups.setdefault(f"{d.year}年{d.month}月にオープン", []).append(it)
     url = f"{SITE}/spot/"
-    title = f"{KEN}の新しいお店・新店オープン情報｜{SITE_NAME}"
+    title = f"{KEN}の新しいお店・新店オープン情報｜{TITLE_SITE}"
     areas = [a for a, _ in Counter(it.get("area") for it in shops if it.get("area")).most_common(3)]
     desc = (f"{KEN}県内で新しくオープンしたお店・スポット{len(shops)}件を、オープン日の新しい順にまとめました。"
             + (f"{'・'.join(areas)}など。" if areas else "") + "お店の公式や自治体などの出典つき。")
@@ -939,8 +980,8 @@ def render_area(area: str, b: dict, today: date) -> str:
     shops = sorted(b["shops"], key=lambda it: it["start"], reverse=True)
     url = f"{SITE}/area/{quote(area)}/"
     n = len(evs) + len(shops)
-    title = f"{area}のイベント・おでかけ情報と新しいお店｜{SITE_NAME}"
-    desc = (f"{KEN}・{area}で開かれるイベント・祭り・マルシェ・展示と、新しくオープンしたお店を{n}件まとめました。"
+    title = f"{area}のイベント・おでかけ情報と新しいお店｜{TITLE_SITE}"
+    desc = (f"{area if '・' in KEN else KEN + '・' + area}で開かれるイベント・祭り・マルシェ・展示と、新しくオープンしたお店を{n}件まとめました。"
             "毎日更新、主催者や自治体などの出典つき。")
     f = lambda d: f"{d.month}月{d.day}日（{WD[d.weekday()]}）"
     body = []
@@ -964,10 +1005,185 @@ def render_area(area: str, b: dict, today: date) -> str:
 <p class="muted">日付・内容は集めた時点のものです。お出かけ前に、出典（主催者・自治体・お店の公式）で必ず確かめてください。最終更新：{today.year}年{today.month}月{today.day}日</p>
 </div>
 {"".join(body)}
-<nav class="months"><a href="../../weekend/">今週末の{h(KEN)}のイベント</a> ・ <a href="../../spot/">{h(KEN)}の新しいお店</a></nav>
+{_stay_box(area, "../../")}{_pr_box("../../", "area")}<nav class="months"><a href="../../weekend/">今週末の{h(KEN)}のイベント</a> ・ <a href="../../spot/">{h(KEN)}の新しいお店</a></nav>
 <p><a href="../../">{h(KEN)}のほかの市町のおでかけ情報を見る（{h(SITE_NAME)}）</a></p>
 """
     return _shell(title, desc, url, ld, main, "../../")
+
+
+# ---- 泊まるのページ（2026-10-22 代表「1 OK」泊まるの SEO の直し案1・2） ----
+# トップの「泊まる」タブは画面を開いてから宿を並べるので、検索に出ない。宿の一覧 /stay/ と、宿が STAY_MIN 軒以上ある
+# 市町のページ /stay/<市町>/ を静的に作る。宿のデータは docs/hotels.json（scripts/おでかけ_宿.py が作る。楽天トラベルの
+# アフィリエイト）。どこにも「PR」と書く。紹介文は楽天の文なので、特徴の数・その市町の催しなど、このサイトの中身も足す。
+STAY_DIR = ROOT / "docs" / "stay"
+STAY_MIN = 3
+STAY_CITIES: set[str] = set()   # 市町のページがある市町（催しのカード・市町のページから「泊まる」へ）
+HOTELS: list[dict] = []
+STAY_FEATURES = ("温泉", "露天風呂", "サウナ", "大浴場", "朝食バイキング", "チェックアウト遅め", "一棟貸し", "グランピング")
+
+
+def load_hotels() -> list[dict]:
+    try:
+        return json.loads((ROOT / "docs" / "hotels.json").read_text(encoding="utf-8")).get("items", [])
+    except (OSError, ValueError):
+        return []
+
+
+def _hotel_card(x: dict) -> str:
+    from html import escape as h
+    meta = "・".join(v for v in (x.get("area") or x.get("city") or "", "・".join(x.get("features") or [])) if v)
+    out = [f'<article><h3>{h(x["name"])}<small>PR</small></h3>']
+    if meta:
+        out.append(f'<p class="meta">{h(meta)}</p>')
+    if x.get("text"):
+        out.append(f"<p>{h(x['text'])}</p>")
+    facts = []
+    if x.get("rating") and x.get("reviews"):
+        facts.append(f"楽天トラベルの評価 {x['rating']}（{int(x['reviews']):,}件）")
+    if x.get("price"):
+        facts.append(f"最安 {int(x['price']):,}円〜" + (f"（{x['checked']} 時点）" if x.get("checked") else ""))
+    if facts:
+        out.append(f'<p class="muted">{h("・".join(facts))}</p>')
+    out.append(f'<p class="src"><a href="{h(x["url"])}" rel="sponsored noopener" target="_blank">楽天トラベルで空室・料金を見る</a></p>')
+    out.append("</article>")
+    return "".join(out)
+
+
+def _hotel_order(hs: list[dict]) -> list[dict]:
+    """手で選んだ宿 → レビューの多い順"""
+    return sorted(hs, key=lambda x: (not x.get("pick"), -(x.get("reviews") or 0)))
+
+
+def _hotel_ld(x: dict) -> dict:
+    """構造化データ。書くのは名前と市町だけ（評価・料金は楽天のもので変わるので入れない）"""
+    region = KEN if KEN.endswith(("県", "府", "都", "道")) else f"{KEN}県"
+    return {"@type": "LodgingBusiness", "name": x["name"],
+            "address": {"@type": "PostalAddress", "addressLocality": x.get("city") or "", "addressRegion": region,
+                        "addressCountry": "JP"}}
+
+
+STAY_PR = "PR：このページの宿のリンクは、楽天トラベルのアフィリエイトリンクです。"
+
+
+def _feature_counts(hs: list[dict]) -> str:
+    from collections import Counter
+    c = Counter(f for x in hs for f in (x.get("features") or []))
+    return "・".join(f"{k} {c[k]}軒" for k in STAY_FEATURES if c.get(k))
+
+
+def render_stay_city(city: str, hs: list[dict], data: dict, today: date) -> str:
+    from html import escape as h
+    url = f"{SITE}/stay/{quote(city)}/"
+    hs = _hotel_order(hs)
+    areas = sorted({x["area"] for x in hs if x.get("area") and x["area"] != city})
+    where = f"{city}（{'・'.join(areas)}）" if areas else city
+    feats = _feature_counts(hs)
+    title = f"{city}の宿・ホテル {len(hs)}軒｜温泉・サウナ・朝食で比べる｜{TITLE_SITE}"
+    desc = (f"{KEN}・{where}の宿・ホテル・旅館 {len(hs)}軒を、温泉・サウナ・朝食バイキングなどの特徴と、楽天トラベルの評価・最安料金でまとめました。"
+            f"{city}のこれからのイベントも。PR")
+    body = []
+    groups: dict[str, list] = {}
+    for x in hs:
+        groups.setdefault(x.get("area") or city, []).append(x)
+    if len(groups) > 1:
+        for a, xs in groups.items():
+            body.append(f"<h2>{h(a)}の宿（{len(xs)}軒）</h2>" + "".join(_hotel_card(x) for x in xs))
+    else:
+        body.append(f"<h2>{h(city)}の宿（{len(hs)}軒）</h2>" + "".join(_hotel_card(x) for x in hs))
+    evs = sorted(_area_items(data, today).get(city, {}).get("events", []), key=lambda it: _span(it)[0])[:6]
+    if evs:
+        more = (f'<p><a href="../../area/{quote(city)}/">{h(city)}のイベント・おでかけ情報をもっと見る</a></p>'
+                if (AREA_DIR / city).is_dir() else "")
+        body.append(f"<h2>{h(city)}のこれからのイベント</h2>"
+                    "<p class=\"muted\">泊まりがけで行ける、この市町の催しです。</p>"
+                    + "".join(_page_card(it, today) for it in evs) + more)
+    crumbs = {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": f"{SITE}/"},
+        {"@type": "ListItem", "position": 2, "name": f"{KEN}の宿", "item": f"{SITE}/stay/"},
+        {"@type": "ListItem", "position": 3, "name": f"{city}の宿", "item": url}]}
+    lst = {"@type": "ItemList", "name": f"{city}の宿・ホテル", "numberOfItems": len(hs),
+           "itemListElement": [{"@type": "ListItem", "position": i, "item": _hotel_ld(x)} for i, x in enumerate(hs, start=1)]}
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [crumbs, lst]}, ensure_ascii=False).replace("</", "<\\/")
+    others = " ・ ".join(f'<a href="../{quote(c)}/">{h(c)}</a>' for c in sorted(STAY_CITIES) if c != city)
+    main = f"""<h1>{h(city)}の宿・ホテル（{len(hs)}軒）</h1>
+<div class="lead">
+<p>{h(KEN)}・{h(where)}の宿を、楽天トラベルに載っている{len(hs)}軒からまとめました。{h(f"特徴で見ると、{feats}です。") if feats else ""}</p>
+<p class="muted">{h(STAY_PR)}評価・料金は調べた時点の楽天トラベルのもので、変わることがあります。予約の前に楽天トラベルでご確認ください。</p>
+</div>
+{"".join(body)}
+<nav class="months"><a href="../">{h(KEN)}の宿（市町別）</a>{f" ・ ほかの市町：{others}" if others else ""}</nav>
+<p><a href="../../">{h(KEN)}のイベント・新しいお店を見る（{h(SITE_NAME)}）</a></p>
+"""
+    return _shell(title, desc, url, ld, main, "../../")
+
+
+def render_stay_index(hotels: list[dict], today: date) -> str:
+    from html import escape as h
+    url = f"{SITE}/stay/"
+    by: dict[str, list] = {}
+    for x in _hotel_order(hotels):
+        by.setdefault(x.get("city") or "そのほか", []).append(x)
+    cities = sorted(by, key=lambda c: -len(by[c]))
+    title = f"{KEN}の宿・ホテル・温泉旅館 {len(hotels)}軒（市町別）｜{TITLE_SITE}"
+    desc = (f"{KEN}県内の宿・ホテル・旅館 {len(hotels)}軒を、市町別に、温泉・サウナ・朝食バイキングなどの特徴と楽天トラベルの評価でまとめました。PR")
+    body = []
+    for c in cities:
+        link = f'（<a href="./{quote(c)}/">{h(c)}の宿をくわしく見る</a>）' if c in STAY_CITIES else ""
+        body.append(f"<h2>{h(c)}（{len(by[c])}軒）</h2>{f'<p>{link}</p>' if link else ''}"
+                    + "".join(_hotel_card(x) for x in by[c]))
+    crumbs = {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": f"{SITE}/"},
+        {"@type": "ListItem", "position": 2, "name": f"{KEN}の宿", "item": url}]}
+    lst = {"@type": "ItemList", "name": f"{KEN}の宿・ホテル", "numberOfItems": len(hotels),
+           "itemListElement": [{"@type": "ListItem", "position": i, "item": _hotel_ld(x)}
+                               for i, x in enumerate([x for c in cities for x in by[c]], start=1)]}
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [crumbs, lst]}, ensure_ascii=False).replace("</", "<\\/")
+    jump = " ・ ".join(f'<a href="./{quote(c)}/">{h(c)}</a>' for c in cities if c in STAY_CITIES)
+    feats = _feature_counts(hotels)
+    main = f"""<h1>{h(KEN)}の宿・ホテル（市町別）</h1>
+<div class="lead">
+<p>{h(KEN)}県内の宿を、楽天トラベルに載っている{len(hotels)}軒から、市町ごとにまとめました。{h(f"特徴で見ると、{feats}です。") if feats else ""}</p>
+{f'<p>市町のページ：{jump}</p>' if jump else ""}
+<p class="muted">{h(STAY_PR)}評価・料金は調べた時点の楽天トラベルのもので、変わることがあります。予約の前に楽天トラベルでご確認ください。</p>
+</div>
+{"".join(body)}
+<p><a href="../weekend/">今週末の{h(KEN)}のイベントを見る</a></p>
+<p><a href="../">{h(KEN)}のイベント・新しいお店を見る（{h(SITE_NAME)}）</a></p>
+"""
+    return _shell(title, desc, url, ld, main, "../")
+
+
+def _stay_box(city: str, up: str) -> str:
+    """市町のページの「〇〇に泊まる（PR）」（直し案2）。宿の多い順に3軒と、宿のページへのリンク"""
+    from html import escape as h
+    hs = _hotel_order([x for x in HOTELS if x.get("city") == city])[:3]
+    if not hs:
+        return ""
+    more = (f'<a href="{up}stay/{quote(city)}/">{h(city)}の宿をもっと見る</a>' if city in STAY_CITIES
+            else f'<a href="{up}stay/">{h(KEN)}の宿（市町別）を見る</a>')
+    return (f"<h2>{h(city)}に泊まる（PR）</h2><p class=\"muted\">{h(STAY_PR)}</p>"
+            + "".join(_hotel_card(x) for x in hs) + f"<p>{more}</p>\n")
+
+
+def prepare_stay() -> None:
+    """宿のデータを読み、市町のページを作る市町を決める（月・今週末・市町のページより先に呼ぶ）"""
+    from collections import Counter
+    HOTELS[:] = load_hotels() if _uses("宿") else []
+    n = Counter(x.get("city") for x in HOTELS if x.get("city"))
+    STAY_CITIES.clear()
+    STAY_CITIES.update(c for c, k in n.items() if k >= STAY_MIN)
+
+
+def write_stay(data: dict, today: date) -> list[str]:
+    if not HOTELS:
+        return []
+    STAY_DIR.mkdir(parents=True, exist_ok=True)
+    (STAY_DIR / "index.html").write_text(render_stay_index(HOTELS, today), encoding="utf-8")
+    for c in sorted(STAY_CITIES):
+        (STAY_DIR / c).mkdir(parents=True, exist_ok=True)
+        (STAY_DIR / c / "index.html").write_text(
+            render_stay_city(c, [x for x in HOTELS if x.get("city") == c], data, today), encoding="utf-8")
+    return sorted(STAY_CITIES)
 
 
 def write_areas(data: dict, today: date) -> list[str]:
@@ -987,7 +1203,18 @@ def write_areas(data: dict, today: date) -> list[str]:
 # 受け取りは Supabase の Edge Function odekake-form（ソースは supabase/functions/odekake-form）。
 # ロボットよけ（Cloudflare Turnstile）は、region.json の "Turnstile"（サイトキー。公開してよい鍵）があるときだけ出す。
 # 秘密鍵は代表が Supabase に直接登録する（リポジトリ・チャットに書かない）。
+# 仮押さえ（region.json の 使う.仮押さえ）のときの申し込みページの説明（2026-10-20 代表）
+HOLD_LEAD = ("<p>いただいた情報は、主催者などの公式の案内で確かめてから掲載します。</p>"
+             "<p><b>送信すると、お支払い画面（Stripe）に移ります。</b>カードで 5,500円（税込）を仮押さえしますが、"
+             "掲載が決まるまで確定しません。掲載できない場合は取り消し、料金は請求されません。</p>")
+# 初回のお申し込みは無料（2026-10-22 代表「B　案内文も書くように」「進めて」。region.json の 使う.初回無料）。
+# 初回かどうかは受付の仕組み（odekake-form）が、同じ地域の受け付け済みの申し込みと、メールアドレス・主催者名で照らして決める
+FIRST_LEAD = "<p><b>初めてのお申し込みは無料です（1つの主催者につき1回）。</b>2回目からは イベント掲載 1件 5,500円（税込）です。</p>"
+FIRST_HOLD_LEAD = ("<p>いただいた情報は、主催者などの公式の案内で確かめてから掲載します。</p>"
+                   "<p><b>2回目からは、送信するとお支払い画面（Stripe）に移ります。</b>カードで 5,500円（税込）を仮押さえしますが、"
+                   "掲載が決まるまで確定しません。掲載できない場合は取り消し、料金は請求されません。</p>")
 # 有料掲載で提供する内容（2026-10-20 代表の文。特商法の表記・申し込みフォームで同じ文を使う）
+PR_PRICE = "イベント掲載 1件 5,500円（税込）"   # 特商法の表記・フォームと同じ書き方（2026-10-20 代表）
 PAID_OFFER = (f"「{SITE_NAME}」PR枠への掲載（最長30日）、Threads での紹介（掲載を始めたとき・毎週1回・開催の前日と当日）、"
               "AI で作る紹介動画（1回）。表示や投稿には「PR」と付きます。")
 FORM_URL = "https://zynxnpwwmrxzyljrsmbs.supabase.co/functions/v1/odekake-form"
@@ -1009,7 +1236,13 @@ def _form_script(kind: str) -> str:
           '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>') if sitekey else ""
     done = ('"受け付けました。申込番号：" + (j.number || "") + "。公式の案内で確かめてから、メールでご連絡します。"'
             if kind == "submission" else '"送信しました。ありがとうございます。お返事が必要な内容には、メールでご連絡します。"')
-    return ts + f"""<button type="submit">送信する</button>
+    # 送信すると支払い画面に移ることを、ボタンのすぐ上で先に伝える（2026-10-21 代表「それでOK」の文）
+    pay = ('<p class="paynote">送信すると、カードの確認画面に移ります。この時点では請求されず、'
+           '掲載が決まってから 5,500円（税込）を請求します。</p>') if kind == "submission" and _uses("仮押さえ") else ""
+    if pay and _uses("初回無料"):
+        pay = ('<p class="paynote">初めてのお申し込みは無料で、カードの入力はありません。2回目からは、送信するとカードの確認画面に移ります。'
+               'この時点では請求されず、掲載が決まってから 5,500円（税込）を請求します。</p>')
+    return ts + pay + f"""<button type="submit">送信する</button>
 <div class="msg" id="msg" hidden></div>
 </form>
 <script>
@@ -1085,6 +1318,47 @@ def _form_script(kind: str) -> str:
     try {{
       const r = await fetch("{FORM_URL}", {{ method: "POST", body: new FormData(f) }});
       const j = await r.json().catch(() => ({{}}));
+      if (r.ok && j.ok && j.pay_url) {{
+        // 仮押さえ：Stripe の支払い画面へ。戻ってきたら下の「戻ったとき」で受付を確かめる。
+        // 入力はこの端末（このタブ）にだけ一時保存し、戻ったら控えを出す・やめたら埋め直す（2026-10-21 代表「入力した項目は残っていてほしい」）
+        try {{
+          const v = {{}}, list = [];
+          for (const x of fields) {{
+            if (x.type === "file") {{ const fl = x.files && x.files[0]; if (fl) list.push(["チラシ", fl.name]); continue; }}
+            v[x.name] = x.type === "checkbox" ? x.checked : x.value;
+            if (x.type !== "checkbox" && x.value.trim()) list.push([nameOf(x), x.value.trim()]);
+          }}
+          sessionStorage.setItem("odekake-form-" + j.number, JSON.stringify({{ v, list, flyer: list.some(([k]) => k === "チラシ") }}));
+        }} catch (_) {{}}
+        say("お支払い画面（Stripe）に移ります…");
+        location.href = j.pay_url;
+        return;
+      }}
+      if (r.ok && j.ok && j.first) {{
+        // 初回のお申し込み（無料）：支払い画面には移らない。カードのときの戻った画面と同じく、受付の案内と入力の控えだけを出す
+        const list = [];
+        for (const x of fields) {{
+          if (x.type === "file") {{ const fl = x.files && x.files[0]; if (fl) list.push(["チラシ", fl.name]); continue; }}
+          if (x.type !== "checkbox" && x.value.trim()) list.push([nameOf(x), x.value.trim()]);
+        }}
+        for (const el of [...f.children]) if (el !== msg) el.style.display = "none";
+        for (const t of [...f.childNodes]) if (t.nodeType === 3) t.remove();
+        document.querySelectorAll(".lead").forEach((x) => (x.style.display = "none"));
+        say(["受け付けました。申込番号：" + j.number, "初回のお申し込みのため無料です（請求はありません）。",
+             "公式の案内で確かめ、掲載が決まったらメールでお知らせします。",
+             "受付のメールをお送りしました。届かない場合は迷惑メールのフォルダもご覧ください。"]);
+        if (list.length) {{
+          const hd = document.createElement("div"); hd.className = "rh"; hd.textContent = "お申し込み内容の控え";
+          const dl = document.createElement("dl"); dl.className = "receipt";
+          for (const [k, v] of list) {{ const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); dd.textContent = v; dl.append(dt, dd); }}
+          msg.append(hd, dl);
+        }}
+        const again = document.createElement("button"); again.type = "button"; again.className = "again"; again.textContent = "別の催しを申し込む";
+        again.addEventListener("click", () => {{ location.href = location.pathname; }});
+        msg.append(again);
+        msg.scrollIntoView({{ block: "start" }});
+        return;
+      }}
       if (r.ok && j.ok) {{
         f.querySelectorAll("input,textarea,select,button").forEach((x) => (x.disabled = true));
         say({done});
@@ -1101,6 +1375,76 @@ def _form_script(kind: str) -> str:
     }} catch (_) {{ say("送れませんでした。通信を確かめて、もう一度お試しください。", true); }}
     b.disabled = false;
   }});
+  // 支払い画面から戻ったとき（?n=申込番号&s=…）／やめたとき（&cancel=1）。2026-10-21 代表の指摘で作り直し：
+  // カード・0円（クーポン）・やめた・確認中 を分けて出す。確認中は3秒おきに確かめ直す。受付が済んだら入力の控えを出し、
+  // 済んでいなければ入力を埋め直す。同じ結果を出したタブで開き直したときは、前の結果を出さずに空のフォームに戻す
+  const q = new URLSearchParams(location.search);
+  if (q.get("n")) {{
+    const n = q.get("n"), key = "odekake-form-" + n, doneKey = "odekake-done-" + n;
+    history.replaceState(null, "", location.pathname);
+    let saved = null;
+    try {{ saved = JSON.parse(sessionStorage.getItem(key) || "null"); }} catch (_) {{}}
+    let shown = false;
+    try {{ shown = !!sessionStorage.getItem(doneKey); }} catch (_) {{}}
+    const refill = () => {{
+      if (!saved) return;
+      for (const x of fields) {{
+        if (x.type === "file" || !(x.name in saved.v)) continue;
+        if (x.type === "checkbox") x.checked = !!saved.v[x.name]; else x.value = saved.v[x.name];
+      }}
+    }};
+    const flyerNote = saved && saved.flyer ? "チラシのファイルは、もう一度選び直してください（ページを移ると、選んだファイルは消えます）。" : "";
+    const receipt = () => {{
+      if (!saved || !saved.list.length) return;
+      const h = document.createElement("div"); h.className = "rh"; h.textContent = "お申し込み内容の控え";
+      const dl = document.createElement("dl"); dl.className = "receipt";
+      for (const [k, v] of saved.list) {{ const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); dd.textContent = v; dl.append(dt, dd); }}
+      msg.append(h, dl);
+    }};
+    if (shown) {{ /* 同じタブで開き直した：前の結果は出さない */ }}
+    else if (q.get("cancel")) {{
+      refill();
+      say(["お支払いを済ませていないため、まだ受け付けていません。", "入力は元に戻しました。内容を確かめて、もう一度「送信する」を押してください。", flyerNote].filter(Boolean), true);
+      msg.scrollIntoView({{ block: "center" }});
+    }} else {{
+      say("お申し込みを確かめています…");
+      const ask = async () => {{
+        const fd = new FormData(); fd.append("type", "confirm"); fd.append("n", n); fd.append("s", q.get("s") || "");
+        const r = await fetch("{FORM_URL}", {{ method: "POST", body: fd }}); return r.json();
+      }};
+      (async () => {{
+        let j = {{}};
+        for (let i = 0; i < 6; i++) {{
+          try {{ j = await ask(); }} catch (_) {{ j = {{}}; }}
+          if (j.ok || (j.status && j.status !== "pending_payment")) break;
+          await new Promise((res) => setTimeout(res, 3000));
+        }}
+        if (j.ok) {{
+          // 受け付け済み：入力欄・送信ボタン上の案内・送信ボタンは隠し、受付の案内と控えだけを出す（2026-10-21 代表）
+          for (const el of [...f.children]) if (el !== msg) el.style.display = "none";
+          for (const t of [...f.childNodes]) if (t.nodeType === 3) t.remove();
+          document.querySelectorAll(".lead").forEach((x) => (x.style.display = "none"));
+          say(["受け付けました。申込番号：" + j.number,
+               j.free ? "クーポンのご利用で 0円です（請求はありません）。" : "カードで 5,500円（税込）を仮押さえしました。まだ請求されていません。",
+               j.free ? "公式の案内で確かめ、掲載が決まったらメールでお知らせします。"
+                      : "公式の案内で確かめ、掲載が決まったら確定してメールでお知らせします。掲載できない場合は取り消し、料金は請求されません。",
+               "受付のメールをお送りしました。届かない場合は迷惑メールのフォルダもご覧ください。"]);
+          receipt();
+          const again = document.createElement("button"); again.type = "button"; again.className = "again"; again.textContent = "別の催しを申し込む";
+          again.addEventListener("click", () => {{ location.href = location.pathname; }});
+          msg.append(again);
+          try {{ sessionStorage.setItem(doneKey, "1"); sessionStorage.removeItem(key); }} catch (_) {{}}
+          msg.scrollIntoView({{ block: "start" }});
+        }} else {{
+          refill();
+          say(["受付の確認に時間がかかっています（申込番号：" + n + "）。",
+               "受付のメールが届けば、お申し込みは完了しています。しばらくしても届かない場合は、お問い合わせから申込番号をお知らせください。",
+               "入力は元に戻してあります。", flyerNote].filter(Boolean));
+          msg.scrollIntoView({{ block: "center" }});
+        }}
+      }})();
+    }}
+  }}
 }})();
 </script>"""
 
@@ -1144,7 +1488,7 @@ def render_submit(today: date) -> str:
     main = f"""<h1>イベント掲載の申し込み</h1>
 <div class="lead">
 <p><b>主催者の方からのみ受け付けます。</b></p>
-<p>いただいた情報は、主催者などの公式の案内で確かめてから掲載します。掲載できる場合は、お支払いのご案内をメールでお送りします。</p>
+{FIRST_LEAD if _uses("初回無料") else ""}{(FIRST_HOLD_LEAD if _uses("初回無料") else HOLD_LEAD) if _uses("仮押さえ") else '<p>いただいた情報は、主催者などの公式の案内で確かめてから掲載します。掲載できる場合は、お支払いのご案内をメールでお送りします。</p>'}
 <p>掲載の内容：{h(PAID_OFFER)}料金は 1件 5,500円（税込）です。</p>
 <p>お支払いのあとの返金は、原則できません。事情がある場合は、<a href="../contact/">お問い合わせ</a>から運営へご連絡ください。料金などは<a href="../tokushoho/">特定商取引法に基づく表記</a>をご覧ください。</p>
 <p class="muted">{h(PRIVACY_FORM)}</p>
@@ -1160,11 +1504,28 @@ def render_submit(today: date) -> str:
 <label for="city">市町</label><input type="text" id="city" name="city" maxlength="30" required placeholder="例：{h(AREAS[0][1] if AREAS else '')}">
 <label for="address">住所 <small>（あれば）</small></label><input type="text" id="address" name="address" maxlength="200">
 <label for="fee">料金 <small>（例：無料／大人500円）</small></label><input type="text" id="fee" name="fee" maxlength="100">
+<div class="flyer"><input type="file" id="flyer" name="flyer" accept="image/jpeg,image/png,image/webp,application/pdf"><label for="flyer" class="filebtn"><span class="ic" aria-hidden="true">📎</span><span>チラシ・画像を添付する<small>あれば。画像（JPEG・PNG・WebP）か PDF、5MB まで。チラシがあると内容を早く確かめられます</small></span></label>
+<div class="picked" id="flyer-picked" hidden><span id="flyer-thumb"></span><span class="nm" id="flyer-name"></span><button type="button" class="clear" id="flyer-clear">取り消す</button></div></div>
+<script>(() => {{
+  const i = document.getElementById("flyer"), box = document.getElementById("flyer-picked"),
+    th = document.getElementById("flyer-thumb"), nm = document.getElementById("flyer-name");
+  let url = "";
+  const show = () => {{
+    if (url) URL.revokeObjectURL(url), url = "";
+    const f = i.files && i.files[0];
+    box.hidden = !f; th.textContent = "";
+    if (!f) return;
+    nm.textContent = `${{f.name}}（${{f.size < 1048576 ? Math.ceil(f.size / 1024) + "KB" : (f.size / 1048576).toFixed(1) + "MB"}}）${{f.size > 5242880 ? " ※5MB を超えています" : ""}}`;
+    if (f.type.startsWith("image/")) {{ const im = document.createElement("img"); url = URL.createObjectURL(f); im.src = url; im.alt = ""; th.append(im); }}
+    else {{ const d = document.createElement("span"); d.className = "pdf"; d.textContent = "PDF"; th.append(d); }}
+  }};
+  i.addEventListener("change", show);
+  document.getElementById("flyer-clear").addEventListener("click", () => {{ i.value = ""; show(); }});
+}})();</script>
 <label for="body">催しの内容 <small>（300字まで）</small></label><textarea id="body" name="body" maxlength="300" required></textarea>
 <label for="target">対象・事前申し込み・締め切り <small>（あれば）</small></label><input type="text" id="target" name="target" maxlength="300">
 <label for="organizer">主催者</label><input type="text" id="organizer" name="organizer" maxlength="100" required>
 <label for="official_url">公式の URL または SNS <small>（ここを出典にします）</small></label><input type="url" id="official_url" name="official_url" maxlength="300" required placeholder="https://">
-<label for="flyer">チラシの画像または PDF <small>（あれば。5MB まで、JPEG・PNG・WebP・PDF）</small></label><input type="file" id="flyer" name="flyer" accept="image/jpeg,image/png,image/webp,application/pdf">
 <label for="wish_from">掲載したい期間 <small>（あれば。最長30日）</small></label><input type="date" id="wish_from" name="wish_from"> 〜 <input type="date" id="wish_to" name="wish_to">
 <label for="contact_name">ご担当者のお名前 <small>（公開しません）</small></label><input type="text" id="contact_name" name="contact_name" maxlength="100" required autocomplete="name">
 <label for="contact_email">ご担当者のメールアドレス <small>（公開しません）</small></label><input type="email" id="contact_email" name="contact_email" maxlength="200" required autocomplete="email">
@@ -1192,13 +1553,19 @@ def render_tokushoho(today: date) -> str:
         ("所在地", "請求があった場合には遅滞なく開示します"),
         ("電話番号", "請求があった場合には遅滞なく開示します"),
         ("メールアドレス", TOKUSHOHO_MAIL),
-        ("販売価格", "イベント掲載 1件 5,500円（税込）"),
+        ("販売価格", "イベント掲載 1件 5,500円（税込）"
+                     + ("。初回のお申し込み（同じ主催者・同じメールアドレスで初めてのもの）は無料。"
+                        "初回の判定は運営が行い、同じ主催者と判断した場合は通常の料金となります" if _uses("初回無料") else "")),
         ("提供する内容", PAID_OFFER),
         ("商品代金以外の必要料金", "なし（インターネット接続にかかる通信料はお客様のご負担です）"),
-        ("掲載の可否", "お申し込みの内容は、主催者などの公式の案内で確かめてから掲載します。掲載できない場合は、お支払いの前にご連絡します"),
+        ("掲載の可否", "お申し込みの内容は、主催者などの公式の案内で確かめてから掲載します。"
+                       + ("掲載できない場合は、仮押さえを取り消してご連絡します" if _uses("仮押さえ") else "掲載できない場合は、お支払いの前にご連絡します")),
         ("支払方法", "クレジットカード（Stripe による決済）"),
-        ("支払時期", "掲載のご案内（お支払いのリンク）をお送りしてから7日以内に、1回でお支払いください"),
-        ("サービスの提供時期", "お支払いを確かめてから3日以内に掲載を始めます"),
+        ("支払時期", "お申し込みの際に、カードで 5,500円（税込）を仮押さえ（与信）します。掲載が決まった時点で確定し、"
+                    "掲載できない場合は取り消します（料金は請求されません）。仮押さえの期限（7日）までに掲載を決められない場合も取り消します"
+                    if _uses("仮押さえ") else "掲載のご案内（お支払いのリンク）をお送りしてから7日以内に、1回でお支払いください"),
+        ("サービスの提供時期", "掲載が決まった日（確定した日）から3日以内に掲載を始めます" if _uses("仮押さえ")
+                              else "お支払いを確かめてから3日以内に掲載を始めます"),
         ("返金について", "サービスの性質上、お支払い済みの料金の返金はいたしません。ただし、当方の責による不具合で掲載できなかった場合はこの限りではありません。"
                        "催しの中止・延期など事情がある場合は、お問い合わせフォームからご相談ください"),
         ("動作環境", "最新版の主要なブラウザ（Safari・Chrome・Edge など）"),
@@ -1260,6 +1627,7 @@ a {{ color: #1f7a57; font-weight: 700; }}
 
 
 def write_static(data: dict, today: date) -> None:
+    prepare_stay()
     months = write_months(data, today)
     (ROOT / "docs" / "404.html").write_text(render_404(months, today), encoding="utf-8")
     WEEKEND_DIR.mkdir(parents=True, exist_ok=True)
@@ -1267,6 +1635,7 @@ def write_static(data: dict, today: date) -> None:
     SPOT_DIR.mkdir(parents=True, exist_ok=True)
     (SPOT_DIR / "index.html").write_text(render_spot(data, today), encoding="utf-8")
     areas = write_areas(data, today)
+    stays = write_stay(data, today)
     if _uses("問い合わせ"):
         CONTACT_DIR.mkdir(parents=True, exist_ok=True)
         (CONTACT_DIR / "index.html").write_text(render_contact(today), encoding="utf-8")
@@ -1285,7 +1654,8 @@ def write_static(data: dict, today: date) -> None:
     ma, mb = html_text.find(MONTHS_MARK[0]), html_text.find(MONTHS_MARK[1])
     if ma >= 0 and mb >= 0:
         links = ('<a href="./weekend/">今週末のイベント</a><br><a href="./spot/">新しいお店</a><br>'
-                 + ("市町別：" + " ・ ".join(f'<a href="./area/{quote(a)}/">{a}</a>' for a in areas) + "<br>" if areas else "")) + "".join(f'<a href="./month/{k}/">{_month_label(k)}のイベント</a><br>' for k in months)
+                 + ("市町別：" + " ・ ".join(f'<a href="./area/{quote(a)}/">{a}</a>' for a in areas) + "<br>" if areas else "")
+                 + (f'<a href="./stay/">{KEN}の宿（市町別・PR）</a>' + "".join(f' ・ <a href="./stay/{quote(c)}/">{c}</a>' for c in stays) + "<br>" if HOTELS else "")) + "".join(f'<a href="./month/{k}/">{_month_label(k)}のイベント</a><br>' for k in months)
         html_text = html_text[:ma] + MONTHS_MARK[0] + links + html_text[mb:]
     INDEX.write_text(html_text, encoding="utf-8")
     lastmod = data.get("updated") or today.isoformat()
@@ -1294,6 +1664,8 @@ def write_static(data: dict, today: date) -> None:
             *([(f"{SITE}/contact/", "2026-10-20", "yearly")] if _uses("問い合わせ") else []),
             *([(f"{SITE}/submit/", "2026-10-20", "yearly")] if _uses("掲載申し込み") else []),
             *[(f"{SITE}/area/{quote(a)}/", lastmod, "daily") for a in areas],
+            *([(f"{SITE}/stay/", today.isoformat(), "weekly")] if HOTELS else []),
+            *[(f"{SITE}/stay/{quote(c)}/", today.isoformat(), "weekly") for c in stays],
             (f"{SITE}/about/", "2026-10-04", "monthly")]
     urls += [(f"{SITE}/month/{k}/", lastmod, "daily") for k in months]
     SITEMAP.write_text(

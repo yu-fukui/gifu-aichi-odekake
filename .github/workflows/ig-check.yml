@@ -1,0 +1,58 @@
+name: Instagram の投稿の権限を確かめる
+
+# 2026-10-17 統括（代表の依頼：リール動画を Threads と Instagram に自動で出したい）。
+# Secrets の IG_USER_ID・IG_ACCESS_TOKEN がどの Instagram アカウントのものか、動画（リール）を出す権限があるかを、
+# 読むだけで確かめる。何も投稿しない。ログに出すのはアカウント名と「できる／できない」だけ（鍵は出さない）。
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: 確かめる
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error, urllib.parse
+          uid, key = os.environ.get("IG_USER_ID", "").strip(), os.environ.get("IG_ACCESS_TOKEN", "").strip()
+          if not uid or not key:
+              print("IG_USER_ID か IG_ACCESS_TOKEN が未設定です"); raise SystemExit(1)
+          def get(path, **p):
+              p["access_token"] = key
+              try:
+                  with urllib.request.urlopen(f"https://graph.facebook.com/v26.0/{path}?{urllib.parse.urlencode(p)}", timeout=30) as r:
+                      return json.load(r)
+              except urllib.error.HTTPError as e:
+                  try:
+                      err = json.load(e).get("error", {})
+                  except Exception:
+                      err = {}
+                  return {"error": f"{err.get('code', e.code)} {str(err.get('message', ''))[:120]}".replace(key, "＊＊＊")}
+          a = get(uid, fields="username,name,followers_count")
+          print("アカウント:", a.get("username") or a.get("error"))
+          lim = get(f"{uid}/content_publishing_limit", fields="quota_usage,config")
+          print("投稿の権限（instagram_content_publish）:", "あり" if "error" not in lim else f"なし（{lim['error']}）")
+          # 鍵の期限（自分の鍵で自分を調べる。値は出さない）
+          dbg = get("debug_token", input_token=key).get("data") or {}
+          if dbg:
+              exp = dbg.get("expires_at")
+              print("鍵の期限:", "なし" if exp in (0, None) else __import__("datetime").datetime.fromtimestamp(exp).isoformat())
+              print("鍵の種類:", dbg.get("type"), "／有効:", dbg.get("is_valid"))
+              print("権限:", ", ".join(sorted(dbg.get("scopes") or [])))
+          else:
+              print("鍵の期限: 読めません")
+          # 毎朝のお店の新着読み（business_discovery）が使えるか。巡回先の1つ目で試す
+          import pathlib
+          try:
+              先 = json.loads(pathlib.Path("neta/巡回先.json").read_text(encoding="utf-8")).get("インスタ", [])[0]["ユーザー名"]
+          except Exception:
+              先 = "instagram"
+          bd = get(uid, fields=f"business_discovery.username({先}){{username,media.limit(1){{timestamp}}}}")
+          print(f"お店の新着読み（{先}）:", "読めた" if "error" not in bd else f"読めない（{bd['error']}）")
+          PY
