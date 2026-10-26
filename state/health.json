@@ -1,10 +1,10 @@
 {
   "リポジトリ": "yu-fukui/gifu-aichi-odekake",
-  "作成時刻": "2026-10-25 23:58 JST",
-  "今日": "2026-10-25",
+  "作成時刻": "2026-10-26 20:03 JST",
+  "今日": "2026-10-26",
   "状態": "ok",
   "明日のキュー": {
-    "対象日": "2026-10-26",
+    "対象日": "2026-10-27",
     "本数": 10,
     "予定本数": 10,
     "足りない": 0,
@@ -24,39 +24,79 @@
     "読めない行": [],
     "投稿": [
       {
-        "id": "p-2026102506-qlgf",
+        "id": "p-2026102606-9myr",
         "時刻": "06:00",
-        "1行目": "11月3日（火・祝）まで、海津市の国営木曽三川公園 木曽三川公園センターで「秋の",
-        "文字数": 100,
+        "1行目": "名古屋市北区大曽根の味噌煮込みうどん店「大久手山本屋」の新店舗が、10月14日に",
+        "文字数": 154,
         "本文にリンク": false,
         "続きにリンク": true,
         "出典元あり": true,
         "PRあり": false
       },
       {
-        "id": "p-2026102508-gigd",
+        "id": "p-2026102608-lpym",
         "時刻": "08:00",
-        "1行目": "名古屋市西区那古野のとんかつ店「四間道とんかつ わだ福」が、10月22日にグラン",
-        "文字数": 172,
+        "1行目": "名古屋市東区矢田南のイオンモールナゴヤドーム前3階に、「イオンモールナゴヤドーム",
+        "文字数": 139,
         "本文にリンク": false,
         "続きにリンク": true,
         "出典元あり": true,
         "PRあり": false
       },
       {
-        "id": "p-2026102510-sx1o",
+        "id": "p-2026102610-obii",
         "時刻": "10:00",
-        "1行目": "12月20日（日）まで、瀬戸市の愛知県陶磁美術館で企画展「夢見る建築―中国古代の",
-        "文字数": 109,
+        "1行目": "名古屋・星ヶ丘の百貨店「星ヶ丘三越」の食品フロアがリニューアルしました。",
+        "文字数": 78,
         "本文にリンク": false,
         "続きにリンク": true,
         "出典元あり": true,
         "PRあり": false
       },
       {
-        "id": "p-2026102512-m2t9",
+        "id": "p-2026102612-6899",
         "時刻": "12:00",
-        "1行目": "11月14日（土）から、蒲郡市のラグーナテンボス・ラグナシアで「マツケン★イルミ",
+        "1行目": "JR岐阜駅直結の「アクティブG」2階（岐阜市橋本町）に、しゃぶしゃぶ食べ放題の「",
+        "文字数": 114,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026102614-6c2o",
+        "時刻": "14:00",
+        "1行目": "冬のはじめの夜に1回だけ、岐阜・愛知のイルミネーションを見に行くなら、どこにしま",
+        "文字数": 164,
+        "本文にリンク": false,
+        "続きにリンク": false,
+        "出典元あり": false,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026102715-0s03",
+        "時刻": "15:00",
+        "1行目": "【岐阜・愛知】コインランドリーがある宿7選🏨",
+        "文字数": 216,
+        "本文にリンク": false,
+        "続きにリンク": false,
+        "出典元あり": false,
+        "PRあり": true
+      },
+      {
+        "id": "p-2026102617-jl8t",
+        "時刻": "17:00",
+        "1行目": "10月28日（水）から、名古屋駅のジェイアール名古屋タカシマヤで「第16回 大東",
+        "文字数": 92,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026102619-98tb",
+        "時刻": "19:00",
+        "1行目": "11月15日（日）、名古屋市熱田区で「あったか！あつた魅力発見市2026」が開か",
         "文字数": 88,
         "本文にリンク": false,
         "続きにリンク": true,
@@ -64,60 +104,20 @@
         "PRあり": false
       },
       {
-        "id": "p-2026102514-2rr4",
-        "時刻": "14:00",
-        "1行目": "秋の連休に家族で1泊だけ、岐阜・愛知の町に泊まるなら、どこにしますか？",
-        "文字数": 127,
-        "本文にリンク": false,
-        "続きにリンク": false,
-        "出典元あり": false,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026102515-9bv7",
-        "時刻": "15:00",
-        "1行目": "11月3日（火・祝）、岐阜公園の中にある岐阜市歴史博物館が、総合展示室をリニュー",
-        "文字数": 112,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": true
-      },
-      {
-        "id": "p-2026102517-u8ca",
-        "時刻": "17:00",
-        "1行目": "11月29日（日）まで、名古屋城の西の丸御蔵城宝館で、開館5周年記念特別展「黄金",
-        "文字数": 85,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026102519-pcjb",
-        "時刻": "19:00",
-        "1行目": "11月22日（日）、各務原市の航空自衛隊 岐阜基地で「岐阜基地航空祭2026」が",
-        "文字数": 84,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026102521-x8d3",
+        "id": "p-2026102621-ril4",
         "時刻": "21:00",
-        "1行目": "10月31日（土）から、高山市の飛騨高山まちの博物館で「第46回飛騨の伝統的工芸",
-        "文字数": 84,
+        "1行目": "11月6日（金）から、岐阜公園内の岐阜市歴史博物館で特別展「動き出す浮世絵展 G",
+        "文字数": 106,
         "本文にリンク": false,
         "続きにリンク": true,
         "出典元あり": true,
         "PRあり": false
       },
       {
-        "id": "p-2026102523-y2e2",
+        "id": "p-2026102623-r701",
         "時刻": "23:00",
-        "1行目": "10月30日（金）から11月3日（火・祝）まで、高山市奥飛騨温泉郷の新穂高ロープ",
-        "文字数": 102,
+        "1行目": "各務原市に、熟成三元豚のとんかつ専門店「厚切りとんかつ よし平」が10月28日（",
+        "文字数": 93,
         "本文にリンク": false,
         "続きにリンク": true,
         "出典元あり": true,
@@ -131,12 +131,12 @@
       "ファイル": "access.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 09:29 JST",
+        "時刻": "2026-10-26 09:39 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40146901300"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40250396784"
       },
-      "最後の成功": "2026-10-25 09:29 JST",
+      "最後の成功": "2026-10-26 09:39 JST",
       "今日走ったか": true,
       "24時間の実行": 1,
       "24時間の失敗": 0,
@@ -153,7 +153,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40202365463"
       },
       "最後の成功": "2026-10-25 23:28 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -163,14 +163,14 @@
       "ファイル": "audience.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-19 12:06 JST",
+        "時刻": "2026-10-26 12:03 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/39193101146"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40262115964"
       },
-      "最後の成功": "2026-10-19 12:06 JST",
-      "今日走ったか": false,
-      "24時間の実行": 0,
+      "最後の成功": "2026-10-26 12:03 JST",
+      "今日走ったか": true,
+      "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -185,7 +185,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40202361163"
       },
       "最後の成功": "2026-10-25 23:28 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -233,12 +233,12 @@
       "ファイル": "health-snapshot.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 23:58 JST",
+        "時刻": "2026-10-26 20:03 JST",
         "結果": "in_progress",
-        "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40204753354"
+        "きっかけ": "workflow_run",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40312160187"
       },
-      "最後の成功": "2026-10-25 23:41 JST",
+      "最後の成功": "2026-10-25 23:58 JST",
       "今日走ったか": true,
       "24時間の実行": 3,
       "24時間の失敗": 0,
@@ -249,14 +249,14 @@
       "ファイル": "hotel-collect.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-19 12:05 JST",
+        "時刻": "2026-10-26 12:01 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/39192992083"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40261971427"
       },
-      "最後の成功": "2026-10-19 12:05 JST",
-      "今日走ったか": false,
-      "24時間の実行": 0,
+      "最後の成功": "2026-10-26 12:01 JST",
+      "今日走ったか": true,
+      "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -277,14 +277,14 @@
       "ファイル": "neta-collect.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-24 08:19 JST",
+        "時刻": "2026-10-26 07:00 JST",
         "結果": "success",
-        "きっかけ": "workflow_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40038997078"
+        "きっかけ": "repository_dispatch",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40238138572"
       },
-      "最後の成功": "2026-10-24 08:19 JST",
-      "今日走ったか": false,
-      "24時間の実行": 0,
+      "最後の成功": "2026-10-26 07:00 JST",
+      "今日走ったか": true,
+      "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -293,24 +293,20 @@
       "ファイル": "odekake.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 20:50 JST",
-        "結果": "failure",
-        "きっかけ": "push",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40190550128"
+        "時刻": "2026-10-26 03:19 JST",
+        "結果": "success",
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40220729907"
       },
-      "最後の成功": "2026-10-25 20:50 JST",
+      "最後の成功": "2026-10-26 03:19 JST",
       "今日走ったか": true,
-      "24時間の実行": 4,
+      "24時間の実行": 3,
       "24時間の失敗": 1,
       "最後の失敗": {
         "時刻": "2026-10-25 20:50 JST",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40190550128",
-        "理由": [
-          "build: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog",
-          "build: Process completed with exit code 1."
-        ]
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40190550128"
       },
-      "判定": "失敗"
+      "判定": "成功"
     },
     {
       "名前": "楽天キーの確認だけ",
@@ -335,12 +331,12 @@
       "ファイル": "status-numbers.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 09:33 JST",
+        "時刻": "2026-10-26 09:44 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40147152674"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40250766775"
       },
-      "最後の成功": "2026-10-25 09:33 JST",
+      "最後の成功": "2026-10-26 09:44 JST",
       "今日走ったか": true,
       "24時間の実行": 2,
       "24時間の失敗": 0,
@@ -355,14 +351,14 @@
       "ファイル": "test.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 20:53 JST",
+        "時刻": "2026-10-26 15:47 JST",
         "結果": "success",
         "きっかけ": "push",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40190751680"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40281865237"
       },
-      "最後の成功": "2026-10-25 20:53 JST",
+      "最後の成功": "2026-10-26 15:47 JST",
       "今日走ったか": true,
-      "24時間の実行": 5,
+      "24時間の実行": 8,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -391,12 +387,12 @@
       "ファイル": "threads-compose.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 23:41 JST",
+        "時刻": "2026-10-26 20:00 JST",
         "結果": "success",
-        "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40203392741"
+        "きっかけ": "repository_dispatch",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40311812677"
       },
-      "最後の成功": "2026-10-25 23:41 JST",
+      "最後の成功": "2026-10-26 20:00 JST",
       "今日走ったか": true,
       "24時間の実行": 2,
       "24時間の失敗": 0,
@@ -411,12 +407,12 @@
       "ファイル": "threads-post.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 23:50 JST",
+        "時刻": "2026-10-26 20:00 JST",
         "結果": "success",
         "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40204106367"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40311808905"
       },
-      "最後の成功": "2026-10-25 23:50 JST",
+      "最後の成功": "2026-10-26 20:00 JST",
       "今日走ったか": true,
       "24時間の実行": 100,
       "24時間の失敗": 0,
@@ -427,14 +423,14 @@
       "ファイル": "threads-refresh-token.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-19 17:32 JST",
+        "時刻": "2026-10-26 17:35 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/39223528856"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40293270993"
       },
-      "最後の成功": "2026-10-19 17:32 JST",
-      "今日走ったか": false,
-      "24時間の実行": 0,
+      "最後の成功": "2026-10-26 17:35 JST",
+      "今日走ったか": true,
+      "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -443,12 +439,12 @@
       "ファイル": "threads-review.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 23:20 JST",
+        "時刻": "2026-10-26 19:15 JST",
         "結果": "success",
-        "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40201784127"
+        "きっかけ": "repository_dispatch",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40305962189"
       },
-      "最後の成功": "2026-10-25 23:20 JST",
+      "最後の成功": "2026-10-26 19:15 JST",
       "今日走ったか": true,
       "24時間の実行": 2,
       "24時間の失敗": 0,
@@ -459,16 +455,16 @@
       "ファイル": "pages-build-deployment",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-25 23:41 JST",
-        "結果": "success",
+        "時刻": "2026-10-26 20:03 JST",
+        "結果": "in_progress",
         "きっかけ": "dynamic",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40203449145"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40312147958"
       },
-      "最後の成功": "2026-10-25 23:41 JST",
+      "最後の成功": "2026-10-26 19:15 JST",
       "今日走ったか": true,
-      "24時間の実行": 27,
+      "24時間の実行": 43,
       "24時間の失敗": 0,
-      "判定": "成功"
+      "判定": "実行中"
     }
   ]
 }
