@@ -1,6 +1,6 @@
 {
   "リポジトリ": "yu-fukui/gifu-aichi-odekake",
-  "作成時刻": "2026-10-29 01:57 JST",
+  "作成時刻": "2026-10-29 02:13 JST",
   "今日": "2026-10-29",
   "状態": "要確認",
   "明日のキュー": {
@@ -233,14 +233,14 @@
       "ファイル": "health-snapshot.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-29 01:56 JST",
+        "時刻": "2026-10-29 02:13 JST",
         "結果": "in_progress",
-        "きっかけ": "workflow_run",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40730924435"
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40733594497"
       },
-      "最後の成功": "2026-10-28 20:01 JST",
+      "最後の成功": "2026-10-29 01:56 JST",
       "今日走ったか": true,
-      "24時間の実行": 2,
+      "24時間の実行": 3,
       "24時間の失敗": 0,
       "判定": "実行中"
     },
@@ -407,12 +407,12 @@
       "ファイル": "threads-post.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-29 01:50 JST",
+        "時刻": "2026-10-29 02:10 JST",
         "結果": "success",
         "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40729897240"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40733138077"
       },
-      "最後の成功": "2026-10-29 01:50 JST",
+      "最後の成功": "2026-10-29 02:10 JST",
       "今日走ったか": true,
       "24時間の実行": 100,
       "24時間の失敗": 0,
@@ -455,14 +455,14 @@
       "ファイル": "pages-build-deployment",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-29 01:56 JST",
+        "時刻": "2026-10-29 01:57 JST",
         "結果": "success",
         "きっかけ": "dynamic",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40730897634"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40731028913"
       },
-      "最後の成功": "2026-10-29 01:56 JST",
+      "最後の成功": "2026-10-29 01:57 JST",
       "今日走ったか": true,
-      "24時間の実行": 24,
+      "24時間の実行": 25,
       "24時間の失敗": 0,
       "判定": "成功"
     }
