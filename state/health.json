@@ -1,6 +1,6 @@
 {
   "リポジトリ": "yu-fukui/gifu-aichi-odekake",
-  "作成時刻": "2026-10-30 02:14 JST",
+  "作成時刻": "2026-10-30 02:28 JST",
   "今日": "2026-10-30",
   "状態": "ok",
   "明日のキュー": {
@@ -244,14 +244,14 @@
       "ファイル": "health-snapshot.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-30 02:14 JST",
+        "時刻": "2026-10-30 02:28 JST",
         "結果": "in_progress",
-        "きっかけ": "workflow_run",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40919440159"
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40921677278"
       },
-      "最後の成功": "2026-10-29 20:00 JST",
+      "最後の成功": "2026-10-30 02:14 JST",
       "今日走ったか": true,
-      "24時間の実行": 2,
+      "24時間の実行": 3,
       "24時間の失敗": 0,
       "判定": "実行中"
     },
@@ -418,12 +418,12 @@
       "ファイル": "threads-post.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-30 02:10 JST",
+        "時刻": "2026-10-30 02:20 JST",
         "結果": "success",
         "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40918738118"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40920362122"
       },
-      "最後の成功": "2026-10-30 02:10 JST",
+      "最後の成功": "2026-10-30 02:20 JST",
       "今日走ったか": true,
       "24時間の実行": 100,
       "24時間の失敗": 0,
@@ -466,16 +466,16 @@
       "ファイル": "pages-build-deployment",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-10-30 02:14 JST",
-        "結果": "in_progress",
+        "時刻": "2026-10-30 02:15 JST",
+        "結果": "success",
         "きっかけ": "dynamic",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40919416827"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/40919540299"
       },
-      "最後の成功": "2026-10-29 23:01 JST",
+      "最後の成功": "2026-10-30 02:15 JST",
       "今日走ったか": true,
-      "24時間の実行": 42,
+      "24時間の実行": 43,
       "24時間の失敗": 0,
-      "判定": "実行中"
+      "判定": "成功"
     }
   ]
 }
