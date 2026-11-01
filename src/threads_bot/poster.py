@@ -64,9 +64,9 @@ def publish_item(
     post_id = client.publish(creation_id)
     logger.info("投稿しました id=%s post_id=%s", item.id, post_id)
 
-    # 連投は 1 件目への返信として順につなげる
+    # 連投は 1 件目への返信として順につなげる。
     # 本体はもう出ているので、ここで失敗しても投稿済みとして記録する（失敗扱いにすると、次の回にまた本体から出し直してしまう。
-    # 2026-10-30 福井のカフェ5選リール：返信が「HTTP 400 An unknown error」で落ち、10分ごとに本体が4回出た）
+    # 2026-10-30 カフェ5選リール：返信が「HTTP 400 An unknown error」で落ち、10分ごとに本体が4回出た）
     try:
         _post_thread(client, item, config, post_id)
     except ThreadsAPIError as exc:
@@ -96,7 +96,6 @@ def _post_thread(client: ThreadsClient, item: QueueItem, config: Config, post_id
         _wait_for_container(client, reply_container, "TEXT", config)
         reply_to = client.publish(reply_container)
         logger.info("連投 %d 件目を投稿しました post_id=%s", index, reply_to)
-
 
 
 def _wait_for_container(

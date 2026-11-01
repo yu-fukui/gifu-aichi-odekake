@@ -62,6 +62,7 @@ jobs:
           fi
           python -m threads_bot $args
 
+      # 1件が失敗しても、ほかに出た投稿の記録は残す（記録が残らないと、次の回にまた出してしまう。2026-10-30）
       - name: 投稿済み記録をコミットする
         if: always()
         run: ./scripts/commit_file.sh
@@ -69,6 +70,7 @@ jobs:
       # 2026-10-17 代表（統括経由）：リール動画を Instagram（@fukui._fukui）にも出す。posts/ig-queue.jsonl の予約時刻が来たものだけ。
       # 鍵のアカウントが region.json の「インスタ」とちがえば出さない
       - name: Instagram に予約時刻が来たリールを出す
+        # Threads の側で1件失敗しても、Instagram は出す（2026-10-30 カフェ5選：Threads の失敗で Instagram が毎回とばされた）
         if: always() && hashFiles('posts/ig-queue.jsonl') != ''
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
