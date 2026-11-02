@@ -1,6 +1,6 @@
 {
   "リポジトリ": "yu-fukui/gifu-aichi-odekake",
-  "作成時刻": "2026-11-03 05:37 JST",
+  "作成時刻": "2026-11-03 05:50 JST",
   "今日": "2026-11-03",
   "状態": "ok",
   "明日のキュー": {
@@ -233,14 +233,14 @@
       "ファイル": "health-snapshot.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-03 05:37 JST",
+        "時刻": "2026-11-03 05:50 JST",
         "結果": "in_progress",
-        "きっかけ": "workflow_run",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41520915014"
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41522819189"
       },
-      "最後の成功": "2026-11-02 20:00 JST",
+      "最後の成功": "2026-11-03 05:37 JST",
       "今日走ったか": true,
-      "24時間の実行": 2,
+      "24時間の実行": 3,
       "24時間の失敗": 0,
       "判定": "実行中"
     },
@@ -407,16 +407,16 @@
       "ファイル": "threads-post.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-03 05:30 JST",
-        "結果": "success",
+        "時刻": "2026-11-03 05:50 JST",
+        "結果": "in_progress",
         "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41519828093"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41522852742"
       },
-      "最後の成功": "2026-11-03 05:30 JST",
+      "最後の成功": "2026-11-03 05:40 JST",
       "今日走ったか": true,
       "24時間の実行": 100,
       "24時間の失敗": 0,
-      "判定": "成功"
+      "判定": "実行中"
     },
     {
       "名前": "Threads トークン更新",
@@ -455,14 +455,14 @@
       "ファイル": "pages-build-deployment",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-03 05:37 JST",
+        "時刻": "2026-11-03 05:38 JST",
         "結果": "success",
         "きっかけ": "dynamic",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41520870542"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41521008927"
       },
-      "最後の成功": "2026-11-03 05:37 JST",
+      "最後の成功": "2026-11-03 05:38 JST",
       "今日走ったか": true,
-      "24時間の実行": 32,
+      "24時間の実行": 33,
       "24時間の失敗": 0,
       "判定": "成功"
     }
