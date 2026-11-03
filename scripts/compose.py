@@ -29,7 +29,7 @@ import sys
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -906,7 +906,7 @@ def build_prompt(board: str, neta: str, articles: str, works: str, recent: str, 
         "3. そのあと本文に、場所・営業時間・定休日（出典にあるものだけ。無いものは書かない）。返信だけに入れない",
         "   - **定休日の曜日に、そのお店を紹介する枠に入れない**（例：水曜定休の店を水曜の投稿にしない。2026-10-27 運用部・福井）。その日に合う別のお店・話題にする",
         "4. 出典にある事実は言い切る（「オープンしました」「〜が看板です」）。**「〜そうです」「〜とのこと」は使わない**（お店・施設・宿の紹介すべて。開店から時間がたった店も同じ）。見立て・感想だけは決めつけない形で。型から外れた案は機械で作り直させます",
-        "5. 開店から1か月以内なら、最後に「オープンおめでとうございます。」を添える。1か月より前に開いた店は、ふつうの紹介として書く（おめでとうは付けない）",
+        "5. **「オープンおめでとうございます。」は、出典でオープン日がはっきりしていて、投稿の日がオープン日の10日前〜10日後のときだけ**、最後に添える（2026-11-03 代表）。オープン日が分からない・あいまい（「秋ごろ」「12月中旬」など）か、10日をこえるときは付けない。条件に合わないおめでとうは機械で外します",
         "6. 返信（THREAD の1件目）の出典元は、お店の公式（公式サイト・公式 Instagram のアカウントなど）を最初に。公式が無いときだけ記事",
         "",
         "## 事実について（最重要）",
@@ -1335,7 +1335,47 @@ _伝え聞き = re.compile(r"[るただいすくつうぐぶむぬ]そうです|
 
 
 # 開店から1か月以内（おめでとうを添える）か、これから開く店の投稿。2026-11-03 代表「新店投稿は日時と『オープン』を一行目に入れる」
-_開いたばかり = re.compile(r"オープンおめでとう|開店おめでとう|オープンします|オープン予定|オープンする|オープンを迎え")
+_開いたばかり = re.compile(r"オープンおめでとう|開店おめでとう|オープンします|オープン予定|オープンする|オープンを迎え|日[（(]?[月火水木金土日]?[）)]?(?:\d{1,2}時)?(?:に)?(?:グランド)?オープン(?:した、|、)")
+
+
+# 「オープンおめでとうございます」は、オープン日がはっきりしていて、投稿の日がその前後10日以内のときだけ（2026-11-03 代表）
+おめでとうの日数 = 10
+_おめでとう文 = re.compile(r"\n*[^\n。]*?(?:オープン|開店|開業|グランドオープン)[、,]?\s*おめでとうございます[。！!]*")
+_オープンの日 = re.compile(r"(\d{1,2})月(\d{1,2})日[^\n。]{0,12}?(?:グランド)?オープン|(\d{1,2})/(\d{1,2})[^\n。]{0,12}?オープン")
+
+
+def オープン日(text: str, 日) -> "date | None":
+    """本文の1行目（無ければ本文）から、オープンの日付を読む。年は投稿の日に近いほうにする。"""
+    行 = [l for l in (text or "").splitlines() if l.strip()]
+    for 文 in ([行[0]] if 行 else []) + ["\n".join(行)]:
+        m = _オープンの日.search(文)
+        if not m:
+            continue
+        月, d = int(m.group(1) or m.group(3)), int(m.group(2) or m.group(4))
+        候補 = []
+        for 年 in (日.year - 1, 日.year, 日.year + 1):
+            try:
+                候補.append(date(年, 月, d))
+            except ValueError:
+                pass
+        return min(候補, key=lambda x: abs((x - 日).days)) if 候補 else None
+    return None
+
+
+def おめでとうを確かめる(text: str, 日) -> tuple[str, str | None]:
+    """条件に合わない「おめでとうございます」を外す。外したら (新しい本文, わけ) を返す。"""
+    if "おめでとう" not in (text or ""):
+        return text, None
+    開 = オープン日(text, 日)
+    if 開 is None:
+        わけ = "オープン日が本文に無い"
+    elif abs((日 - 開).days) > おめでとうの日数:
+        わけ = f"オープン日（{開:%m/%d}）から{abs((日 - 開).days)}日"
+    else:
+        return text, None
+    新 = _おめでとう文.sub("", text)
+    新 = re.sub(r"\n{3,}", "\n\n", 新).strip()
+    return 新, わけ
 _日付 = re.compile(r"\d{1,2}月\d{1,2}日|\d{1,2}/\d{1,2}")
 
 
@@ -2016,6 +2056,8 @@ def 新店の2回目の1回目(n: str, 名記: dict) -> str | None:
     過去 = (getattr(名記, "過去", None) or {}).get(n) or []
     if 対象日 is None or len(過去) != 1 or not 過去[0][2] or n not in 名記:
         return None
+    if n not in (getattr(名記, "店名", None) or {n}):   # 1回目の1行目の名前（店名）だけ。メニュー名は数えない
+        return None
     if 名記[n][0] > 対象日.isoformat():   # 先の日にも入っている（手で入れた2回目など）
         return None
     差 = _日差(過去[0][0], 対象日)
@@ -2046,6 +2088,7 @@ def 名の記録(投稿たち: list[dict], target_date) -> dict[str, tuple[str, 
     記.催し = set()
     記.過去 = {}
     記.文 = {}
+    記.店名 = set()
     for e in 投稿たち:
         at = str(e.get("scheduled_at", ""))
         d = at[:10]
@@ -2065,6 +2108,8 @@ def 名の記録(投稿たち: list[dict], target_date) -> dict[str, tuple[str, 
             if 差 > 0 and (d, 時) not in [(x[0], x[1]) for x in 記.過去.get(n, [])]:
                 記.過去.setdefault(n, []).append((d, 時, 新店))
                 記.文.setdefault(n, str(e.get("text") or ""))
+                if 新店 and n in next((l for l in str(e.get("text") or "").splitlines() if l.strip()), ""):
+                    記.店名.add(n)
         if 差 > 店を空ける日数:
             continue   # 15〜31日前は新店の回数を数えるだけ
         催し = 催しの投稿(e)
@@ -2143,8 +2188,10 @@ def 名で止める理由(e: dict, 名記: dict) -> str | None:
         return None
     for n in sorted(名前たち(e)):
         if 名が近い(n, 名記, 催しの投稿(e)):
-            if 新店の投稿(e) and 新店の2回目の1回目(n, 名記):
-                continue   # 新店の2回目（10日以内）は14日の決まりの例外（2026-11-03 代表）
+            if 新店の2回目の1回目(n, 名記):
+                # 新店の2回目（10日以内）は14日の決まりの例外（2026-11-03 代表）。2回目の文に「オープン」が無くても通す
+                # （11/4 石川：Anthologie en rêve・リストランテヨシムラの2回目が、言い回しのせいで止まった）
+                continue
             d, 時 = 名記[n]
             return f"「{n}」を {d} {時}:00 にも入れている（同じお店・施設は前後{店を空ける日数}日、催しは{同じ名を空ける日数}日あける）"
     return None
@@ -2181,7 +2228,7 @@ def 使えない名の一覧(名記: dict) -> str:
         行 += ("\n\n### 2回目を出してよい新店（2026-11-03 代表「2回目は10日以内」。**ネタ帳に材料があれば、ほかのお店より先に選ぶ**）\n"
               "1回目と切り口を変える。**1回目と同じ売り・同じ言い回しを使わない**（2行目からは、出典にある別の事実：メニュー・店主・場所・営業時間・期間限定など。"
               "2026-11-03 開発・ぎふあいち：同じ売りの2回目が 10,079→48 に落ちた）。1行目の「日時＋オープン」の型は同じ。"
-              "最後の「オープンおめでとうございます。」も開店から1か月以内なら付ける。3回目は出さない\n" + 二回目)
+              "最後の「オープンおめでとうございます。」は、オープン日の前後10日以内のときだけ付ける。3回目は出さない\n" + 二回目)
     return 行
 
 
@@ -2194,7 +2241,8 @@ def 新店の2回目の一覧(名記: dict) -> str:
         一回目 = 新店の2回目の1回目(n, 名記)
         if 一回目:
             期限 = datetime.strptime(一回目, "%Y-%m-%d").date() + timedelta(days=新店の2回目の日数)
-            文 = [l.strip() for l in (getattr(名記, "文", {}) or {}).get(n, "").splitlines() if l.strip()]
+            文 = [l.strip() for l in (getattr(名記, "文", {}) or {}).get(n, "").splitlines()
+                 if l.strip() and l.strip() not in 検索語たち and "おめでとう" not in l]
             売り = " ／ ".join(文[1:3])[:120]
             出.append(f"- 「{n}」（1回目 {一回目}・2回目は {期限:%m/%d} まで）" + (f"\n  1回目に書いた売り（くり返さない）：{売り}" if 売り else ""))
     return "\n".join(出)
@@ -2382,7 +2430,7 @@ def 予備で埋める(target_date, 空き: list[int], 記: dict, 今日の出�
         if 合う and not (urls & 今日の出典) and not 出典で止める理由(urls, 記, target_date) and not 名で止める理由(x, 名記 or {}):
             h = 合う[0]
             空き.remove(h)
-            item = {"id": new_id(h, existing_ids), "text": x["text"],
+            item = {"id": new_id(h, existing_ids), "text": おめでとうを確かめる(x["text"], target_date)[0],
                     "scheduled_at": f"{target_date.isoformat()}T{h:02d}:00:00+09:00",
                     "thread": x.get("thread") or [], "note": x.get("note") or "予備から"}
             existing_ids.add(item["id"])
@@ -2869,6 +2917,10 @@ def main() -> None:
                 thread = [_メンションを確かめる(t) for t in thread]
                 thread = [t for t in thread if t]
 
+            text, _外した = おめでとうを確かめる(text, target_date)
+            if _外した:
+                print(f"::notice::{hour}:00 の「おめでとうございます」を外しました（{_外した}。前後{おめでとうの日数}日だけ付ける）")
+
             # 同じ催しを 1 日に 2 本出していないかを、ここで機械的に確かめる。
             # 指示だけだと読み飛ばされる（9/24 ぶんで 3 組の重複が通った）。
             # 「今日で終わる」話は 6:00 のまとめ枠の仕事。
@@ -2884,7 +2936,11 @@ def main() -> None:
             # 2026-09-29 代表了承。前の「前の日だけ見る・先の予定は何度でも」を改めた。
             if hour != 6 and not (今週末まとめの日(target_date) and hour == WEEKEND_HOUR):
                 この名 = {"text": text, "thread": thread, "note": post.get("note")}
-                わけ = 出典で止める理由(source_urls(text, thread), 記, target_date) or 名で止める理由(この名, 名記)
+                わけ = 出典で止める理由(source_urls(text, thread), 記, target_date)
+                # ふるさと納税の枠は、返礼品の切り口の回し方で重なりを避けている。「」の言葉（「秋のお魚たち」など）の7日の決まりは当てない
+                # （2026-11-03 運用部・石川：11/4 22:00 が、11/1 21:00 の「秋のお魚たち」と重なって空いた）
+                if not わけ and not (kifu and hour == KIFU_HOUR):
+                    わけ = 名で止める理由(この名, 名記)
                 if not わけ and 同じ名を見る:
                     # 同じ日の別の枠と同じ店・催しも止める
                     重 = sorted(名前たち(この名) & set(今日の名))
