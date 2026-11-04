@@ -39,7 +39,7 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ANTHROPIC_MODEL: claude-sonnet-5-5  # ぎふあいちだけ（写し直したら、また入れる）
       # 考える量。空なら送らない（2026-11-03。ぎふあいちは Sonnet で medium）
-      ANTHROPIC_EFFORT: medium  # ぎふあいちだけ
+      ANTHROPIC_EFFORT: low  # ぎふあいちだけ（medium でも1回目は考える分で 24000 を使い切った。11/4 試し）
       REVIEW_HOLD_DAYS: ${{ vars.REVIEW_HOLD_DAYS }}
     steps:
       # 起動の時点ではなく、動き出した時点の main を取る（同じ時刻に2回起動されたとき、あとの回が前の回の投稿済み記録を見られるように。2026-10-17 cron-job.org の引っ越しで重なった）
