@@ -1,6 +1,396 @@
 {
- "updated": "2026-11-05",
+ "updated": "2026-11-09",
  "items": [
+  {
+   "text": "11/21（土）〜12/30（水）・2027/1/2（土）・3（日）一宮市の138タワーパークで「138ウィンターイルミ」。点灯は17:00〜21:00（初日の点灯は17:45予定）。料金は無料で、タワー展望階の利用は有料。テーマは「LINK～繋がる光の物語」で、園内12か所のスポットがある",
+   "note": "一宮で、年末までと正月の2日間、冬の光を見に行ける",
+   "kind": "催し",
+   "area": "一宮市",
+   "start": "2026-11-21",
+   "end": "2026-12-30",
+   "source": "https://www.kisosansenkoen.jp/~tower138/m138event_christmas.html",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": null,
+    "title": "138ウィンターイルミ - １３８タワーパーク | 国営木曽三川公園",
+    "description": "国営木曽三川公園公式ホームページ。愛知、岐阜、三重の３県にまたがる日本一広い国営公園。三派川地区・中央水郷地区・河口地区の3地区からなり、全部で13拠点が開園しています。",
+    "site": "国営木曽三川公園"
+   }
+  },
+  {
+   "text": "11/21（土）〜2027/1/11（月・祝）江南市のフラワーパーク江南で「冬のガーデンパーティ」。9:30〜16:30（11月中は〜17:00）。ビオラやパンジー、アイスチューリップの花壇や、冬のクイズラリー（期間中毎日・無料）がある。休園日は12/14（月）・12/31（木）・2027/1/1（金・祝）・4（月）・12（火）・18（月）・25（月）",
+   "note": "尾張北部で、冬の花とクイズラリーを楽しめる",
+   "kind": "話題",
+   "area": "江南市",
+   "start": "2026-11-21",
+   "end": "2026-12-31",
+   "days": [
+    "2026-12-14",
+    "2026-12-31"
+   ],
+   "source": "https://www.kisosansenkoen.jp/~konankaki/event_winter.html",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": null,
+    "title": "冬のガーデンパーティ - フラワーパーク江南 | 国営木曽三川公園",
+    "description": "国営木曽三川公園公式ホームページ。愛知、岐阜、三重の３県にまたがる日本一広い国営公園。三派川地区・中央水郷地区・河口地区の3地区からなり、全部で13拠点が開園しています。",
+    "site": "国営木曽三川公園"
+   }
+  },
+  {
+   "text": "岐阜市戎町に、自家焙煎珈琲の「喫茶りんご」が10月20日にオープンした（→ 岐阜市の戎町に、自家焙煎コーヒーの喫茶店ができた） ［営業時間: 午前11時〜午後4時（https://gifu.goguynet.jp/2026/10/31/kiccha-ringo/）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "岐阜市",
+   "start": "2026-10-20",
+   "end": "2026-10-20",
+   "source": "https://gifu.goguynet.jp/2026/10/31/kiccha-ringo/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "岐阜",
+   "og": {
+    "image": "https://gifu.goguynet.jp/wp-content/uploads/sites/128/2026/10/kiccha-ringo-20261030110641.png",
+    "title": "【岐阜市】戎町に、自家焙煎珈琲の「喫茶りんご」が10/20にオープンしました。",
+    "description": "2026年10月20日（火）、戎町に自家焙煎珈琲の「喫茶りんご」がオープンしました。 これまで間借りやバスケットボールの試合会場への出店などで珈琲を出してきたお店で、1杯ずつハンドドリップで淹れるとの",
+    "site": "号外NET 岐阜市（岐阜地域）"
+   }
+  },
+  {
+   "text": "小牧市中央の小牧郵便局近く、小粋屋1階に、まぜうどんの店「まぜうどん兆」が11月7日にグランドオープン（→ 小牧の中心部に、新感覚のまぜうどん店ができた） ［営業時間: 11:00〜15:00／定休日: 火曜日（https://komaki-inuyama.goguynet.jp/2026/11/05/mazeudon-kizashi/）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "小牧市",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "source": "https://komaki-inuyama.goguynet.jp/2026/11/05/mazeudon-kizashi/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": "https://komaki-inuyama.goguynet.jp/wp-content/uploads/sites/138/2022/03/28FD7CE3-FC9C-4537-8DB3-F1791AD9D270.jpeg",
+    "title": "【小牧市】小牧郵便局近くの小粋屋1階に新感覚のまぜうどん店「まぜうどん兆」が11/7グランドオープン",
+    "description": "小牧市中央1丁目の「浪漫記念日 スタジオカフェ 小粋屋」の1階に、まぜうどんの店「まぜうどん兆（きざし）」が2026年11月7日（土）11時にグランドオープンします。こだわりのタレと具材が絡み合う新感",
+    "site": "号外NET 小牧市・犬山市"
+   }
+  },
+  {
+   "text": "岡崎市筒針町に、新カフェ「糀 こめにはな」が11月24日にオープン予定。自家製酵母パンとお弁当で親しまれたお店の新たな一歩",
+   "note": "岡崎の筒針町に、パンとお弁当で知られた店の新カフェができる",
+   "kind": "スポット",
+   "area": "岡崎市",
+   "start": "2026-11-24",
+   "end": "2026-11-24",
+   "source": "https://okazaki.goguynet.jp/2026/11/05/komenihana-open/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": "https://okazaki.goguynet.jp/wp-content/uploads/sites/46/2021/08/pixta_45697007_M.jpg",
+    "title": "【岡崎市】筒針町に新カフェ「糀 こめにはな」が11月24日オープン予定！ 自家製酵母パンとお弁当で親しまれたお店の新たな一歩",
+    "description": "岡崎市筒針町に、カフェ「糀 こめにはな」が2026年11月24日（火）にオープン予定であることが分かりました。 これまで地域の方々に親しまれてきたお店が、カフェという新しい形で歩み出します。 「糀 こ",
+    "site": "号外NET 岡崎市"
+   }
+  },
+  {
+   "text": "西尾市のヴェルサウォーク西尾に、メガネの「OWNDAYS ヴェルサウォーク西尾店」が10月23日にオープンした（→ 西尾のモールに、メガネ店が加わった） ［営業時間: 9:00～21:30／定休日: なし（https://nishio.goguynet.jp/2026/11/07/owndays-versa-nishio/）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "西尾市",
+   "start": "2026-10-23",
+   "end": "2026-10-23",
+   "source": "https://nishio.goguynet.jp/2026/11/07/owndays-versa-nishio/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": "https://nishio.goguynet.jp/wp-content/uploads/sites/246/2026/11/owndays-versa-nishio-20261106183657.jpg",
+    "title": "【西尾市】ヴェルサウォーク西尾に、10/23にメガネの「OWNDAYS ヴェルサウォーク西尾店」がオープンしました。",
+    "description": "西尾市高畠町のヴェルサウォーク西尾1階に、2026年10月23日（金）、メガネ・サングラスの「OWNDAYS ヴェルサウォーク西尾店」がオープンしました。オープン記念として、11月19日（木）まで公式",
+    "site": "号外NET 西尾市・幸田町"
+   }
+  },
+  {
+   "text": "名古屋・栄のセントラルパークに、とんかつ店「CHITAKA」がオープンした。土鍋ご飯と組み合わせて出す（→ 栄の地下街に、土鍋ご飯つきのとんかつ店ができた） ［営業時間: 11時〜21時30分（日曜・祝日は20時30分まで）（https://sakae.keizai.biz/headline/4022/）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": null,
+   "end": null,
+   "source": "https://sakae.keizai.biz/headline/4022/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://images.keizai.biz/sakae_keizai/headline/1793593193_photo.jpg",
+    "title": "栄・セントラルパークにとんかつ店「CHITAKA」 土鍋ご飯と組み合わせ",
+    "description": "とんかつ店「土鍋ごはん×とんかつ CHITAKA」が10月29日、セントラルパーク（名古屋市中区錦）地下街にオープンした。",
+    "site": "サカエ経済新聞"
+   }
+  },
+  {
+   "text": "名古屋・栄に「世界の山ちゃん 本店別館」が12月3日にオープン予定。新ドリンク「無糖山ちゃんサワー」の発売と、手羽先売上高No.1達成を記念したキャンペーンが11月16日から始まる（→ 栄に、山ちゃんの新しい店が12月に加わる） ［営業時間: 月〜土 17:00-0:15 （LOフード23:30 ドリンク23:45） ／ 日・祝 17:00-23:15（LOフード22:30 ドリンク22:45） ／ ※日～木：2時間30分ラストオーダー・3時間ま／定休日: なし（https://nagoyato.com/posts/20789）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": "2026-11-16",
+   "end": "2026-12-03",
+   "source": "https://nagoyato.com/posts/20789",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://nagoyato.com/wp-content/uploads/2026/11/183380-19-6537edc32a9ca9dd8ff373f4248ca0be-2600x1580-1-edited.jpg",
+    "title": "名古屋・栄に「世界の山ちゃん 本店別館」が2026年12月3日オープン！ 新ドリンク「無糖山ちゃんサワー」の発売と手羽先売上高No.1達成を記念した特別キャン…",
+    "description": "名古屋発の人気店「世界の山ちゃん」にて「無糖山ちゃんサワー」が新発売。 2026年11月16日からは手羽先売上高No.1達成と新商品の発売を記念した特別キャンペーンがスタート。さらに12月3日には「…",
+    "site": "ナゴヤトコトン"
+   }
+  },
+  {
+   "text": "無印良品の家「名古屋店」に、全国初の「木の家 平屋」モデルハウスが11月7日（土）にオープン",
+   "note": "名古屋で、平屋のモデルハウスを見学できる",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "source": "https://prtimes.jp/main/html/rd/p/000000169.000001246.html",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://prcdn.freetls.fastly.net/release_image/1246/169/1246-169-1cc536245f77167840fb7ccaf6a16374-3900x2601.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+    "title": "無印良品の家「名古屋店」全国初の「木の家 平屋」モデルハウス11月7日（土）オープン",
+    "description": "株式会社MUJI HOUSEのプレスリリース（2026年11月6日 15時00分）無印良品の家「名古屋店」全国初の「木の家 平屋」モデルハウス11月7日（土）オープン",
+    "site": "プレスリリース・ニュースリリース配信シェアNo.1｜PR TIMES"
+   }
+  },
+  {
+   "text": "一宮市木曽川町に「フィットイージー木曽川西店」がオープン。10月31日にプレオープン、11月16日にグランドオープン",
+   "note": "一宮の木曽川町に、新しい店が開く",
+   "kind": "スポット",
+   "area": "一宮市",
+   "start": "2026-10-31",
+   "end": "2026-11-16",
+   "source": "https://ichinomiya.goguynet.jp/2026/11/08/fitkisogawa/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": "https://ichinomiya.goguynet.jp/wp-content/uploads/sites/161/2024/10/newopen.jpg",
+    "title": "【一宮市】読者様からの情報提供！木曽川町に「フィットイージー木曽川西店」がオープン！10月31日プレオープン、11月16日グランドオープン！",
+    "description": "読者様からの情報提供です！ 2026年11月16日、木曽川町にフィットネスクラブ「FIT-EASY（フィットイージー）木曽川西店」がオープンしたことが分かりました！ たか1123様からは、 「フィット",
+    "site": "号外NET 一宮市"
+   }
+  },
+  {
+   "text": "輪之内町に「Doctor's Cafe LOOP（ドクターズカフェ）」がオープン。ドクター監修のカフェで、健康ランチと菊芋茶を出す",
+   "note": "西濃の輪之内に、健康ランチのカフェができた",
+   "kind": "スポット",
+   "area": "輪之内町",
+   "start": null,
+   "end": null,
+   "source": "https://gifugram.com/archives/15117",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "西濃",
+   "og": {
+    "image": "https://gifugram.com/wp-content/uploads/2026/11/IMG_6495-scaled.jpeg",
+    "title": "輪之内町｜Doctor’s Cafe LOOP（ドクターズカフェ）「ドクター監修カフェが新しくオープン！健康ランチと菊芋茶でカラダが喜ぶ癒やしのひととき」",
+    "description": "岐阜県安八郡輪之内町に、2026年11月16日新しく「Doctor&amp;#039;s Cafe LOOP（ドクターズカフェ）」がオープンします。 健康と美味しさを両立したこだわりのメニューが楽し…",
+    "site": "Gifugram｜岐阜県のグルメ 観光 お出かけ 暮らし"
+   }
+  },
+  {
+   "text": "11/21（土）〜29（日）稲沢市の祖父江ぎんなんパークと祐専寺で「そぶえイチョウ黄葉まつり」。夜はイチョウのライトアップもある",
+   "note": "尾張の祖父江で、イチョウの黄葉と夜のライトアップを見に行ける",
+   "kind": "催し",
+   "area": "稲沢市",
+   "start": "2026-11-21",
+   "end": "2026-11-29",
+   "source": "https://inazawa.goguynet.jp/2026/11/06/sobue-ginkgo-festival/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": "https://inazawa.goguynet.jp/wp-content/uploads/sites/248/2021/06/FA955C7E-240C-4B06-93B6-C4C5D14AE476.jpg",
+    "title": "【稲沢市】祖父江ぎんなんパークと祐専寺で11/21〜29に「そぶえイチョウ黄葉まつり」、夜はイチョウのライトアップも",
+    "description": "稲沢市祖父江町で、2026年11月21日（土）から11月29日（日）まで「第29回そぶえイチョウ黄葉まつり」が開かれます。会場は祖父江ぎんなんパークと祐専寺の2か所で、ぎんなんパークでは11月28日（",
+    "site": "号外NET 稲沢市・清須市"
+   }
+  },
+  {
+   "text": "11/15（日）津島市の天王川公園で、74店舗83ブースとキッチンカー8台が集まる野外マーケット「Roots⁺」が開かれる",
+   "note": "尾張の津島で、公園のマーケットに出かけられる日",
+   "kind": "話題",
+   "area": "津島市",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "source": "https://ama-tsushima-aisai.goguynet.jp/2026/11/08/roots-plus-tennogawa/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": "https://ama-tsushima-aisai.goguynet.jp/wp-content/uploads/sites/384/2025/06/IMG_4932.jpeg",
+    "title": "【津島市】天王川公園で、11/15に74店舗83ブースとキッチンカー8台が集まる野外マーケット「Roots⁺」が開かれます。",
+    "description": "2026年11月15日（日）に、津島市宮川町の天王川公園で、野外マーケット「Roots⁺」が開かれます。植物・古着・アメリカ雑貨・レザークラフト・ハンドメイドなどの店が全国から74店舗83ブース、キッ",
+    "site": "号外NET あま市・津島市・愛西市"
+   }
+  },
+  {
+   "text": "【鳳来寺山もみじまつり】11/9（月）〜12/6（日）、【鳳来の火まつり】11/15（日）、【イベント日】11/22（日）。愛知の鳳来寺山で令和8年のもみじまつりが開かれる",
+   "note": "東三河の鳳来寺山で、12月初めまで紅葉の催しに行ける",
+   "kind": "催し",
+   "area": "新城市",
+   "start": "2026-11-09",
+   "end": "2026-12-06",
+   "source": "https://aichinow.pref.aichi.jp/events/detail/160/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "東三河",
+   "og": {
+    "image": "https://aichinow.pref.aichi.jp/upload/site/events/large/dd58ece097d88c15a5259f8561adaaa1.jpg",
+    "title": "令和8年 鳳来寺山もみじまつり | イベント検索 | 【公式】愛知県の観光サイトAichi Now",
+    "description": "新城市にある鳳来寺山にて「鳳来寺山もみじまつり」が開催されます。11月22日(日)には鳳来の火まつりが催されます。",
+    "site": "【公式】愛知県の観光サイトAichi Now"
+   }
+  },
+  {
+   "text": "豊田市の香嵐渓で「香嵐渓もみじまつり」が始まった",
+   "note": "三河の香嵐渓で、紅葉の催しが始まっている",
+   "kind": "催し",
+   "area": "豊田市",
+   "start": null,
+   "end": null,
+   "source": "https://www.tourismtoyota.jp/news/detail/692/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": null,
+    "title": "香嵐渓もみじまつりスタート | 新着情報 | 【公式】愛知県豊田市の観光サイト「ツーリズムとよた」",
+    "description": "車の町、豊田市の公式観光サイト「ツーリズムとよた」では、紅葉の名所「香嵐渓」や桜と紅葉の競演で有名な「小原の四季桜」をはじめ、観光・イベント情報、アウトドアや体験メニューの紹介、グルメ、お土産の情報…",
+    "site": null
+   }
+  },
+  {
+   "text": "12月末まで、各務原市の那加エリアで「那加まちあるきスタンプラリー」を開催中",
+   "note": "各務原で、まち歩きしながらスタンプを集められる",
+   "kind": "催し",
+   "area": "各務原市",
+   "start": null,
+   "end": null,
+   "source": "https://sakadachibooks.com/naka-machiaruki2026/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "岐阜",
+   "og": {
+    "image": "https://sakadachibooks.com/wp-content/uploads/2026/11/map.jpg",
+    "title": "【各務原市】12月末まで「那加まちあるきスタンプラリー」開催中！ – 岐阜のローカルメディア ｜ さかだちブックス ｜ 暮らし・情報・観光",
+    "description": "各務原市の学びの森から那加商店街までの“那加公園エリア”をめぐる「那加まちあるきスタンプラリー」が、2026年11月1日（日）〜12月31日（木）に開催されています！ こちらはスマホで参加するデジタル",
+    "site": "岐阜のローカルメディア ｜ さかだちブックス ｜ 暮らし・情報・観光"
+   }
+  },
+  {
+   "text": "12/27（日）まで、わかさ生活の書店と名古屋市図書館のコラボ企画「謎解き周遊イベント」を開催中",
+   "note": "名古屋で、書店と図書館を謎解きしながら回れる",
+   "kind": "催し",
+   "area": "名古屋市",
+   "start": "2026-11-09",
+   "end": "2026-12-27",
+   "source": "https://nagoyameito-chikusa.goguynet.jp/2026/11/08/wakasanazotoki/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://nagoyameito-chikusa.goguynet.jp/wp-content/uploads/sites/185/2026/10/AdobeStock_239341781.jpeg",
+    "title": "【名古屋市】わかさ生活の書店と名古屋市図書館のコラボ企画「謎解き周遊イベント」開催中！（12/27まで）",
+    "description": "ブルーベリーなどの健康食品でおなじみの「わかさ生活」が手掛ける書店と本の会社「WAKASA＆CO.BOOKS」と、名古屋市図書館がコラボした謎解きイベント「ブルブル探偵の事件簿～色をなくした本の国～」",
+    "site": "号外NET 名古屋市名東区・千種区"
+   }
+  },
+  {
+   "text": "11/3（火・祝）〜12/25 名古屋陶磁器会館1Fギャラリーで「海を渡ったクリスマス」",
+   "note": "名古屋で、陶磁器会館のギャラリーでクリスマスの展示を見られる",
+   "kind": "話題",
+   "area": "名古屋市",
+   "start": "2026-11-03",
+   "end": "2026-12-25",
+   "source": "https://www.nagoya-info.jp/event/detail/1441/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://www.nagoya-info.jp/upload/events/large/3813095406ad71e970f9ba.png",
+    "title": "海を渡ったクリスマス | 【公式】名古屋市観光情報「名古屋コンシェルジュ」",
+    "description": "名古屋の観光、最新のイベント情報、グルメ、モデルコースや季節の祭・特集など、旬の情報をお届けする名古屋の公式観光情報サイトです。定番の観光スポットへのアクセスや観光ガイドバス、パンフレット、ロケ地情…",
+    "site": "名古屋コンシェルジュ"
+   }
+  },
+  {
+   "text": "10/31（土）〜11/30（月）名古屋PARCOで「仮面ライダーアギト」25周年記念「真アギト展」が開催中（→ 栄・矢場町で、11月いっぱい仮面ライダーアギトの展示を見られる） ［会場: PARCO HALL(名古屋PARCO 西館8F)（https://nagoya.parco.jp/event/detail/?id=38102）］",
+   "note": "",
+   "kind": "催し",
+   "area": "名古屋市",
+   "start": "2026-10-31",
+   "end": "2026-11-30",
+   "source": "https://nagoya.parco.jp/event/detail/?id=38102",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://image.parco.jp/SCCWEB/image/nagoya/store/storage/w1240/newsevent_cname_20260731180811.jpg",
+    "title": "「仮面ライダーアギト」25周年記念 真アギト展 | Event & Pop Up │ 名古屋PARCO-パルコ-",
+    "description": "「仮面ライダーアギト」25周年記念 真アギト展 名古屋PARCOのEvent & Pop Upの記事をお届けしています。",
+    "site": "名古屋PARCO-パルコ-"
+   }
+  },
+  {
+   "text": "2027年のライトアップ開催日は1/11・17・24・31。白川村の白川郷観光協会が当日の注意事項を案内している",
+   "note": "白川郷の冬のライトアップを見に行く人は、日程と注意事項を先に確認できる",
+   "kind": "催し",
+   "area": "白川村",
+   "start": "2027-01-11",
+   "end": "2027-01-31",
+   "days": [
+    "2027-01-11",
+    "2027-01-17",
+    "2027-01-24",
+    "2027-01-31"
+   ],
+   "source": "https://shirakawa-go.gr.jp/events/460/",
+   "instagram": null,
+   "written": "2026-11-09",
+   "pick": false,
+   "region": "飛騨",
+   "og": {
+    "image": null,
+    "title": "2027年ライトアップ開催日（1/11・17・24・31）当日の注意事項について ​​​​​​​ | お知らせ・イベント | 【公式】白川郷観光協会",
+    "description": null,
+    "site": "【公式】白川郷観光協会"
+   }
+  },
   {
    "text": "11/8（日）岐阜市で「日本三大山城夜景サミット」。岐阜・仙台・松山の武将隊が集まり、会場は岐阜市歴史博物館と金華山展望台",
    "note": "岐阜公園のあたりで、山城の夜景にちなんだ催しがある日",
