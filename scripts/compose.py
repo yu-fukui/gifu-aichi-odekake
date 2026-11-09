@@ -2706,14 +2706,25 @@ def 予備の決まり(数: int, target_date) -> list[str]:
         "- 形はふつうの紹介枠と同じ。THREAD に一言と「出典元：URL」",
         f"- **UNTIL: の行に、いつまで使えるかを書く。** 会期の最終日（YYYY-MM-DD）か「常設」。{target_date.isoformat()} から30日以上先であること",
         "- 今日の10本や直近の投稿と同じ出来事は選ばない",
+        *([f"- **次の施設・催しはもう予備にあるので選ばない**（同じものは機械で外します）：{'、'.join(sorted(_既に)[:30])}"] if (_既に := 予備にある名()) else []),
         "",
         "@@@POST", "HOUR: 0", "UNTIL: 常設", "NOTE: 予備／使ったネタ", "TEXT:", "（本文）", "THREAD:", "（一言と出典元：URL）", "@@@END",
         "",
     ]
 
 
-def 予備にする(posts: list[dict], target_date, 記: dict, 今日の出典: set[str]) -> list[dict]:
+def 予備にある名(予備: list[dict] | None = None) -> set[str]:
+    名 = set()
+    for x in (予備 if 予備 is not None else 予備を読む()):
+        名 |= 名前たち(x)
+    return 名
+
+
+def 予備にする(posts: list[dict], target_date, 記: dict, 今日の出典: set[str], 既にある名: set[str] | None = None) -> list[dict]:
     出 = []
+    # すでに予備にある施設・同じ回で作った施設と同じものは足さない
+    # （2026-11-09 運用部・ぎふあいち：予備が でんきの科学館×2・下呂温泉合掌村×3 だけになり、14日の決まりでどれも使えなかった）
+    見た名 = set(既にある名 if 既にある名 is not None else 予備にある名())
     for p in posts:
         text = (p.get("text") or "").strip()
         thread = [t.strip() for t in p.get("thread") or [] if t.strip()]
@@ -2731,6 +2742,11 @@ def 予備にする(posts: list[dict], target_date, 記: dict, 今日の出典: 
                 continue
         if urls & 今日の出典 or 出典で止める理由(urls, 記, target_date):
             continue
+        名 = 名前たち({"text": text, "thread": thread})
+        if 名 & 見た名:
+            print(f"::notice::予備に同じものがあるので足しません：{sorted(名 & 見た名)[0]}")
+            continue
+        見た名 |= 名
         if not 検索語あり(text):
             text = text.rstrip() + "\n\n" + 検索語
         出.append({"text": text, "thread": thread, "note": ("予備から／" + str(p.get("note") or ""))[:120],
@@ -2825,6 +2841,27 @@ def 確かめる言葉(text: str, thread: list[str]) -> str | None:
         return None
     当たり = [w for w in 設定.get("言葉", []) if w in 全文]
     return "・".join(当たり) or None
+
+
+def PR枠の止める語(text: str, thread: list[str], 日) -> str | None:
+    """掲載中の有料案件（neta/PR枠.json）の 止める語・名前 が本文・連投にあれば返す。
+    2026-10-20 代表：ふつうの投稿の側では、掲載中の有料案件の催しを重ねて出さない。"""
+    path = Path(__file__).resolve().parent.parent / "neta" / "PR枠.json"
+    try:
+        枠 = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    全文 = "\n".join([text, *thread])
+    d = 日.isoformat() if hasattr(日, "isoformat") else str(日)
+    for x in 枠 if isinstance(枠, list) else []:
+        掲載 = x.get("掲載") or ["", ""]
+        始め, 終わり = (list(掲載) + ["", ""])[:2]
+        if (始め and d < 始め) or (終わり and d > 終わり):
+            continue
+        for w in [*(x.get("止める語") or []), x.get("名前") or ""]:
+            if w and w in 全文:
+                return w
+    return None
 
 
 def 落とす(わけ: str):
@@ -3383,6 +3420,9 @@ def main() -> None:
                 if 季節ものの投稿({"text": text, "thread": thread}, target_date):
                     今日の季節.append(hour)
 
+            止め = PR枠の止める語(text, thread, target_date)
+            if 止め:
+                落とす(f"{hour}:00 に掲載中の PR 枠の催し（{止め}）が入っています。有料案件の催しは、ふつうの投稿で重ねて出しません。")
             item = {
                 "id": new_id(hour, existing_ids),
                 "text": text,
