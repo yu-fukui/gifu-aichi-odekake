@@ -1,6 +1,391 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-19",
  "items": [
+  {
+   "text": "2026/11/21（土）〜2027/1/11（月・祝）海津市海津町油島の木曽三川公園センターで「冬の光物語」。テーマは「光の森のかくれんぼ」で、約50万球が灯る。点灯日は11/21〜12/13、12/15〜12/27、1/2・3・9〜11。点灯は16:30〜21:00（11/21のみ点灯式のため17:30点灯）。観覧料は無料。休園日は12/14・12/31・1/1・1/4",
+   "note": "海津で、年をまたいで冬の光を見に行ける。点灯しない日も先に分かる",
+   "kind": "話題",
+   "area": "海津市",
+   "start": "2026-11-21",
+   "end": "2026-12-13",
+   "days": [
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-09"
+   ],
+   "source": "https://www.kisosansenkoen.jp/~center/mkisosansenevent_winter.html",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "西濃",
+   "og": {
+    "image": null,
+    "title": "冬の光物語 - イベント - 木曽三川公園センター | 国営木曽三川公園",
+    "description": "国営木曽三川公園公式ホームページ。愛知、岐阜、三重の３県にまたがる日本一広い国営公園。三派川地区・中央水郷地区・河口地区の3地区からなり、全部で13拠点が開園しています。",
+    "site": "国営木曽三川公園"
+   }
+  },
+  {
+   "text": "11/21（土）・22（日）可児市瀬田のぎふワールド・ローズガーデンで「大道芸フェスティバル」。入園料500円（高校生以下無料）。キッチンカーも出る",
+   "note": "可児で、週末に大道芸とキッチンカーを楽しめる",
+   "kind": "催し",
+   "area": "可児市",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "source": "https://gifu-wrg.jp/event/event/p28046/",
+   "instagram": "https://www.instagram.com/gifu_wrg/",
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "中濃",
+   "og": {
+    "image": "https://gifu-wrg.jp/wp/wp-content/uploads/2026/10/1-2.jpg",
+    "title": "【入園料500円】大道芸フェスティバル ｜イベント｜ぎふワールド・ローズガーデン",
+    "description": "可児市のバラと花のテーマパーク「ぎふワールド・ローズガーデン」では、イベント「【入園料500円】大道芸フェスティバル 」を開催いたします。",
+    "site": "ぎふワールド・ローズガーデン"
+   }
+  },
+  {
+   "text": "2026/11/8（日）〜2027/4/4（日）蒲郡市のラグーナテンボス・ラグナシア園内各所で「ラグーナ イルミネーション『光と水のカーニバル』」。点灯は日没〜閉園（日・時期によって点灯時間が異なる）（→ 蒲郡で、春先まで長く光の催しを見に行ける） ［会場: ラグーナテンボス ラグナシア園内各所／料金: 観覧無料（https://www.nagoya-info.jp/event/detail/1101/）］",
+   "note": "",
+   "kind": "話題",
+   "area": "蒲郡市",
+   "start": null,
+   "end": null,
+   "source": "https://www.nagoya-info.jp/event/detail/1101/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "東三河",
+   "og": {
+    "image": "https://www.nagoya-info.jp/upload/events/large/20222381786ab619c40d6e8.jpg",
+    "title": "ラグーナ イルミネーション「光と水のカーニバル」 | 【公式】名古屋市観光情報「名古屋コンシェルジュ」",
+    "description": "今年の新たなイルミネーション「神秘のシャイニングアーチ」は、海底から浮上した神秘的な神殿をモチーフとし、3色のイルミネーションが幻想的な世界を演出します。 ほかにも松平健さんとのコラボ企画として、「…",
+    "site": "名古屋コンシェルジュ"
+   }
+  },
+  {
+   "text": "名古屋市緑区に「ラーメン豚山 名古屋神の倉店」が2026年11月20日にオープン",
+   "note": "緑区の神の倉に、ラーメン店ができる",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": "2026-11-20",
+   "end": "2026-11-20",
+   "source": "https://jouhou.nagoya/butayama-midoriku/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://jouhou.nagoya/wp-content/uploads/2026/11/butayama-midoriku001-1-600x400.jpg",
+    "title": "【緑区】『ラーメン豚山 名古屋神の倉店』2026年11月20日オープン｜名古屋情報通",
+    "description": "緑区・神の倉に『ラーメン豚山』の新店舗が、2026年11月20日(金)にオープンします。",
+    "site": null
+   }
+  },
+  {
+   "text": "名古屋・栄にカプセルホテル「ナインアワーズ名古屋栄」が12/1に開業",
+   "note": "栄に、泊まれる新しい施設が12月に加わる",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": "2026-12-01",
+   "end": "2026-12-01",
+   "source": "https://nagoyajin.nagoya/sakae-ninehours-nagoya-sakae-20261201/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://i0.wp.com/nagoyajin.nagoya/wp-content/uploads/2026/11/sakae-ninehours-nagoya-sakae-20261201.jpg",
+    "title": "【栄】カプセルホテル「ナインアワーズ名古屋栄」12/1開業｜NAGOYAJIN",
+    "description": "カプセルホテル「ナインアワーズ名古屋栄」が2026年12月1日（火）に中区栄3丁目で開業。184室、ハッチ型の新型スリープポッドを導入し、栄駅から徒歩5分。名大病院と睡眠の取り組みも予定。",
+    "site": "NAGOYAJIN"
+   }
+  },
+  {
+   "text": "名古屋・伏見に「鳥ぶら 名古屋伏見店」が2026年11月28日（土）にオープン。累計290店舗展開の「新時代」の兄弟ブランド",
+   "note": "伏見に、新しい飲食店が11月末に加わる",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "source": "https://prtimes.jp/main/html/rd/p/000000286.000070373.html",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://prcdn.freetls.fastly.net/release_image/70373/286/70373-286-6cbf17e166ad38f38e9883f3c871a4b0-2160x2700.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+    "title": "【伏見に新店舗】累計290店舗展開「新時代」の兄弟ブランド『鳥ぶら 名古屋伏見店』2026年11月28日(土)NEW OPEN",
+    "description": "株式会社ファッズのプレスリリース（2026年11月18日 11時58分）【伏見に新店舗】累計290店舗展開「新時代」の兄弟ブランド『鳥ぶら 名古屋伏見店』2026年11月28日(土)NEW OPEN",
+    "site": "プレスリリース・ニュースリリース配信シェアNo.1｜PR TIMES"
+   }
+  },
+  {
+   "text": "豊田市足助の町並みに「ごはんと喫茶 あおぞら」がオープンした。具だくさんの豚汁定食やスイーツが楽しめる（→ 足助の散策の途中に、ごはんと喫茶の店が増えた） ［営業時間: 11:00～16:00 となっています／定休日: 火曜日、営業時間は11:00～16:00 となっています（https://toyota.goguynet.jp/2026/11/18/gohanntokissa-aozora-asuke-kourannkei-o-punn/）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "豊田市",
+   "start": null,
+   "end": null,
+   "source": "https://toyota.goguynet.jp/2026/11/18/gohanntokissa-aozora-asuke-kourannkei-o-punn/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": "https://toyota.goguynet.jp/wp-content/uploads/sites/61/2026/11/IMG_6384-2-rotated.jpeg",
+    "title": "【豊田市】足助の町並みに新店！ 具だくさんの豚汁定食やスイーツが楽しめる「ごはんと喫茶 あおぞら」がオープン♪",
+    "description": "足助の町並みに「ごはんと喫茶 あおぞら」がオープンしているとの情報をお寄せいただきました！ お店がオープンしたのは、2026年11月1日。以前は「御菓子司 風外」があった場所のお隣に登場しました。 こ",
+    "site": "号外NET 豊田市"
+   }
+  },
+  {
+   "text": "新穂高ロープウェイの中間エリアに「そよかの足湯」「そよかのひろば」がオープンする",
+   "note": "奥飛騨の新穂高に、足湯とひろばができる",
+   "kind": "スポット",
+   "area": "高山市",
+   "start": null,
+   "end": null,
+   "source": "https://prtimes.jp/main/html/rd/p/000000008.000101420.html",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "飛騨",
+   "og": {
+    "image": "https://prcdn.freetls.fastly.net/release_image/101420/8/101420-8-1a4ab7160efcc266b56b57402a451579-879x494.png?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+    "title": "新穂高ロープウェイ中間エリアに『そよかの足湯』『そよかのひろば』がオープンします。",
+    "description": "奥飛観光開発株式会社のプレスリリース（2026年11月16日 16時30分）新穂高ロープウェイ中間エリアに『そよかの足湯』『そよかのひろば』がオープンします。",
+    "site": "プレスリリース・ニュースリリース配信シェアNo.1｜PR TIMES"
+   }
+  },
+  {
+   "text": "西尾市一色町に「マクドナルド 西尾一色店」が10/15にグランドオープンした（→ 西尾の一色町に、新しいマクドナルドができた） ［営業時間: 7:00〜22:00（店内・ドライブスルー）／定休日: 年中無休（https://nishio.goguynet.jp/2026/11/17/mcdonalds-nishio-isshiki/）］",
+   "note": "",
+   "kind": "スポット",
+   "area": "西尾市",
+   "start": "2026-10-15",
+   "end": "2026-10-15",
+   "source": "https://nishio.goguynet.jp/2026/11/17/mcdonalds-nishio-isshiki/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": "https://nishio.goguynet.jp/wp-content/uploads/sites/246/2026/11/mcdonalds-nishio-isshiki-20261116195445.png",
+    "title": "【西尾市】一色町の「マクドナルド 西尾一色店」が10/15にグランドオープンしました",
+    "description": "西尾市一色町の「マクドナルド 西尾一色店」が、2026年10月15日（木）にグランドオープンしました。店内の客席は50席で、ドライブスルーと20台分の駐車場を備えた店舗です。 営業時間は店内・ドライブ",
+    "site": "号外NET 西尾市・幸田町"
+   }
+  },
+  {
+   "text": "名古屋市千種区の今池に、多目的ホール「クロスロード」がオープンする。こけら落とし公演は11/28",
+   "note": "今池に、公演や催しに使える新しいホールができる",
+   "kind": "スポット",
+   "area": "名古屋市",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "source": "https://nagoyameito-chikusa.goguynet.jp/2026/11/18/crossroad/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://nagoyameito-chikusa.goguynet.jp/wp-content/uploads/sites/185/2026/11/IMG_3377-2.jpg",
+    "title": "【名古屋市千種区】こけら落とし公演は11/28！今池に多目的ホール「クロスロード」がオープンするそうです",
+    "description": "今池に多目的アートホール「クロスロード」がオープンするそうです！ View this post on Instagram はっきりとしたオープン日は書かれていないのですが、こちら↑がこけら落とし公演",
+    "site": "号外NET 名古屋市名東区・千種区"
+   }
+  },
+  {
+   "text": "11/22（日）名古屋市北区で「ネックス・プラザ2026秋フェスティバル」。マジックショーやゲームで交通安全を学べる",
+   "note": "北区で、日曜に家族で交通安全を学べる催しがある",
+   "kind": "催し",
+   "area": "名古屋市",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "source": "https://nagoyakita-higashi.goguynet.jp/2026/11/16/nexplaza-autumn-festival/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://nagoyakita-higashi.goguynet.jp/wp-content/uploads/sites/182/2025/11/image-1720843036702.jpeg",
+    "title": "【名古屋市北区】11月22日に「ネックス・プラザ2026秋フェスティバル」、マジックショーやゲームで交通安全を学べます",
+    "description": "2026年11月22日（日）、名古屋高速道路広報資料センター「ネックス・プラザ」で「ネックス・プラザ2026秋フェスティバル」が開かれます。時間は10時から14時30分までで、楽しみながら名古屋高速道",
+    "site": "号外NET 名古屋市北区・東区"
+   }
+  },
+  {
+   "text": "11/21（土）刈谷市の亀城公園で「遊あそぼう 焚き火とアウトドアパークバーベキュー」。地元の公園でアウトドアが楽しめる",
+   "note": "刈谷で、土曜に公園で焚き火やバーベキューを楽しめる",
+   "kind": "話題",
+   "area": "刈谷市",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "source": "https://kariya-chiryu.goguynet.jp/2026/11/18/asobou-2/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": "https://kariya-chiryu.goguynet.jp/wp-content/uploads/sites/363/2026/11/IMG_3135.jpeg",
+    "title": "【刈谷市】地元の公園でアウトドアが楽しめる一日！11月21日(土)、亀城公園で、『遊あそぼう 焚き火とアウトドアパークバーベキュー』が開催されます。",
+    "description": "2026年11月21日(土)、亀城公園で、『遊あそぼう 焚き火とアウトドアパークバーベキュー』が開催されます。 この企画は、いつもは火器を使用することができない亀城公園で、焚き火＆パークバー",
+    "site": "号外NET 刈谷市・知立市"
+   }
+  },
+  {
+   "text": "11/26から高浜市の大山緑地・心字池で、もみじのライトアップが行われる",
+   "note": "高浜で、池のもみじを夜に見に行ける",
+   "kind": "話題",
+   "area": "高浜市",
+   "start": "2026-11-26",
+   "end": "2026-11-26",
+   "source": "https://anjo-takahama-hekinan.goguynet.jp/2026/11/18/oyama-momiji-lightup/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "西三河",
+   "og": {
+    "image": "https://anjo-takahama-hekinan.goguynet.jp/wp-content/uploads/sites/169/2026/11/oyama-momiji-lightup-20261117082526.png",
+    "title": "【高浜市】大山緑地の心字池で11月26日から、もみじのライトアップが行われます",
+    "description": "高浜市の大山緑地公園 心字池周辺で、2026年11月26日（木）から12月6日（日）まで「大山緑地の心字池もみじライトアップ」が行われます。時間は17時から20時までで、心字池の紅葉が光に照らされるそ",
+    "site": "号外NET 安城市・高浜市・碧南市"
+   }
+  },
+  {
+   "text": "12/1から小牧市の小牧駅周辺（にぎわい広場とシンボルロード）で「小牧駅周辺イルミネーション」が始まる",
+   "note": "小牧駅の前で、12月から冬の光を見られる",
+   "kind": "話題",
+   "area": "小牧市",
+   "start": "2026-12-01",
+   "end": "2026-12-01",
+   "source": "https://komaki-inuyama.goguynet.jp/2026/11/18/komaki-illumination-3/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": "https://komaki-inuyama.goguynet.jp/wp-content/uploads/sites/138/2021/11/22912706_m.jpg",
+    "title": "【小牧市】にぎわい広場とシンボルロードで、12/1から「小牧駅周辺イルミネーション」が始まります",
+    "description": "小牧駅周辺イルミネーションが、2026年12月1日（火）から2027年2月14日（日）まで、小牧市にぎわい広場とシンボルロードで行われます。中心市街地のにぎわいを生み出すため、地元商店街や周辺企業の協",
+    "site": "号外NET 小牧市・犬山市"
+   }
+  },
+  {
+   "text": "11/21（土）〜23（月・祝）名古屋市の中村公園で「第２回紅葉まつりin中村公園～戦国武将を支えた発酵文化を未来へ紡ぐ～」（→ 中村公園で、3連休に紅葉の催しに出かけられる） ［会場: 中村公園／日時: 11:00～17:00／料金: 入場無料（飲食・物販等は有料）（https://www.nagoya-info.jp/event/detail/1270/）］",
+   "note": "",
+   "kind": "催し",
+   "area": "名古屋市",
+   "start": "2026-11-21",
+   "end": "2026-11-23",
+   "source": "https://www.nagoya-info.jp/event/detail/1270/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://www.nagoya-info.jp/upload/events/large/11713902816acde610954a8.jpg",
+    "title": "第２回紅葉まつりin中村公園～戦国武将を支えた発酵文化を未来へ紡ぐ～ | 【公式】名古屋市観光情報「名古屋コンシェルジュ」",
+    "description": "名古屋の観光、最新のイベント情報、グルメ、モデルコースや季節の祭・特集など、旬の情報をお届けする名古屋の公式観光情報サイトです。定番の観光スポットへのアクセスや観光ガイドバス、パンフレット、ロケ地情…",
+    "site": "名古屋コンシェルジュ"
+   }
+  },
+  {
+   "text": "2026/11/14（土）〜12/6（日）名古屋市の東山動植物園で「もみじ狩り」（→ 東山で、12月初めまで紅葉の催しに行ける） ［会場: 東山動植物園／日時: 9:00～16:50(入園は16:30まで)（https://aichinow.pref.aichi.jp/events/detail/1792/）］",
+   "note": "",
+   "kind": "話題",
+   "area": "名古屋市",
+   "start": "2026-11-14",
+   "end": "2026-12-06",
+   "source": "https://aichinow.pref.aichi.jp/events/detail/1792/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://aichinow.pref.aichi.jp/upload/site/events/large/c7d4b6edc8f0fd32a7eb6298a87ae5ee.jpg",
+    "title": "東山動植物園 もみじ狩り | イベント検索 | 【公式】愛知県の観光サイトAichi Now",
+    "description": "名古屋の都心に残る広大な「東山の森」で身近に美しいもみじが楽しめます。自然の林を生かした園地では、自生する樹種でも紅葉するものがあり、色とりどりの紅葉を見ることができます。また、期間限定で紅葉ライト…",
+    "site": "【公式】愛知県の観光サイトAichi Now"
+   }
+  },
+  {
+   "text": "白川郷のライトアップ宿泊の追加予約は、11月26日の13:00から先着順で行う。白川郷観光協会が案内している",
+   "note": "白川郷の冬のライトアップに泊まりたい人は、予約が始まる日と時刻を先に確認できる",
+   "kind": "話題",
+   "area": "白川村",
+   "start": "2026-11-26",
+   "end": "2026-11-26",
+   "source": "https://shirakawa-go.gr.jp/events/461/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "飛騨",
+   "og": {
+    "image": null,
+    "title": "ライトアップ宿泊追加予約は、11月26日の13：00～先着順で行います。 | お知らせ・イベント | 【公式】白川郷観光協会",
+    "description": null,
+    "site": "【公式】白川郷観光協会"
+   }
+  },
+  {
+   "text": "11/22（日）稲沢市の中和医療専門学校で「輝良ッ都フェスティバル in 稲沢」。講演や模擬店がある",
+   "note": "稲沢で、日曜に講演や模擬店をのぞける",
+   "kind": "催し",
+   "area": "稲沢市",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "source": "https://inazawa.goguynet.jp/2026/11/16/kirato-festival-inazawa/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "尾張",
+   "og": {
+    "image": "https://inazawa.goguynet.jp/wp-content/uploads/sites/248/2026/11/kirato-festival-inazawa-20261115204838.jpg",
+    "title": "【稲沢市】11/22、中和医療専門学校で「輝良ッ都フェスティバル in 稲沢」 講演や模擬店も",
+    "description": "2026年11月22日（日）、稲沢市の中和医療専門学校で「輝良ッ都フェスティバル in 稲沢」が開かれます。地域別県民文化大祭典2026 オータムフェスティバルの一つで、時間は10:00～15:30、",
+    "site": "号外NET 稲沢市・清須市"
+   }
+  },
+  {
+   "text": "10/10（土）から大垣市で「聲の形」アニメ映画公開10周年記念イベントが始まっている",
+   "note": "西濃の大垣で、アニメ映画の10周年イベントに出かけられる",
+   "kind": "催し",
+   "area": "大垣市",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "source": "https://ogaki.goguynet.jp/2026/11/19/kokenokatachi2026_10th/",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "西濃",
+   "og": {
+    "image": "https://ogaki.goguynet.jp/wp-content/uploads/sites/300/2025/10/32993214_m.jpg",
+    "title": "【大垣市】「聲の形」アニメ映画公開10周年記念イベントが10月10日（土）からスタートしています",
+    "description": "大垣市を舞台にした人気漫画で、映画にもなった「聲の形（こえのかたち）」。大垣市出身の漫画家、大今良時さん原作のこちらの作品は、作中のいたるところに大垣市や西濃エリアの風景が出てくることでも話題となりま",
+    "site": "号外NET 大垣市（西濃地域）"
+   }
+  },
+  {
+   "text": "11/28（土）〜12/6（日）名古屋PARCOで「Treat Ürself」のポップアップ",
+   "note": "栄・矢場町で、9日間だけのポップアップをのぞける",
+   "kind": "話題",
+   "area": "名古屋市",
+   "start": "2026-11-28",
+   "end": "2026-12-06",
+   "source": "https://nagoya.parco.jp/event/detail/?id=39515",
+   "instagram": null,
+   "written": "2026-11-19",
+   "pick": false,
+   "region": "名古屋",
+   "og": {
+    "image": "https://image.parco.jp/SCCWEB/image/nagoya/store/storage/w1240/newsevent_cname_20261116183952.png",
+    "title": "Treat Ürself | Event & Pop Up │ 名古屋PARCO-パルコ-",
+    "description": "Treat Ürself 名古屋PARCOのEvent & Pop Upの記事をお届けしています。",
+    "site": "名古屋PARCO-パルコ-"
+   }
+  },
   {
    "text": "長良川うかいミュージアム（岐阜市長良51番地2、岐阜市長良川鵜飼伝承館）は観覧料が大人（15歳以上）600円・小人（4歳以上15歳未満）300円・4歳未満無料。10/16〜4/30は9:00〜17:00（入館16:30まで）、毎週火曜休館（祝日なら翌平日）、12/29〜1/3休館。5/1〜10/15は9:00〜19:00で休館日なし（一部指定日除く）。JR岐阜駅・名鉄岐阜駅から岐阜バスで「長良橋北・鵜飼屋」下車（約15分・250円）。駐車場は有料（→ 長良川の鵜飼を、季節を問わず知ることができる館） ［運用部が公式で確認・スポット］",
    "note": "",
