@@ -55,6 +55,9 @@ jobs:
         env:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          # Threads のトピック（2026-11-23 統括決定）。出す日の通し番号が偶数の日だけ付け、付けない日と2週比べる
+          THREADS_TOPIC: "名古屋"  # ぎふあいちだけ（写し直したら、また入れる）
+          THREADS_TOPIC_FROM: "2026-11-24"
         run: |
           args="post --limit ${LIMIT:-5}"
           if [ "${DRY_RUN}" = "true" ]; then
