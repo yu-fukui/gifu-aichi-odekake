@@ -1,31 +1,78 @@
 {
   "リポジトリ": "yu-fukui/gifu-aichi-odekake",
-  "作成時刻": "2026-11-23 20:01 JST",
-  "今日": "2026-11-23",
-  "状態": "ok",
+  "作成時刻": "2026-11-24 07:19 JST",
+  "今日": "2026-11-24",
+  "状態": "要確認",
   "明日のキュー": {
-    "対象日": "2026-11-24",
-    "本数": 10,
+    "対象日": "2026-11-25",
+    "本数": 7,
     "予定本数": 10,
-    "足りない": 0,
+    "足りない": 3,
     "時刻": [
       "06:00",
       "08:00",
       "10:00",
       "12:00",
-      "14:00",
       "15:00",
       "17:00",
-      "19:00",
-      "21:00",
-      "23:00"
+      "19:00"
     ],
     "同じ時刻が2本以上": [],
     "読めない行": [],
     "投稿": [
       {
-        "id": "p-2026112306-8yam",
+        "id": "p-2026112406-8lp8",
         "時刻": "06:00",
+        "1行目": "名古屋市中区の「名古屋城」は、中学生以下の観覧が無料です。",
+        "文字数": 70,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026112408-5d5f",
+        "時刻": "08:00",
+        "1行目": "名古屋市の「FUJIなごや科学館」は、中学生以下が無料です。",
+        "文字数": 78,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026112410-2841",
+        "時刻": "10:00",
+        "1行目": "名古屋の「東山動植物園」は、1枚の観覧券で動物園と植物園の両方に入れます。",
+        "文字数": 77,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026112412-mmbs",
+        "時刻": "12:00",
+        "1行目": "高山市の「飛騨高山まちの博物館」は、高山城下町の歴史や伝統文化を紹介する市の博物",
+        "文字数": 64,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026112515-shw6",
+        "時刻": "15:00",
+        "1行目": "【岐阜・愛知】チェックアウトが遅い宿3選",
+        "文字数": 94,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": false,
+        "PRあり": true
+      },
+      {
+        "id": "p-2026112417-0srg",
+        "時刻": "17:00",
         "1行目": "関市の「岐阜県博物館」は、高校生以下の入館が無料です。一般は370円です。",
         "文字数": 49,
         "本文にリンク": false,
@@ -34,90 +81,10 @@
         "PRあり": false
       },
       {
-        "id": "p-2026112308-869b",
-        "時刻": "08:00",
-        "1行目": "12月1日（火）オープン、名古屋・栄のカプセルホテル「ナインアワーズ名古屋栄」。",
-        "文字数": 77,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112310-64qq",
-        "時刻": "10:00",
-        "1行目": "今日11月24日（火）から27日（金）まで、名古屋市の瑞穂区役所で「みずほフェス",
-        "文字数": 97,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112312-keaf",
-        "時刻": "12:00",
-        "1行目": "11月5日（木）から12月27日（日）まで、名古屋・伏見のヒルトン名古屋で「クリ",
-        "文字数": 102,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112314-s3ud",
-        "時刻": "14:00",
-        "1行目": "県外の友だちや親せきに「それ、地元だけなの？」と驚かれた、岐阜・愛知の家の中の習",
-        "文字数": 133,
-        "本文にリンク": false,
-        "続きにリンク": false,
-        "出典元あり": false,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112315-smin",
-        "時刻": "15:00",
-        "1行目": "知多半島で日曜に音楽を聴きに行きたい。でも、前の晩の宿が決まっていない。",
-        "文字数": 145,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": true
-      },
-      {
-        "id": "p-2026112317-o2jh",
-        "時刻": "17:00",
-        "1行目": "11月13日（金）にリニューアルオープンした、名古屋・栄の名古屋PARCO東館4",
-        "文字数": 168,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112319-dx7z",
+        "id": "p-2026112419-k5ws",
         "時刻": "19:00",
         "1行目": "関ケ原町の「岐阜関ケ原古戦場記念館」は、関ケ原の戦いの舞台にある記念館です。名古",
         "文字数": 75,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112321-f5e3",
-        "時刻": "21:00",
-        "1行目": "12月5日（土）・6日（日）、安城市で「アンフォーレのクリスマス2026」が開か",
-        "文字数": 124,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112323-3myl",
-        "時刻": "23:00",
-        "1行目": "【岐阜・愛知の紅葉 2026】",
-        "文字数": 83,
         "本文にリンク": false,
         "続きにリンク": true,
         "出典元あり": true,
@@ -137,7 +104,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45103534436"
       },
       "最後の成功": "2026-11-23 12:01 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -147,12 +114,12 @@
       "ファイル": "affiliate-check.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 02:56 JST",
+        "時刻": "2026-11-24 07:07 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45052209789"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45276500070"
       },
-      "最後の成功": "2026-11-23 02:56 JST",
+      "最後の成功": "2026-11-24 07:07 JST",
       "今日走ったか": true,
       "24時間の実行": 1,
       "24時間の失敗": 0,
@@ -169,7 +136,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45118834941"
       },
       "最後の成功": "2026-11-23 14:36 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -179,16 +146,25 @@
       "ファイル": "balance-check.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 02:56 JST",
-        "結果": "success",
+        "時刻": "2026-11-24 07:07 JST",
+        "結果": "failure",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45052208593"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45276502793"
       },
       "最後の成功": "2026-11-23 02:56 JST",
       "今日走ったか": true,
       "24時間の実行": 1,
-      "24時間の失敗": 0,
-      "判定": "成功"
+      "24時間の失敗": 1,
+      "最後の失敗": {
+        "時刻": "2026-11-24 07:07 JST",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45276502793",
+        "理由": [
+          "check: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/c",
+          "check: Process completed with exit code 1.",
+          "check: 🔴 yu-fukui/gifu-aichi-odekake: API が 400 を返しました"
+        ]
+      },
+      "判定": "失敗"
     },
     {
       "名前": "巡回の診断（手で動かす・API は使わない）",
@@ -233,14 +209,14 @@
       "ファイル": "health-snapshot.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 20:01 JST",
+        "時刻": "2026-11-24 07:19 JST",
         "結果": "in_progress",
         "きっかけ": "workflow_run",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45161306748"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45278522525"
       },
-      "最後の成功": "2026-11-23 03:35 JST",
+      "最後の成功": "2026-11-23 20:01 JST",
       "今日走ったか": true,
-      "24時間の実行": 3,
+      "24時間の実行": 2,
       "24時間の失敗": 0,
       "判定": "実行中"
     },
@@ -255,7 +231,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45118650387"
       },
       "最後の成功": "2026-11-23 14:34 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -283,8 +259,8 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45075247615"
       },
       "最後の成功": "2026-11-23 07:00 JST",
-      "今日走ったか": true,
-      "24時間の実行": 1,
+      "今日走ったか": false,
+      "24時間の実行": 0,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -299,8 +275,8 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45069459906"
       },
       "最後の成功": "2026-11-23 05:58 JST",
-      "今日走ったか": true,
-      "24時間の実行": 1,
+      "今日走ったか": false,
+      "24時間の実行": 0,
       "24時間の失敗": 0,
       "最後の失敗": {
         "時刻": "2026-10-26 20:54 JST",
@@ -337,7 +313,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45104282070"
       },
       "最後の成功": "2026-11-23 12:09 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 2,
       "24時間の失敗": 0,
       "最後の失敗": {
@@ -351,14 +327,14 @@
       "ファイル": "test.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 09:12 JST",
+        "時刻": "2026-11-23 21:34 JST",
         "結果": "success",
         "きっかけ": "push",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45087436258"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45175599655"
       },
-      "最後の成功": "2026-11-23 09:12 JST",
-      "今日走ったか": true,
-      "24時間の実行": 3,
+      "最後の成功": "2026-11-23 21:34 JST",
+      "今日走ったか": false,
+      "24時間の実行": 9,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -387,32 +363,37 @@
       "ファイル": "threads-compose.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 20:00 JST",
-        "結果": "success",
-        "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45161231252"
+        "時刻": "2026-11-24 07:18 JST",
+        "結果": "failure",
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45278456229"
       },
       "最後の成功": "2026-11-23 20:00 JST",
       "今日走ったか": true,
       "24時間の実行": 2,
-      "24時間の失敗": 0,
+      "24時間の失敗": 1,
       "最後の失敗": {
-        "時刻": "2026-11-04 03:10 JST",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/41691189732"
+        "時刻": "2026-11-24 07:18 JST",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45278456229",
+        "理由": [
+          "compose: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog",
+          "compose: 予備が足りず、空いたままの枠: 21:00、23:00",
+          "compose: 19:00 を予備で埋めました：関ケ原町の「岐阜関ケ原古戦場記念館」は、関ケ原の戦いの舞台にある記念館です。名古"
+        ]
       },
-      "判定": "成功"
+      "判定": "失敗"
     },
     {
       "名前": "Threads 予約投稿",
       "ファイル": "threads-post.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 20:00 JST",
+        "時刻": "2026-11-24 07:10 JST",
         "結果": "success",
         "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45161231003"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45277076428"
       },
-      "最後の成功": "2026-11-23 20:00 JST",
+      "最後の成功": "2026-11-24 07:10 JST",
       "今日走ったか": true,
       "24時間の実行": 100,
       "24時間の失敗": 0,
@@ -423,14 +404,14 @@
       "ファイル": "threads-refresh-token.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-16 19:42 JST",
+        "時刻": "2026-11-23 20:54 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/43851243835"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45169307397"
       },
-      "最後の成功": "2026-11-16 19:42 JST",
+      "最後の成功": "2026-11-23 20:54 JST",
       "今日走ったか": false,
-      "24時間の実行": 0,
+      "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -439,12 +420,12 @@
       "ファイル": "threads-review.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 19:15 JST",
+        "時刻": "2026-11-24 07:01 JST",
         "結果": "success",
-        "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45154408655"
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45275499839"
       },
-      "最後の成功": "2026-11-23 19:15 JST",
+      "最後の成功": "2026-11-24 07:01 JST",
       "今日走ったか": true,
       "24時間の実行": 2,
       "24時間の失敗": 0,
@@ -455,16 +436,19 @@
       "ファイル": "pages-build-deployment",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-23 19:15 JST",
+        "時刻": "2026-11-24 07:19 JST",
         "結果": "success",
         "きっかけ": "dynamic",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45154483380"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45278498806"
       },
-      "最後の成功": "2026-11-23 19:15 JST",
+      "最後の成功": "2026-11-24 07:19 JST",
       "今日走ったか": true,
-      "24時間の実行": 36,
+      "24時間の実行": 23,
       "24時間の失敗": 0,
       "判定": "成功"
     }
+  ],
+  "警告": [
+    "翌日ぶんの作成（threads-compose.yml）が今日失敗しています。理由：[\"compose: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://"
   ]
 }
