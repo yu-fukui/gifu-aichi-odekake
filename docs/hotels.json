@@ -6,8 +6,8 @@
    "city": "名古屋市",
    "area": "名古屋駅",
    "region": "名古屋",
-   "rating": 4.63,
-   "reviews": 5032,
+   "rating": 4.62,
+   "reviews": 5040,
    "price": 16500,
    "kind": null,
    "pick": false,
@@ -18,7 +18,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D12543",
    "image": "https://trvimg.r10s.jp/share/HOTEL/12543/12543.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 5872,
@@ -26,8 +26,8 @@
    "city": "名古屋市",
    "area": "栄・伏見",
    "region": "名古屋",
-   "rating": 4.4,
-   "reviews": 6227,
+   "rating": 4.39,
+   "reviews": 6254,
    "price": 3900,
    "kind": null,
    "pick": false,
@@ -38,7 +38,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D5872",
    "image": "https://trvimg.r10s.jp/share/HOTEL/5872/5872.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 8886,
@@ -47,7 +47,7 @@
    "area": "下呂温泉",
    "region": "飛騨",
    "rating": 4.36,
-   "reviews": 6582,
+   "reviews": 6609,
    "price": 8250,
    "kind": null,
    "pick": false,
@@ -62,7 +62,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D8886",
    "image": "https://trvimg.r10s.jp/share/HOTEL/8886/8886.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 52250,
@@ -70,8 +70,8 @@
    "city": "岐阜市",
    "area": "岐阜駅・長良川温泉",
    "region": "岐阜",
-   "rating": 4.43,
-   "reviews": 5181,
+   "rating": 4.42,
+   "reviews": 5191,
    "price": 5220,
    "kind": null,
    "pick": false,
@@ -81,7 +81,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D52250",
    "image": "https://trvimg.r10s.jp/share/HOTEL/52250/52250.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 10716,
@@ -90,7 +90,7 @@
    "area": "下呂温泉",
    "region": "飛騨",
    "rating": 4.43,
-   "reviews": 5073,
+   "reviews": 5086,
    "price": 8470,
    "kind": null,
    "pick": false,
@@ -105,7 +105,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D10716",
    "image": "https://trvimg.r10s.jp/share/HOTEL/10716/10716.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 1659,
@@ -114,8 +114,8 @@
    "area": "金山",
    "region": "名古屋",
    "rating": 4.47,
-   "reviews": 4594,
-   "price": 10200,
+   "reviews": 4596,
+   "price": 9180,
    "kind": null,
    "pick": false,
    "text": "「金山総合駅」から雨にぬれない徒歩1分",
@@ -125,26 +125,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D1659",
    "image": "https://trvimg.r10s.jp/share/HOTEL/1659/1659.jpg",
-   "checked": "2026-11-16"
-  },
-  {
-   "id": 8583,
-   "name": "名古屋ガーランドホテル",
-   "city": "名古屋市",
-   "area": "栄・伏見",
-   "region": "名古屋",
-   "rating": 4.18,
-   "reviews": 5520,
-   "price": 3150,
-   "kind": null,
-   "pick": false,
-   "text": "アワード7年連続受賞◎「栄」駅徒歩5分の好立地◎周辺には飲食店多数◎バンテリンドームアクセス良好◎",
-   "features": [
-    "朝食バイキング"
-   ],
-   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D8583",
-   "image": "https://trvimg.r10s.jp/share/HOTEL/8583/8583.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 72686,
@@ -153,8 +134,8 @@
    "area": "高山",
    "region": "飛騨",
    "rating": 4.36,
-   "reviews": 3831,
-   "price": 5670,
+   "reviews": 3840,
+   "price": 5350,
    "kind": null,
    "pick": false,
    "text": "飛騨高山エリア・宿泊人数ランキング第1位の実績",
@@ -166,7 +147,26 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D72686",
    "image": "https://trvimg.r10s.jp/share/HOTEL/72686/72686.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
+  },
+  {
+   "id": 8583,
+   "name": "名古屋ガーランドホテル",
+   "city": "名古屋市",
+   "area": "栄・伏見",
+   "region": "名古屋",
+   "rating": 4.17,
+   "reviews": 5548,
+   "price": 3350,
+   "kind": null,
+   "pick": false,
+   "text": "アワード7年連続受賞◎「栄」駅徒歩5分の好立地◎周辺には飲食店多数◎バンテリンドームアクセス良好◎",
+   "features": [
+    "朝食バイキング"
+   ],
+   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D8583",
+   "image": "https://trvimg.r10s.jp/share/HOTEL/8583/8583.jpg",
+   "checked": "2026-11-23"
   },
   {
    "id": 17704,
@@ -174,8 +174,8 @@
    "city": "名古屋市",
    "area": "栄・伏見",
    "region": "名古屋",
-   "rating": 4.26,
-   "reviews": 4344,
+   "rating": 4.27,
+   "reviews": 4355,
    "price": 4500,
    "kind": null,
    "pick": false,
@@ -185,24 +185,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D17704",
    "image": "https://trvimg.r10s.jp/share/HOTEL/17704/17704.jpg",
-   "checked": "2026-11-16"
-  },
-  {
-   "id": 30982,
-   "name": "コンフォートホテル中部国際空港",
-   "city": "常滑市",
-   "area": "常滑・セントレア",
-   "region": "知多",
-   "rating": 4.23,
-   "reviews": 4449,
-   "price": 5050,
-   "kind": null,
-   "pick": false,
-   "text": "日替わりスムージーが人気 無料朝食サービスがイチオシのコスパ最強ホテル 駐車場無料 小学生添い寝無料",
-   "features": [],
-   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D30982",
-   "image": "https://trvimg.r10s.jp/share/HOTEL/30982/30982.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 6042,
@@ -210,9 +193,9 @@
    "city": "豊橋市",
    "area": "豊橋",
    "region": "東三河",
-   "rating": 4.46,
-   "reviews": 2846,
-   "price": 5940,
+   "rating": 4.47,
+   "reviews": 2857,
+   "price": 5170,
    "kind": null,
    "pick": false,
    "text": "動植物園と自然史博物館が併設された数少ない総合公園「のんほいパーク」まで１駅♪",
@@ -221,7 +204,24 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D6042",
    "image": "https://trvimg.r10s.jp/share/HOTEL/6042/6042.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
+  },
+  {
+   "id": 30982,
+   "name": "コンフォートホテル中部国際空港",
+   "city": "常滑市",
+   "area": "常滑・セントレア",
+   "region": "知多",
+   "rating": 4.23,
+   "reviews": 4466,
+   "price": 5050,
+   "kind": null,
+   "pick": false,
+   "text": "日替わりスムージーが人気 無料朝食サービスがイチオシのコスパ最強ホテル 駐車場無料 小学生添い寝無料",
+   "features": [],
+   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D30982",
+   "image": "https://trvimg.r10s.jp/share/HOTEL/30982/30982.jpg",
+   "checked": "2026-11-23"
   },
   {
    "id": 446,
@@ -230,7 +230,7 @@
    "area": "金山",
    "region": "名古屋",
    "rating": 4.26,
-   "reviews": 3905,
+   "reviews": 3922,
    "price": 9325,
    "kind": null,
    "pick": false,
@@ -242,7 +242,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D446",
    "image": "https://trvimg.r10s.jp/share/HOTEL/446/446.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 10658,
@@ -251,15 +251,15 @@
    "area": "名古屋駅",
    "region": "名古屋",
    "rating": 4.02,
-   "reviews": 6256,
-   "price": 4800,
+   "reviews": 6263,
+   "price": 4650,
    "kind": null,
    "pick": false,
    "text": "名古屋駅徒歩1分！エスカ地下街出口すぐ",
    "features": [],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D10658",
    "image": "https://trvimg.r10s.jp/share/HOTEL/10658/10658.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 2979,
@@ -267,8 +267,8 @@
    "city": "岐阜市",
    "area": "岐阜駅・長良川温泉",
    "region": "岐阜",
-   "rating": 4.63,
-   "reviews": 1892,
+   "rating": 4.62,
+   "reviews": 1899,
    "price": 8250,
    "kind": null,
    "pick": false,
@@ -280,7 +280,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D2979",
    "image": "https://trvimg.r10s.jp/share/HOTEL/2979/2979.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 8385,
@@ -288,9 +288,9 @@
    "city": "岐阜市",
    "area": "岐阜駅・長良川温泉",
    "region": "岐阜",
-   "rating": 4.36,
-   "reviews": 2880,
-   "price": 6160,
+   "rating": 4.35,
+   "reviews": 2891,
+   "price": 5940,
    "kind": null,
    "pick": false,
    "text": "全室WIFI無料・駐車場無料 鵜飼で有名な清流長良川河畔の温泉リゾート＆シティホテル",
@@ -303,7 +303,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D8385",
    "image": "https://trvimg.r10s.jp/share/HOTEL/8385/8385.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 9483,
@@ -312,7 +312,7 @@
    "area": "岐阜駅・長良川温泉",
    "region": "岐阜",
    "rating": 4.47,
-   "reviews": 2229,
+   "reviews": 2246,
    "price": 6750,
    "kind": null,
    "pick": false,
@@ -323,7 +323,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D9483",
    "image": "https://trvimg.r10s.jp/share/HOTEL/9483/9483.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 80618,
@@ -332,8 +332,8 @@
    "area": "常滑・セントレア",
    "region": "知多",
    "rating": 4.47,
-   "reviews": 2204,
-   "price": 6480,
+   "reviews": 2213,
+   "price": 6300,
    "kind": null,
    "pick": false,
    "text": "中部国際空港駅の改札口から１００ｍ、空港チェックインロビーまで１３０ｍと抜群のロケーション",
@@ -342,7 +342,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D80618",
    "image": "https://trvimg.r10s.jp/share/HOTEL/80618/80618.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 167179,
@@ -351,7 +351,7 @@
    "area": "栄・伏見",
    "region": "名古屋",
    "rating": 4.36,
-   "reviews": 2609,
+   "reviews": 2638,
    "price": 4000,
    "kind": null,
    "pick": false,
@@ -361,7 +361,27 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D167179",
    "image": "https://trvimg.r10s.jp/share/HOTEL/167179/167179.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
+  },
+  {
+   "id": 153417,
+   "name": "ダイワロイネットホテル名古屋太閤通口",
+   "city": "名古屋市",
+   "area": "名古屋駅",
+   "region": "名古屋",
+   "rating": 4.39,
+   "reviews": 2295,
+   "price": 5350,
+   "kind": null,
+   "pick": false,
+   "text": "クーポン配布中！ＪＲ名古屋駅太閤口徒歩約４分好立地",
+   "features": [
+    "朝食バイキング",
+    "チェックアウト遅め"
+   ],
+   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D153417",
+   "image": "https://trvimg.r10s.jp/share/HOTEL/153417/153417.jpg",
+   "checked": "2026-11-23"
   },
   {
    "id": 2119,
@@ -369,8 +389,8 @@
    "city": "大垣市",
    "area": "大垣",
    "region": "西濃",
-   "rating": 3.99,
-   "reviews": 5021,
+   "rating": 3.98,
+   "reviews": 5035,
    "price": 3420,
    "kind": null,
    "pick": false,
@@ -383,27 +403,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D2119",
    "image": "https://trvimg.r10s.jp/share/HOTEL/2119/2119.jpg",
-   "checked": "2026-11-16"
-  },
-  {
-   "id": 153417,
-   "name": "ダイワロイネットホテル名古屋太閤通口",
-   "city": "名古屋市",
-   "area": "名古屋駅",
-   "region": "名古屋",
-   "rating": 4.39,
-   "reviews": 2290,
-   "price": 5350,
-   "kind": null,
-   "pick": false,
-   "text": "クーポン配布中！ＪＲ名古屋駅太閤口徒歩約４分好立地",
-   "features": [
-    "朝食バイキング",
-    "チェックアウト遅め"
-   ],
-   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D153417",
-   "image": "https://trvimg.r10s.jp/share/HOTEL/153417/153417.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 71922,
@@ -412,7 +412,7 @@
    "area": "豊橋",
    "region": "東三河",
    "rating": 4.68,
-   "reviews": 1377,
+   "reviews": 1382,
    "price": 7100,
    "kind": null,
    "pick": false,
@@ -422,7 +422,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D71922",
    "image": "https://trvimg.r10s.jp/share/HOTEL/71922/71922.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 183105,
@@ -431,7 +431,7 @@
    "area": "名古屋駅",
    "region": "名古屋",
    "rating": 4.54,
-   "reviews": 1545,
+   "reviews": 1564,
    "price": 5650,
    "kind": null,
    "pick": false,
@@ -439,24 +439,7 @@
    "features": [],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D183105",
    "image": "https://trvimg.r10s.jp/share/HOTEL/183105/183105.jpg",
-   "checked": "2026-11-16"
-  },
-  {
-   "id": 61408,
-   "name": "東横INN中部国際空港1",
-   "city": "常滑市",
-   "area": "常滑・セントレア",
-   "region": "知多",
-   "rating": 4.12,
-   "reviews": 3168,
-   "price": 4883,
-   "kind": null,
-   "pick": false,
-   "text": "常滑市条例により2025年1月6日から１人１泊当り200円の宿泊税を別途いただきます",
-   "features": [],
-   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D61408",
-   "image": "https://trvimg.r10s.jp/share/HOTEL/61408/61408.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 5616,
@@ -464,8 +447,8 @@
    "city": "下呂市",
    "area": "下呂温泉",
    "region": "飛騨",
-   "rating": 4.19,
-   "reviews": 2730,
+   "rating": 4.2,
+   "reviews": 2757,
    "price": 15500,
    "kind": null,
    "pick": false,
@@ -477,7 +460,24 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D5616",
    "image": "https://trvimg.r10s.jp/share/HOTEL/5616/5616.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
+  },
+  {
+   "id": 61408,
+   "name": "東横INN中部国際空港1",
+   "city": "常滑市",
+   "area": "常滑・セントレア",
+   "region": "知多",
+   "rating": 4.12,
+   "reviews": 3187,
+   "price": 4883,
+   "kind": null,
+   "pick": false,
+   "text": "常滑市条例により2025年1月6日から１人１泊当り200円の宿泊税を別途いただきます",
+   "features": [],
+   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D61408",
+   "image": "https://trvimg.r10s.jp/share/HOTEL/61408/61408.jpg",
+   "checked": "2026-11-23"
   },
   {
    "id": 6109,
@@ -485,8 +485,8 @@
    "city": "名古屋市",
    "area": "金山",
    "region": "名古屋",
-   "rating": 4.19,
-   "reviews": 2563,
+   "rating": 4.18,
+   "reviews": 2567,
    "price": 7300,
    "kind": null,
    "pick": false,
@@ -497,7 +497,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D6109",
    "image": "https://trvimg.r10s.jp/share/HOTEL/6109/6109.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 50773,
@@ -506,7 +506,7 @@
    "area": "常滑・セントレア",
    "region": "知多",
    "rating": 4.42,
-   "reviews": 1601,
+   "reviews": 1606,
    "price": 7975,
    "kind": null,
    "pick": false,
@@ -517,7 +517,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D50773",
    "image": "https://trvimg.r10s.jp/share/HOTEL/50773/50773.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 168620,
@@ -526,7 +526,7 @@
    "area": "豊橋",
    "region": "東三河",
    "rating": 4.27,
-   "reviews": 1948,
+   "reviews": 1966,
    "price": 4300,
    "kind": null,
    "pick": false,
@@ -537,7 +537,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D168620",
    "image": "https://trvimg.r10s.jp/share/HOTEL/168620/168620.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 188737,
@@ -546,7 +546,7 @@
    "area": "豊橋",
    "region": "東三河",
    "rating": 4.58,
-   "reviews": 1115,
+   "reviews": 1129,
    "price": 5170,
    "kind": null,
    "pick": false,
@@ -560,7 +560,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D188737",
    "image": "https://trvimg.r10s.jp/share/HOTEL/188737/188737.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 29845,
@@ -568,9 +568,9 @@
    "city": "名古屋市",
    "area": "金山",
    "region": "名古屋",
-   "rating": 3.78,
-   "reviews": 4619,
-   "price": 2800,
+   "rating": 3.77,
+   "reviews": 4631,
+   "price": 3690,
    "kind": null,
    "pick": false,
    "text": "朝食ブッフェ無料サービス 無料コミックコーナーが人気",
@@ -579,7 +579,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D29845",
    "image": "https://trvimg.r10s.jp/share/HOTEL/29845/29845.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 39274,
@@ -588,7 +588,7 @@
    "area": "蒲郡・三谷温泉",
    "region": "東三河",
    "rating": 4.31,
-   "reviews": 1410,
+   "reviews": 1412,
    "price": 10450,
    "kind": null,
    "pick": false,
@@ -602,7 +602,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D39274",
    "image": "https://trvimg.r10s.jp/share/HOTEL/39274/39274.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 5606,
@@ -610,7 +610,7 @@
    "city": "下呂市",
    "area": "下呂温泉",
    "region": "飛騨",
-   "rating": 4.65,
+   "rating": 4.66,
    "reviews": 804,
    "price": 25300,
    "kind": null,
@@ -623,7 +623,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D5606",
    "image": "https://trvimg.r10s.jp/share/HOTEL/5606/5606.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 79350,
@@ -632,7 +632,7 @@
    "area": "岡崎",
    "region": "西三河",
    "rating": 4.21,
-   "reviews": 1317,
+   "reviews": 1324,
    "price": 4800,
    "kind": null,
    "pick": false,
@@ -644,7 +644,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D79350",
    "image": "https://trvimg.r10s.jp/share/HOTEL/79350/79350.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 387,
@@ -653,7 +653,7 @@
    "area": "大垣",
    "region": "西濃",
    "rating": 3.94,
-   "reviews": 2127,
+   "reviews": 2130,
    "price": 2790,
    "kind": null,
    "pick": false,
@@ -664,7 +664,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D387",
    "image": "https://trvimg.r10s.jp/share/HOTEL/387/387.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 79295,
@@ -673,7 +673,7 @@
    "area": "高山",
    "region": "飛騨",
    "rating": 4.1,
-   "reviews": 1524,
+   "reviews": 1527,
    "price": 4010,
    "kind": null,
    "pick": false,
@@ -685,7 +685,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D79295",
    "image": "https://trvimg.r10s.jp/share/HOTEL/79295/79295.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 80620,
@@ -693,9 +693,9 @@
    "city": "大垣市",
    "area": "大垣",
    "region": "西濃",
-   "rating": 4.18,
-   "reviews": 1217,
-   "price": 3800,
+   "rating": 4.17,
+   "reviews": 1224,
+   "price": 3950,
    "kind": null,
    "pick": false,
    "text": "JDパワー11年連続No1受賞宿♪大垣駅徒歩5分♪静かで美しく清潔な客室",
@@ -704,7 +704,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D80620",
    "image": "https://trvimg.r10s.jp/share/HOTEL/80620/80620.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 44835,
@@ -725,28 +725,26 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D44835",
    "image": "https://trvimg.r10s.jp/share/HOTEL/44835/44835.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
-   "id": 178933,
-   "name": "くれたけインプレミアム大垣駅前",
-   "city": "大垣市",
-   "area": "大垣",
-   "region": "西濃",
-   "rating": 4.17,
-   "reviews": 1143,
-   "price": 5400,
+   "id": 176785,
+   "name": "グランドイン東岡崎",
+   "city": "岡崎市",
+   "area": "岡崎",
+   "region": "西三河",
+   "rating": 4.52,
+   "reviews": 656,
+   "price": 5250,
    "kind": null,
    "pick": false,
-   "text": "ＪＲ大垣駅から徒歩３分。ビジネス・観光にご利用頂けます Ｗｉ－Ｆｉ完備",
+   "text": "東岡崎駅デッキ直結の宿泊特化型ホテル",
    "features": [
-    "サウナ",
-    "大浴場",
-    "朝食バイキング"
+    "チェックアウト遅め"
    ],
-   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D178933",
-   "image": "https://trvimg.r10s.jp/share/HOTEL/178933/178933.jpg",
-   "checked": "2026-11-16"
+   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D176785",
+   "image": "https://trvimg.r10s.jp/share/HOTEL/176785/176785.jpg",
+   "checked": "2026-11-23"
   },
   {
    "id": 176591,
@@ -755,7 +753,7 @@
    "area": "蒲郡・三谷温泉",
    "region": "東三河",
    "rating": 4.2,
-   "reviews": 1071,
+   "reviews": 1082,
    "price": 2800,
    "kind": null,
    "pick": false,
@@ -765,7 +763,7 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D176591",
    "image": "https://trvimg.r10s.jp/share/HOTEL/176591/176591.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
    "id": 182415,
@@ -774,7 +772,7 @@
    "area": "犬山",
    "region": "尾張",
    "rating": 4.41,
-   "reviews": 759,
+   "reviews": 765,
    "price": 5500,
    "kind": null,
    "pick": false,
@@ -786,26 +784,28 @@
    ],
    "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D182415",
    "image": "https://trvimg.r10s.jp/share/HOTEL/182415/182415.jpg",
-   "checked": "2026-11-16"
+   "checked": "2026-11-23"
   },
   {
-   "id": 176785,
-   "name": "グランドイン東岡崎",
-   "city": "岡崎市",
-   "area": "岡崎",
-   "region": "西三河",
-   "rating": 4.51,
-   "reviews": 650,
-   "price": 5250,
+   "id": 178933,
+   "name": "くれたけインプレミアム大垣駅前",
+   "city": "大垣市",
+   "area": "大垣",
+   "region": "西濃",
+   "rating": 4.14,
+   "reviews": 1158,
+   "price": 5400,
    "kind": null,
    "pick": false,
-   "text": "東岡崎駅デッキ直結の宿泊特化型ホテル",
+   "text": "ＪＲ大垣駅から徒歩３分。ビジネス・観光にご利用頂けます Ｗｉ－Ｆｉ完備",
    "features": [
-    "チェックアウト遅め"
+    "サウナ",
+    "大浴場",
+    "朝食バイキング"
    ],
-   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D176785",
-   "image": "https://trvimg.r10s.jp/share/HOTEL/176785/176785.jpg",
-   "checked": "2026-11-16"
+   "url": "https://hb.afl.rakuten.co.jp/hgc/57d349d5.b23354d5.57d349d6.03cbb5c1/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fif%2FuPw0Q%2F%3Ff_no%3D178933",
+   "image": "https://trvimg.r10s.jp/share/HOTEL/178933/178933.jpg",
+   "checked": "2026-11-23"
   }
  ]
 }
