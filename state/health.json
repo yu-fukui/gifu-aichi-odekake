@@ -1,30 +1,45 @@
 {
   "リポジトリ": "yu-fukui/gifu-aichi-odekake",
-  "作成時刻": "2026-11-26 20:01 JST",
-  "今日": "2026-11-26",
-  "状態": "ok",
+  "作成時刻": "2026-11-27 04:56 JST",
+  "今日": "2026-11-27",
+  "状態": "要確認",
   "明日のキュー": {
-    "対象日": "2026-11-27",
-    "本数": 9,
+    "対象日": "2026-11-28",
+    "本数": 4,
     "予定本数": 10,
-    "足りない": 1,
+    "足りない": 6,
     "時刻": [
       "06:00",
-      "08:00",
       "10:00",
       "12:00",
-      "15:00",
-      "17:00",
-      "19:00",
-      "21:00",
-      "23:00"
+      "15:00"
     ],
     "同じ時刻が2本以上": [],
     "読めない行": [],
     "投稿": [
       {
-        "id": "p-2026112606-skbb",
+        "id": "p-2026112706-liih",
         "時刻": "06:00",
+        "1行目": "【岐阜・愛知】今日かぎりの催し",
+        "文字数": 51,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026112710-xbpt",
+        "時刻": "10:00",
+        "1行目": "豊橋市の「のんほいパーク（豊橋総合動植物公園）」は、動物園・植物園・自然史博物館",
+        "文字数": 97,
+        "本文にリンク": false,
+        "続きにリンク": true,
+        "出典元あり": true,
+        "PRあり": false
+      },
+      {
+        "id": "p-2026112712-z6wy",
+        "時刻": "12:00",
         "1行目": "名古屋・栄の「オアシス21」は、地下鉄 栄駅の東改札口を出てすぐです。名鉄瀬戸線",
         "文字数": 134,
         "本文にリンク": false,
@@ -33,84 +48,14 @@
         "PRあり": false
       },
       {
-        "id": "p-2026112608-2c0b",
-        "時刻": "08:00",
-        "1行目": "11月21日（土）にオープンした、郡上市ひるがの高原の宿泊施設「のぼれる宿 YU",
-        "文字数": 120,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112610-1h3m",
-        "時刻": "10:00",
-        "1行目": "可児市瀬田のぎふワールド・ローズガーデンは、毎週火曜（火曜が休日の場合は翌平日）",
-        "文字数": 100,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112612-okle",
-        "時刻": "12:00",
-        "1行目": "12月20日（日）〜22日（火）、下呂市金山町で「金山巨石群 光の体験ツアー」が",
-        "文字数": 102,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112615-7it5",
+        "id": "p-2026112815-khkb",
         "時刻": "15:00",
-        "1行目": "栄でカプセルトイ巡りがしたい。でも、年末の予定がまだ決まっていない。",
-        "文字数": 188,
+        "1行目": "【岐阜・愛知】名古屋のまちなかに泊まれる宿3選",
+        "文字数": 96,
         "本文にリンク": false,
         "続きにリンク": true,
-        "出典元あり": true,
+        "出典元あり": false,
         "PRあり": true
-      },
-      {
-        "id": "p-2026112617-vnqw",
-        "時刻": "17:00",
-        "1行目": "名古屋・栄の松坂屋名古屋店 南館に、「PARCO_ya名古屋」が2027年春に開",
-        "文字数": 112,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112619-de63",
-        "時刻": "19:00",
-        "1行目": "【岐阜・愛知】今週末の岐阜・愛知 3選",
-        "文字数": 118,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112621-rh7h",
-        "時刻": "21:00",
-        "1行目": "12月4日（金）から2027年1月31日（日）の毎週金・土・日、犬山市の善師野で",
-        "文字数": 124,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
-      },
-      {
-        "id": "p-2026112623-75i6",
-        "時刻": "23:00",
-        "1行目": "11月22日（日）に移転オープンした、名古屋市千種区の和食店「ことわりをはかるく",
-        "文字数": 114,
-        "本文にリンク": false,
-        "続きにリンク": true,
-        "出典元あり": true,
-        "PRあり": false
       }
     ]
   },
@@ -126,7 +71,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45754423014"
       },
       "最後の成功": "2026-11-26 13:19 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -136,14 +81,14 @@
       "ファイル": "affiliate-check.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 05:00 JST",
+        "時刻": "2026-11-27 04:43 JST",
         "結果": "success",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45690652827"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45885749695"
       },
-      "最後の成功": "2026-11-26 05:00 JST",
+      "最後の成功": "2026-11-27 04:43 JST",
       "今日走ったか": true,
-      "24時間の実行": 1,
+      "24時間の実行": 2,
       "24時間の失敗": 0,
       "判定": "成功"
     },
@@ -168,20 +113,25 @@
       "ファイル": "balance-check.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 05:00 JST",
-        "結果": "success",
+        "時刻": "2026-11-27 04:43 JST",
+        "結果": "failure",
         "きっかけ": "schedule",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45690685942"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45885751854"
       },
       "最後の成功": "2026-11-26 05:00 JST",
       "今日走ったか": true,
-      "24時間の実行": 1,
-      "24時間の失敗": 0,
+      "24時間の実行": 2,
+      "24時間の失敗": 1,
       "最後の失敗": {
-        "時刻": "2026-11-24 07:07 JST",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45276502793"
+        "時刻": "2026-11-27 04:43 JST",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45885751854",
+        "理由": [
+          "check: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/c",
+          "check: Process completed with exit code 1.",
+          "check: 🔴 yu-fukui/gifu-aichi-odekake: 残高切れです。入金するまで、生成・収集・レビューが全部止まります"
+        ]
       },
-      "判定": "成功"
+      "判定": "失敗"
     },
     {
       "名前": "巡回の診断（手で動かす・API は使わない）",
@@ -226,14 +176,14 @@
       "ファイル": "health-snapshot.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 20:01 JST",
+        "時刻": "2026-11-27 04:55 JST",
         "結果": "in_progress",
         "きっかけ": "workflow_run",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45806720704"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45887280065"
       },
-      "最後の成功": "2026-11-26 05:31 JST",
+      "最後の成功": "2026-11-26 20:01 JST",
       "今日走ったか": true,
-      "24時間の実行": 3,
+      "24時間の実行": 4,
       "24時間の失敗": 0,
       "判定": "実行中"
     },
@@ -276,7 +226,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45709478298"
       },
       "最後の成功": "2026-11-26 07:00 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "判定": "成功"
@@ -292,7 +242,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45722177227"
       },
       "最後の成功": "2026-11-26 08:32 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 1,
       "24時間の失敗": 0,
       "最後の失敗": {
@@ -330,7 +280,7 @@
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45755175101"
       },
       "最後の成功": "2026-11-26 13:26 JST",
-      "今日走ったか": true,
+      "今日走ったか": false,
       "24時間の実行": 2,
       "24時間の失敗": 0,
       "最後の失敗": {
@@ -344,15 +294,15 @@
       "ファイル": "test.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-25 20:54 JST",
+        "時刻": "2026-11-26 20:49 JST",
         "結果": "success",
         "きっかけ": "push",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45608757162"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45814005442"
       },
-      "最後の成功": "2026-11-25 20:54 JST",
+      "最後の成功": "2026-11-26 20:49 JST",
       "今日走ったか": false,
-      "24時間の実行": 4,
-      "24時間の失敗": 1,
+      "24時間の実行": 2,
+      "24時間の失敗": 0,
       "最後の失敗": {
         "時刻": "2026-11-25 20:49 JST",
         "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45608028639"
@@ -384,32 +334,37 @@
       "ファイル": "threads-compose.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 20:00 JST",
-        "結果": "success",
-        "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45806602477"
+        "時刻": "2026-11-27 04:55 JST",
+        "結果": "failure",
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45887231218"
       },
       "最後の成功": "2026-11-26 20:00 JST",
       "今日走ったか": true,
-      "24時間の実行": 2,
-      "24時間の失敗": 0,
+      "24時間の実行": 3,
+      "24時間の失敗": 1,
       "最後の失敗": {
-        "時刻": "2026-11-24 07:18 JST",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45278456229"
+        "時刻": "2026-11-27 04:55 JST",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45887231218",
+        "理由": [
+          "compose: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog",
+          "compose: 予備が足りず、空いたままの枠: 17:00、8:00、19:00、23:00、14:00、21:00",
+          "compose: 12:00 を予備で埋めました：名古屋・栄の「オアシス21」は、地下鉄 栄駅の東改札口を出てすぐです。名鉄瀬戸線"
+        ]
       },
-      "判定": "成功"
+      "判定": "失敗"
     },
     {
       "名前": "Threads 予約投稿",
       "ファイル": "threads-post.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 20:00 JST",
+        "時刻": "2026-11-27 04:50 JST",
         "結果": "success",
         "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45806600730"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45886612384"
       },
-      "最後の成功": "2026-11-26 20:00 JST",
+      "最後の成功": "2026-11-27 04:50 JST",
       "今日走ったか": true,
       "24時間の実行": 100,
       "24時間の失敗": 0,
@@ -436,12 +391,12 @@
       "ファイル": "threads-review.yml",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 19:15 JST",
+        "時刻": "2026-11-27 04:35 JST",
         "結果": "success",
-        "きっかけ": "repository_dispatch",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45799606685"
+        "きっかけ": "schedule",
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45884716577"
       },
-      "最後の成功": "2026-11-26 19:15 JST",
+      "最後の成功": "2026-11-27 04:35 JST",
       "今日走ったか": true,
       "24時間の実行": 2,
       "24時間の失敗": 0,
@@ -452,16 +407,19 @@
       "ファイル": "pages-build-deployment",
       "有効": true,
       "最後の実行": {
-        "時刻": "2026-11-26 20:01 JST",
+        "時刻": "2026-11-27 04:55 JST",
         "結果": "success",
         "きっかけ": "dynamic",
-        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45806687384"
+        "URL": "https://github.com/yu-fukui/gifu-aichi-odekake/actions/runs/45887261037"
       },
-      "最後の成功": "2026-11-26 20:01 JST",
+      "最後の成功": "2026-11-27 04:55 JST",
       "今日走ったか": true,
-      "24時間の実行": 32,
+      "24時間の実行": 31,
       "24時間の失敗": 0,
       "判定": "成功"
     }
+  ],
+  "警告": [
+    "翌日ぶんの作成（threads-compose.yml）が今日失敗しています。理由：[\"compose: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://"
   ]
 }
